@@ -18,13 +18,15 @@ import { toast } from "sonner";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-const getInitials = (name: string): string =>
-  name
+const getInitials = (name?: string): string => {
+  if (!name) return "??";
+  return name
     .split(" ")
     .map((word) => word[0])
     .join("")
     .toUpperCase()
     .slice(0, 2);
+};
 
 const extractErrorMessage = (err: unknown, fallback: string): string => {
   if (err && typeof err === "object" && "response" in err) {

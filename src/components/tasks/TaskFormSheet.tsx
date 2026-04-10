@@ -49,13 +49,15 @@ type FormData = z.infer<typeof schema>;
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-const getInitials = (name: string): string =>
-  name
+const getInitials = (name?: string): string => {
+  if (!name) return '??';
+  return name
     .split(' ')
     .map((word) => word[0])
     .join('')
     .toUpperCase()
     .slice(0, 2);
+};
 
 // ── Component ─────────────────────────────────────────────────────────────────
 

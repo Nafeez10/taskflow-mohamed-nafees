@@ -13,8 +13,10 @@ type Props = Omit<React.ComponentProps<"input">, 'onChange' | 'value'> & {
   onUserSelect?: (value: string) => void;
 };
 
-const getInitials = (name: string): string =>
-  name.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 2);
+const getInitials = (name?: string): string => {
+  if (!name) return "??";
+  return name.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 2);
+};
 
 const ContributorSearch = ({ value, onChange, onUserSelect, ...props }: Props) => {
   const [results, setResults] = useState<User[]>([]);
