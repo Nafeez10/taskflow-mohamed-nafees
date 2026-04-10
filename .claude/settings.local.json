@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir C:\\\\Nafees\\\\Interview\\\\zomato_task\\\\taskflow-frontend:*)",
+      "Bash(dir:*)",
+      "Bash(npm --version)",
+      "Bash(npm install:*)",
+      "Bash(cmd:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(node_modules/.bin/vite build:*)",
+      "Bash(powershell:*)",
+      "Bash(node -e \"const {spawnSync}=require\\('child_process'\\);const r=spawnSync\\('npm',['run','build'],{shell:true,cwd:process.cwd\\(\\)}\\);process.stdout.write\\(r.stdout||''\\);process.stdout.write\\(r.stderr||''\\)\")"
+    ]
+  }
+}
