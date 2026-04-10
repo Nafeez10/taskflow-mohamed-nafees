@@ -18,6 +18,8 @@ A minimal but real task management system built as a take-home assignment for th
 | My Tasks | Cross-project view of all tasks assigned to you. |
 | Assignee filter | Filter the Kanban board by team member. |
 | Optimistic UI | Task column changes update instantly and revert on API failure. |
+| Dark Mode | Persistent user `localStorage` native layout UI theme mapping dynamically over Shadcn UI. |
+| Bundle Splitting | Dynamically chunked `React.lazy()` rendering logic strictly catching unaccessed `<Suspense>` roots via loading pulse blocks. |
 
 ### Tech stack
 
@@ -96,7 +98,6 @@ Since this is a frontend-only submission there is no PostgreSQL. `docker-compose
 
 | Decision | Tradeoff |
 |---|---|
-| Single-bundle build | Fast to ship; bundle is ~670 KB (uncompressed). Route-level code splitting with `React.lazy` would cut initial load significantly. |
 | `db.json` baked into image | Data resets on every rebuild. Acceptable for a review environment; a real app would mount a volume or use a real database. |
 | No tests | No unit or integration tests were written in the interest of time. The mock API server is the most test-worthy file. |
 | Base64 mock token | Simple to decode for mock purposes; nothing about the auth flow assumes this format except the mock server itself. |
@@ -480,10 +481,6 @@ Returns all tasks assigned to the currently authenticated user across all projec
 
 ## 7. What You'd Do With More Time
 
-### Code splitting
-
-The production bundle is ~670 KB uncompressed. All routes are eagerly loaded. Wrapping each page in `React.lazy()` and `<Suspense>` would cut initial load time significantly, especially for users who only visit the Projects page.
-
 ### Tests
 
 No automated tests were written. The highest-value targets would be:
@@ -491,10 +488,6 @@ No automated tests were written. The highest-value targets would be:
 - **Mock API server** — integration tests for auth (register/login/me), project CRUD, and contributor management. The business logic lives here and is the most failure-prone surface.
 - **Optimistic UI** — unit tests for the SWR mutate/revert pattern in the Kanban board drag handler.
 - **Form validation** — Zod schema tests are fast and catch edge cases before they reach the UI.
-
-### Dark mode
-
-`next-themes` is already installed as a dependency (pulled in by shadcn during init) and the Tailwind config supports dark mode classes. A toggle in the Navbar that writes to localStorage and flips the `dark` class on `<html>` would take roughly 30 minutes to complete.
 
 ### Mobile Kanban experience
 
