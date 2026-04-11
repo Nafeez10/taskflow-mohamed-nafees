@@ -3,13 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -20,7 +14,10 @@ import { CheckSquare } from 'lucide-react';
 
 const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
-  username: z.string().min(3, 'Username must be at least 3 characters').max(30, 'Username cannot exceed 30 characters'),
+  username: z
+    .string()
+    .min(3, 'Username must be at least 3 characters')
+    .max(30, 'Username cannot exceed 30 characters'),
   email: z.string().email('Invalid email address'),
   password: z.string().min(8, 'Password must be at least 8 characters'),
 });
@@ -67,12 +64,7 @@ const RegisterPage = () => {
               name="name"
               render={({ field }) => (
                 <InputContainer title="Name" error={errors.name?.message}>
-                  <Input
-                    {...field}
-                    id="name"
-                    placeholder="Jane Doe"
-                    autoComplete="name"
-                  />
+                  <Input {...field} id="name" placeholder="Jane Doe" autoComplete="name" />
                 </InputContainer>
               )}
             />
@@ -82,12 +74,7 @@ const RegisterPage = () => {
               name="username"
               render={({ field }) => (
                 <InputContainer title="Username" error={errors.username?.message}>
-                  <Input
-                    {...field}
-                    id="username"
-                    placeholder="janedoe"
-                    autoComplete="username"
-                  />
+                  <Input {...field} id="username" placeholder="janedoe" autoComplete="username" />
                 </InputContainer>
               )}
             />
@@ -113,19 +100,12 @@ const RegisterPage = () => {
               name="password"
               render={({ field }) => (
                 <InputContainer title="Password" error={errors.password?.message}>
-                  <Input
-                    {...field}
-                    id="reg-password"
-                    type="password"
-                    autoComplete="new-password"
-                  />
+                  <Input {...field} id="reg-password" type="password" autoComplete="new-password" />
                 </InputContainer>
               )}
             />
 
-            {serverError && (
-              <p className="text-sm text-destructive text-center">{serverError}</p>
-            )}
+            {serverError && <p className="text-sm text-destructive text-center">{serverError}</p>}
 
             <Button type="submit" className="w-full" disabled={isSubmitting}>
               {isSubmitting ? 'Creating account…' : 'Create Account'}

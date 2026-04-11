@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import { Button }         from '@/components/ui/button';
-import { useProjects }    from '@/api/routes/ProjectsAPI';
-import { useAuth }        from '@/context/AuthContext';
-import ProjectCard        from '@/components/projects/ProjectCard';
+import { Button } from '@/components/ui/button';
+import { useProjects } from '@/api/routes/ProjectsAPI';
+import { useAuth } from '@/context/AuthContext';
+import ProjectCard from '@/components/projects/ProjectCard';
 import CreateProjectDialog from '@/components/projects/CreateProjectDialog';
-import Navbar             from '@/components/layout/Navbar';
+import Navbar from '@/components/layout/Navbar';
 import { Plus, FolderOpen } from 'lucide-react';
-
-// ── Skeleton ──────────────────────────────────────────────────────────────────
 
 const ProjectsSkeleton = () => (
   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -21,15 +19,13 @@ const ProjectsSkeleton = () => (
   </div>
 );
 
-// ── Component ─────────────────────────────────────────────────────────────────
-
 const ProjectsPage = () => {
   const [createOpen, setCreateOpen] = useState(false);
 
   const { projects, isLoading, error, mutate } = useProjects();
   const { user } = useAuth();
 
-  const ownedProjects       = projects.filter((p) => p.owner_id === user?.id);
+  const ownedProjects = projects.filter((p) => p.owner_id === user?.id);
   const contributedProjects = projects.filter((p) => p.owner_id !== user?.id);
 
   return (
@@ -40,9 +36,7 @@ const ProjectsPage = () => {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-bold">Projects</h1>
-            <p className="text-sm text-muted-foreground mt-0.5">
-              Manage your projects and tasks
-            </p>
+            <p className="text-sm text-muted-foreground mt-0.5">Manage your projects and tasks</p>
           </div>
           <Button onClick={() => setCreateOpen(true)}>
             <Plus className="h-4 w-4 mr-1" />
@@ -72,8 +66,6 @@ const ProjectsPage = () => {
 
         {!isLoading && !error && projects.length > 0 && (
           <div className="space-y-8">
-
-            {/* Owned projects */}
             {ownedProjects.length > 0 && (
               <section>
                 {contributedProjects.length > 0 && (
@@ -83,17 +75,12 @@ const ProjectsPage = () => {
                 )}
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {ownedProjects.map((project) => (
-                    <ProjectCard
-                      key={project.id}
-                      project={project}
-                      isContributor={false}
-                    />
+                    <ProjectCard key={project.id} project={project} isContributor={false} />
                   ))}
                 </div>
               </section>
             )}
 
-            {/* Contributed projects */}
             {contributedProjects.length > 0 && (
               <section>
                 <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">
@@ -101,11 +88,7 @@ const ProjectsPage = () => {
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {contributedProjects.map((project) => (
-                    <ProjectCard
-                      key={project.id}
-                      project={project}
-                      isContributor={true}
-                    />
+                    <ProjectCard key={project.id} project={project} isContributor={true} />
                   ))}
                 </div>
               </section>
@@ -114,11 +97,7 @@ const ProjectsPage = () => {
         )}
       </main>
 
-      <CreateProjectDialog
-        open={createOpen}
-        onClose={() => setCreateOpen(false)}
-        mutate={mutate}
-      />
+      <CreateProjectDialog open={createOpen} onClose={() => setCreateOpen(false)} mutate={mutate} />
     </div>
   );
 };

@@ -18,9 +18,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return stored ? (JSON.parse(stored) as User) : null;
   });
 
-  const [token, setToken] = useState<string | null>(() =>
-    localStorage.getItem(StorageKeys.TOKEN),
-  );
+  const [token, setToken] = useState<string | null>(() => localStorage.getItem(StorageKeys.TOKEN));
 
   const login = (newToken: string, newUser: User) => {
     localStorage.setItem(StorageKeys.TOKEN, newToken);
@@ -37,9 +35,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider
-      value={{ user, token, login, logout, isAuthenticated: !!token }}
-    >
+    <AuthContext.Provider value={{ user, token, login, logout, isAuthenticated: !!token }}>
       {children}
     </AuthContext.Provider>
   );

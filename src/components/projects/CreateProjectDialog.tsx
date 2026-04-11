@@ -1,50 +1,43 @@
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { useState } from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogFooter,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import InputContainer from "@/components/ui/InputContainer";
-import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { ProjectsAPI } from "@/api/routes/ProjectsAPI";
-import { UsersAPI } from "@/api/routes/UsersAPI";
-import ContributorSearch from "@/components/projects/ContributorSearch";
-import type { KeyedMutator } from "swr";
-import type { Project, User } from "@/types";
-import { X, UserPlus, Loader2 } from "lucide-react";
-import { toast } from "sonner";
-
-// ── Form schema ───────────────────────────────────────────────────────────────
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import InputContainer from '@/components/ui/InputContainer';
+import { Textarea } from '@/components/ui/textarea';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import { ProjectsAPI } from '@/api/routes/ProjectsAPI';
+import { UsersAPI } from '@/api/routes/UsersAPI';
+import ContributorSearch from '@/components/projects/ContributorSearch';
+import type { KeyedMutator } from 'swr';
+import type { Project, User } from '@/types';
+import { X, UserPlus, Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 const schema = z.object({
-  name: z.string().min(1, "Name is required").max(100),
+  name: z.string().min(1, 'Name is required').max(100),
   description: z.string().max(500).optional(),
 });
 
 type FormData = z.infer<typeof schema>;
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
 const extractErrorMessage = (err: unknown, fallback: string): string => {
-  if (err && typeof err === "object" && "response" in err) {
-    const data = (err as { response?: { data?: { message?: string } } })
-      .response?.data;
+  if (err && typeof err === 'object' && 'response' in err) {
+    const data = (err as { response?: { data?: { message?: string } } }).response?.data;
     return data?.message ?? fallback;
   }
   return fallback;
 };
-
-// ── Component ─────────────────────────────────────────────────────────────────
 
 type Props = {
   open: boolean;
@@ -53,12 +46,12 @@ type Props = {
 };
 
 const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
-  const [serverError, setServerError] = useState("");
+  const [serverError, setServerError] = useState('');
 
   // Pending contributors — validated against the API before submission
   const [pendingContributors, setPendingContributors] = useState<User[]>([]);
-  const [contributorEmail, setContributorEmail] = useState("");
-  const [contributorError, setContributorError] = useState("");
+  const [contributorEmail, setContributorEmail] = useState('');
+  const [contributorError, setContributorError] = useState('');
   const [isLookingUp, setIsLookingUp] = useState(false);
 
   const {
@@ -68,28 +61,24 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  // ── Contributor lookup ─────────────────────────────────────────────────────
-
   const handleAddPendingContributor = async (identifier: string) => {
     if (!identifier) return;
 
-    setContributorError("");
+    setContributorError('');
     setIsLookingUp(true);
 
     try {
       const user = await UsersAPI.lookup(identifier);
 
       if (pendingContributors.some((c) => c.id === user.id)) {
-        setContributorError("Already added to this project");
+        setContributorError('Already added to this project');
         return;
       }
 
       setPendingContributors((prev) => [...prev, user]);
-      setContributorEmail("");
+      setContributorEmail('');
     } catch (err) {
-      setContributorError(
-        extractErrorMessage(err, "No TaskFlow account found for this identity"),
-      );
+      setContributorError(extractErrorMessage(err, 'No TaskFlow account found for this identity'));
     } finally {
       setIsLookingUp(false);
     }
@@ -99,10 +88,8 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
     setPendingContributors((prev) => prev.filter((c) => c.id !== userId));
   };
 
-  // ── Form submission ────────────────────────────────────────────────────────
-
   const onSubmit = async (data: FormData) => {
-    setServerError("");
+    setServerError('');
 
     try {
       const project = await ProjectsAPI.create(data);
@@ -111,7 +98,9 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
       const failedEmails: string[] = [];
       for (const contributor of pendingContributors) {
         try {
-          await ProjectsAPI.addContributor(project.id, { identifier: contributor.username || contributor.email });
+          await ProjectsAPI.addContributor(project.id, {
+            identifier: contributor.username || contributor.email,
+          });
         } catch {
           failedEmails.push(contributor.email);
         }
@@ -120,30 +109,26 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
       await mutate();
 
       if (failedEmails.length > 0) {
-        toast.warning(
-          `Project created, but failed to add: ${failedEmails.join(", ")}`,
-        );
+        toast.warning(`Project created, but failed to add: ${failedEmails.join(', ')}`);
       } else {
-        toast.success("Project created");
+        toast.success('Project created');
       }
 
       handleClose();
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Something went wrong";
+      const msg = err instanceof Error ? err.message : 'Something went wrong';
       setServerError(msg);
     }
   };
 
   const handleClose = () => {
     reset();
-    setServerError("");
+    setServerError('');
     setPendingContributors([]);
-    setContributorEmail("");
-    setContributorError("");
+    setContributorEmail('');
+    setContributorError('');
     onClose();
   };
-
-  // ── Render ─────────────────────────────────────────────────────────────────
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
@@ -159,11 +144,7 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
             name="name"
             render={({ field }) => (
               <InputContainer title="Name *" error={errors.name?.message}>
-                <Input
-                  {...field}
-                  id="proj-name"
-                  placeholder="My Project"
-                />
+                <Input {...field} id="proj-name" placeholder="My Project" />
               </InputContainer>
             )}
           />
@@ -174,12 +155,7 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
             name="description"
             render={({ field }) => (
               <InputContainer title="Description">
-                <Textarea
-                  {...field}
-                  id="proj-desc"
-                  placeholder="Optional description"
-                  rows={3}
-                />
+                <Textarea {...field} id="proj-desc" placeholder="Optional description" rows={3} />
               </InputContainer>
             )}
           />
@@ -205,9 +181,7 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
                     {contributor.name}
                     <button
                       type="button"
-                      onClick={() =>
-                        handleRemovePendingContributor(contributor.id)
-                      }
+                      onClick={() => handleRemovePendingContributor(contributor.id)}
                       className="ml-0.5 rounded-full hover:bg-muted-foreground/20 p-0.5 cursor-pointer"
                       aria-label={`Remove ${contributor.name}`}
                     >
@@ -220,15 +194,15 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
 
             {/* Email input + lookup */}
             <div className="flex gap-2">
-              <ContributorSearch 
+              <ContributorSearch
                 value={contributorEmail}
                 onChange={(val) => {
                   setContributorEmail(val);
-                  setContributorError("");
+                  setContributorError('');
                 }}
                 onUserSelect={(val) => handleAddPendingContributor(val)}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") {
+                  if (e.key === 'Enter') {
                     e.preventDefault();
                     handleAddPendingContributor(contributorEmail);
                   }
@@ -250,22 +224,18 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
               </Button>
             </div>
 
-            {contributorError && (
-              <p className="text-xs text-destructive">{contributorError}</p>
-            )}
+            {contributorError && <p className="text-xs text-destructive">{contributorError}</p>}
           </div>
 
           {/* Server error */}
-          {serverError && (
-            <p className="text-sm text-destructive">{serverError}</p>
-          )}
+          {serverError && <p className="text-sm text-destructive">{serverError}</p>}
 
           <DialogFooter>
             <Button type="button" variant="outline" onClick={handleClose}>
               Cancel
             </Button>
             <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Creating…" : "Create"}
+              {isSubmitting ? 'Creating…' : 'Create'}
             </Button>
           </DialogFooter>
         </form>

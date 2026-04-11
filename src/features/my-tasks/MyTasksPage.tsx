@@ -1,34 +1,30 @@
 import { Link } from 'react-router-dom';
-import { useMyTasks }  from '@/api/routes/TasksAPI';
-import { useAuth }     from '@/context/AuthContext';
-import Navbar          from '@/components/layout/Navbar';
-import { Badge }       from '@/components/ui/badge';
+import { useMyTasks } from '@/api/routes/TasksAPI';
+import { useAuth } from '@/context/AuthContext';
+import Navbar from '@/components/layout/Navbar';
+import { Badge } from '@/components/ui/badge';
 import { formatDate, isOverdue } from '@/utils/date';
-import { cn }          from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import type { TaskWithProject, TaskStatus, TaskPriority } from '@/types';
 import { ClipboardList, Calendar, ExternalLink } from 'lucide-react';
 
-// ── Style maps ────────────────────────────────────────────────────────────────
-
 const STATUS_STYLES: Record<TaskStatus, string> = {
-  todo:        'bg-secondary text-secondary-foreground',
+  todo: 'bg-secondary text-secondary-foreground',
   in_progress: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300',
-  done:        'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
+  done: 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
 };
 
 const STATUS_LABELS: Record<TaskStatus, string> = {
-  todo:        'To Do',
+  todo: 'To Do',
   in_progress: 'In Progress',
-  done:        'Done',
+  done: 'Done',
 };
 
 const PRIORITY_STYLES: Record<TaskPriority, string> = {
-  low:    'bg-muted text-muted-foreground',
+  low: 'bg-muted text-muted-foreground',
   medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300',
-  high:   'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
+  high: 'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
 };
-
-// ── Skeleton ──────────────────────────────────────────────────────────────────
 
 const MyTasksSkeleton = () => (
   <div className="space-y-6">
@@ -49,8 +45,6 @@ const MyTasksSkeleton = () => (
   </div>
 );
 
-// ── Task row ──────────────────────────────────────────────────────────────────
-
 const TaskRow = ({ task }: { task: TaskWithProject }) => {
   const overdue = isOverdue(task.due_date) && task.status !== 'done';
 
@@ -69,17 +63,12 @@ const TaskRow = ({ task }: { task: TaskWithProject }) => {
       </div>
 
       {task.description && (
-        <p className="text-xs text-muted-foreground line-clamp-1">
-          {task.description}
-        </p>
+        <p className="text-xs text-muted-foreground line-clamp-1">{task.description}</p>
       )}
 
       <div className="flex flex-wrap items-center gap-1.5">
         <span
-          className={cn(
-            'text-xs px-2 py-0.5 rounded-full font-medium',
-            STATUS_STYLES[task.status],
-          )}
+          className={cn('text-xs px-2 py-0.5 rounded-full font-medium', STATUS_STYLES[task.status])}
         >
           {STATUS_LABELS[task.status]}
         </span>
@@ -110,22 +99,16 @@ const TaskRow = ({ task }: { task: TaskWithProject }) => {
   );
 };
 
-// ── Component ─────────────────────────────────────────────────────────────────
-
 const MyTasksPage = () => {
-  const { user }               = useAuth();
+  const { user } = useAuth();
   const { tasks, isLoading, error } = useMyTasks();
 
-  // Group tasks by their parent project
-  const tasksByProject = tasks.reduce<Record<string, TaskWithProject[]>>(
-    (groups, task) => {
-      const key = task.project.id;
-      if (!groups[key]) groups[key] = [];
-      groups[key].push(task);
-      return groups;
-    },
-    {},
-  );
+  const tasksByProject = tasks.reduce<Record<string, TaskWithProject[]>>((groups, task) => {
+    const key = task.project.id;
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(task);
+    return groups;
+  }, {});
 
   const projectGroups = Object.values(tasksByProject);
 
@@ -164,9 +147,7 @@ const MyTasksPage = () => {
             {projectGroups.map((groupTasks) => {
               const project = groupTasks[0].project;
 
-              const openCount = groupTasks.filter(
-                (t) => t.status !== 'done',
-              ).length;
+              const openCount = groupTasks.filter((t) => t.status !== 'done').length;
 
               return (
                 <section key={project.id}>

@@ -19,7 +19,7 @@ axiosInstance.interceptors.response.use(
   (error: unknown) => {
     if (axios.isAxiosError(error) && error.response?.status === 401) {
       const url = error.config?.url || '';
-      
+
       // Do not trigger a full page reload if the user is actively failing a login attempt.
       if (!url.includes('/auth/login')) {
         localStorage.removeItem(StorageKeys.TOKEN);

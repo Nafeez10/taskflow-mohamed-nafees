@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-} from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from '@/components/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,19 +9,17 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useProject, useProjectMembers, ProjectsAPI } from '@/api/routes/ProjectsAPI';
-import { useTasks }                      from '@/api/routes/TasksAPI';
-import { useAuth }                       from '@/context/AuthContext';
-import KanbanBoard        from '@/components/kanban/KanbanBoard';
-import TaskFilters        from '@/components/tasks/TaskFilters';
+import { useTasks } from '@/api/routes/TasksAPI';
+import { useAuth } from '@/context/AuthContext';
+import KanbanBoard from '@/components/kanban/KanbanBoard';
+import TaskFilters from '@/components/tasks/TaskFilters';
 import ContributorManager from '@/components/projects/ContributorManager';
-import EditProjectDialog  from '@/components/projects/EditProjectDialog';
-import ConfirmDialog      from '@/components/ui/confirm-dialog';
-import Navbar             from '@/components/layout/Navbar';
+import EditProjectDialog from '@/components/projects/EditProjectDialog';
+import ConfirmDialog from '@/components/ui/confirm-dialog';
+import Navbar from '@/components/layout/Navbar';
 import type { TaskFilterPayload as Filters } from '@/api/routes/TasksAPI';
 import { ChevronLeft, Users, MoreHorizontal, Pencil, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
 
 const getInitials = (name?: string): string => {
   if (!name) return '??';
@@ -40,17 +33,15 @@ const getInitials = (name?: string): string => {
 
 const MAX_HEADER_AVATARS = 4;
 
-// ── Component ─────────────────────────────────────────────────────────────────
-
 const ProjectDetailPage = () => {
-  const { id }   = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const [filters, setFilters]                               = useState<Filters>({});
+  const [filters, setFilters] = useState<Filters>({});
   const [contributorManagerOpen, setContributorManagerOpen] = useState(false);
-  const [editProjectOpen, setEditProjectOpen]               = useState(false);
-  const [deleteProjectOpen, setDeleteProjectOpen]           = useState(false);
+  const [editProjectOpen, setEditProjectOpen] = useState(false);
+  const [deleteProjectOpen, setDeleteProjectOpen] = useState(false);
 
   const handleDeleteProject = async () => {
     try {
@@ -62,25 +53,27 @@ const ProjectDetailPage = () => {
     }
   };
 
-  const { project, isLoading: projectLoading, error: projectError, mutate: mutateProject } =
-    useProject(id);
+  const {
+    project,
+    isLoading: projectLoading,
+    error: projectError,
+    mutate: mutateProject,
+  } = useProject(id);
+
+  const { allMembers, isLoading: membersLoading, mutate: refreshMembers } = useProjectMembers(id);
 
   const {
-    allMembers,
-    isLoading: membersLoading,
-    mutate: refreshMembers,
-  } = useProjectMembers(id);
-
-  const { tasks, isLoading: tasksLoading, error: tasksError, mutate: mutateTasks } =
-    useTasks(id, filters);
+    tasks,
+    isLoading: tasksLoading,
+    error: tasksError,
+    mutate: mutateTasks,
+  } = useTasks(id, filters);
 
   const isOwner = project?.owner_id === user?.id;
 
-  const columns       = project?.columns ?? [];
+  const columns = project?.columns ?? [];
   const visibleMembers = allMembers.slice(0, MAX_HEADER_AVATARS);
-  const overflowCount  = allMembers.length - MAX_HEADER_AVATARS;
-
-  // ── Error state ─────────────────────────────────────────────────────────────
+  const overflowCount = allMembers.length - MAX_HEADER_AVATARS;
 
   if (projectError) {
     return (
@@ -96,15 +89,11 @@ const ProjectDetailPage = () => {
     );
   }
 
-  // ── Render ──────────────────────────────────────────────────────────────────
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       <main className="container mx-auto px-4 py-8">
-
-        {/* Breadcrumb + project header */}
         <div className="mb-6">
           <Link
             to="/projects"
@@ -148,12 +137,9 @@ const ProjectDetailPage = () => {
               </div>
 
               {project?.description && (
-                <p className="text-muted-foreground text-sm mt-1">
-                  {project.description}
-                </p>
+                <p className="text-muted-foreground text-sm mt-1">{project.description}</p>
               )}
 
-              {/* Members row */}
               {!membersLoading && (
                 <div className="flex items-center gap-3 mt-3">
                   {allMembers.length > 0 && (
@@ -173,8 +159,7 @@ const ProjectDetailPage = () => {
 
                   {allMembers.length > 0 && (
                     <span className="text-xs text-muted-foreground">
-                      {allMembers.length}{' '}
-                      {allMembers.length === 1 ? 'member' : 'members'}
+                      {allMembers.length} {allMembers.length === 1 ? 'member' : 'members'}
                     </span>
                   )}
 
@@ -186,7 +171,9 @@ const ProjectDetailPage = () => {
                   >
                     <Users className="h-3 w-3" />
                     {isOwner
-                      ? allMembers.length > 0 ? 'Manage Members' : 'Add Members'
+                      ? allMembers.length > 0
+                        ? 'Manage Members'
+                        : 'Add Members'
                       : 'View Members'}
                   </Button>
                 </div>
@@ -195,7 +182,6 @@ const ProjectDetailPage = () => {
           )}
         </div>
 
-        {/* Toolbar — assignee filter */}
         {allMembers.length > 0 && (
           <div className="flex items-center gap-3 mb-4">
             <TaskFilters
@@ -207,7 +193,6 @@ const ProjectDetailPage = () => {
           </div>
         )}
 
-        {/* Loading state for tasks */}
         {(projectLoading || tasksLoading) && (
           <div className="flex gap-4 overflow-x-hidden">
             {Array.from({ length: 3 }).map((_, i) => (
@@ -225,12 +210,9 @@ const ProjectDetailPage = () => {
         )}
 
         {tasksError && !tasksLoading && (
-          <p className="text-center py-12 text-destructive text-sm">
-            Failed to load tasks.
-          </p>
+          <p className="text-center py-12 text-destructive text-sm">Failed to load tasks.</p>
         )}
 
-        {/* Kanban board */}
         {!projectLoading && !tasksLoading && !tasksError && columns.length > 0 && (
           <KanbanBoard
             projectId={id!}
@@ -244,7 +226,6 @@ const ProjectDetailPage = () => {
         )}
       </main>
 
-      {/* Contributor manager sheet */}
       <ContributorManager
         open={contributorManagerOpen}
         onClose={() => setContributorManagerOpen(false)}
@@ -254,7 +235,6 @@ const ProjectDetailPage = () => {
         onMembersChange={refreshMembers}
       />
 
-      {/* Edit project dialog */}
       {project && (
         <EditProjectDialog
           open={editProjectOpen}
@@ -264,7 +244,6 @@ const ProjectDetailPage = () => {
         />
       )}
 
-      {/* Delete project confirmation */}
       <ConfirmDialog
         open={deleteProjectOpen}
         title="Delete project?"

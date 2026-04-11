@@ -7,15 +7,11 @@ import { cn } from '@/lib/utils';
 import type { ProjectColumn, Task, User } from '@/types';
 import { Plus, Trash2 } from 'lucide-react';
 
-// ── Column accent colors ──────────────────────────────────────────────────────
-
 const COLUMN_DOT: Record<string, string> = {
-  todo:        'bg-muted-foreground/50',
+  todo: 'bg-muted-foreground/50',
   in_progress: 'bg-blue-400',
-  done:        'bg-green-400',
+  done: 'bg-green-400',
 };
-
-// ── Component ─────────────────────────────────────────────────────────────────
 
 interface Props {
   column: ProjectColumn;
@@ -47,13 +43,10 @@ const KanbanColumn = ({
   const dotColor = COLUMN_DOT[column.id] ?? 'bg-purple-400';
 
   const resolveAssignees = (assigneeIds: string[]): User[] =>
-    assigneeIds
-      .map((id) => memberById.get(id))
-      .filter((u): u is User => u !== undefined);
+    assigneeIds.map((id) => memberById.get(id)).filter((u): u is User => u !== undefined);
 
   return (
     <div className="flex flex-col w-72 shrink-0 rounded-xl bg-muted/40 border">
-
       {/* Column header */}
       <div className="flex items-center justify-between px-3 pt-3 pb-2">
         <div className="flex items-center gap-2">
@@ -88,10 +81,7 @@ const KanbanColumn = ({
           isOver && 'bg-accent/60',
         )}
       >
-        <SortableContext 
-          items={tasks.map((t) => t.id)} 
-          strategy={verticalListSortingStrategy}
-        >
+        <SortableContext items={tasks.map((t) => t.id)} strategy={verticalListSortingStrategy}>
           {tasks.map((task) => (
             <KanbanTaskCard
               key={task.id}

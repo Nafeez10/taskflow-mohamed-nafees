@@ -8,16 +8,11 @@ import { cn } from '@/lib/utils';
 import type { Task, User } from '@/types';
 import { Pencil, Trash2, Calendar, GripVertical } from 'lucide-react';
 
-// ── Style maps ────────────────────────────────────────────────────────────────
-
 const PRIORITY_STYLES: Record<Task['priority'], string> = {
-  low:    'bg-muted text-muted-foreground',
+  low: 'bg-muted text-muted-foreground',
   medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300',
-  high:   'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
+  high: 'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
 };
-
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
 
 const getInitials = (name?: string): string => {
   if (!name) return '??';
@@ -31,8 +26,6 @@ const getInitials = (name?: string): string => {
 
 const MAX_VISIBLE_AVATARS = 2;
 
-// ── Component ─────────────────────────────────────────────────────────────────
-
 interface Props {
   task: Task;
   assignees: User[];
@@ -42,21 +35,8 @@ interface Props {
   isDragOverlay?: boolean;
 }
 
-const KanbanTaskCard = ({
-  task,
-  assignees,
-  onEdit,
-  onDelete,
-  isDragOverlay = false,
-}: Props) => {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({
+const KanbanTaskCard = ({ task, assignees, onEdit, onDelete, isDragOverlay = false }: Props) => {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: task.id,
     data: { type: 'Task', task },
     disabled: isDragOverlay,
@@ -65,13 +45,15 @@ const KanbanTaskCard = ({
   const overdue = isOverdue(task.due_date) && task.status !== 'done';
 
   const visibleAssignees = assignees.slice(0, MAX_VISIBLE_AVATARS);
-  const overflowCount    = assignees.length - MAX_VISIBLE_AVATARS;
+  const overflowCount = assignees.length - MAX_VISIBLE_AVATARS;
 
-  const style: CSSProperties | undefined = isDragOverlay ? undefined : {
-    transform: CSS.Translate.toString(transform),
-    transition,
-    opacity: isDragging ? 0.3 : 1,
-  };
+  const style: CSSProperties | undefined = isDragOverlay
+    ? undefined
+    : {
+        transform: CSS.Translate.toString(transform),
+        transition,
+        opacity: isDragging ? 0.3 : 1,
+      };
 
   return (
     <div
@@ -81,7 +63,7 @@ const KanbanTaskCard = ({
         'bg-card border rounded-lg p-3 space-y-2 group',
         'hover:shadow-sm transition-shadow',
         isDragOverlay && 'shadow-lg rotate-1 cursor-grabbing',
-        isDragging   && 'cursor-grabbing',
+        isDragging && 'cursor-grabbing',
       )}
     >
       {/* Header row: drag handle + title + actions */}
@@ -102,7 +84,12 @@ const KanbanTaskCard = ({
         </button>
 
         {/* Title */}
-        <p onClick={() => onEdit(task)} className="flex-1 cursor-pointer text-sm font-medium leading-snug hover:underline">{task.title}</p>
+        <p
+          onClick={() => onEdit(task)}
+          className="flex-1 cursor-pointer text-sm font-medium leading-snug hover:underline"
+        >
+          {task.title}
+        </p>
 
         {/* Action buttons — visible on hover */}
         <div className="flex shrink-0 gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -129,9 +116,7 @@ const KanbanTaskCard = ({
 
       {/* Description */}
       {task.description && (
-        <p className="text-xs text-muted-foreground line-clamp-2 pl-5">
-          {task.description}
-        </p>
+        <p className="text-xs text-muted-foreground line-clamp-2 pl-5">{task.description}</p>
       )}
 
       {/* Badges + metadata row */}
@@ -166,15 +151,11 @@ const KanbanTaskCard = ({
           <AvatarGroup className="shrink-0">
             {visibleAssignees.map((user) => (
               <Avatar key={user.id} size="sm">
-                <AvatarFallback className="text-xs">
-                  {getInitials(user.name)}
-                </AvatarFallback>
+                <AvatarFallback className="text-xs">{getInitials(user.name)}</AvatarFallback>
               </Avatar>
             ))}
             {overflowCount > 0 && (
-              <AvatarGroupCount className="text-xs">
-                +{overflowCount}
-              </AvatarGroupCount>
+              <AvatarGroupCount className="text-xs">+{overflowCount}</AvatarGroupCount>
             )}
           </AvatarGroup>
         )}

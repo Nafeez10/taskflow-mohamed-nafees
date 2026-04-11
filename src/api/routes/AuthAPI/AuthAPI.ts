@@ -10,24 +10,16 @@ import type {
   AuthMeResponse,
 } from './types';
 
-// ── Mutations (called imperatively) ──────────────────────────────────────────
-
 export const AuthAPI = {
   login: (data: LoginPayload) =>
-    axiosInstance.post<AuthLoginResponse>('/auth/login', data).then((r) => r.data),
+    axiosInstance.post<AuthLoginResponse>('/auth/login', data).then((response) => response.data),
 
   register: (data: RegisterPayload) =>
-    axiosInstance.post<AuthRegisterResponse>('/auth/register', data).then((r) => r.data),
+    axiosInstance
+      .post<AuthRegisterResponse>('/auth/register', data)
+      .then((response) => response.data),
 };
 
-// ── SWR hooks (GET) ───────────────────────────────────────────────────────────
-
-
-
-/**
- * Fetch the currently authenticated user from /auth/me.
- * Skips the request when no token is present.
- */
 export const useCurrentUser = () => {
   const token = localStorage.getItem(StorageKeys.TOKEN);
   const { data, error, isLoading, mutate } = useSWR<AuthMeResponse>(
@@ -37,4 +29,10 @@ export const useCurrentUser = () => {
   return { user: data ?? null, error, isLoading, mutate };
 };
 
-export type { LoginPayload, RegisterPayload, AuthLoginResponse, AuthRegisterResponse, AuthMeResponse };
+export type {
+  LoginPayload,
+  RegisterPayload,
+  AuthLoginResponse,
+  AuthRegisterResponse,
+  AuthMeResponse,
+};

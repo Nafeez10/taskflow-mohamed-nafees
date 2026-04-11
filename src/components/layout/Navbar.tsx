@@ -13,8 +13,8 @@ import { LogOut, CheckSquare, ClipboardList } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
-  const navigate         = useNavigate();
-  const { pathname }     = useLocation();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const handleLogout = () => {
     logout();
@@ -32,13 +32,9 @@ const Navbar = () => {
   return (
     <header className="border-b bg-background sticky top-0 z-50">
       <div className="container mx-auto flex h-14 items-center justify-between px-4">
-
         {/* Left — logo + nav links */}
         <div className="flex items-center gap-6">
-          <Link
-            to="/projects"
-            className="flex items-center gap-2 font-semibold text-sm"
-          >
+          <Link to="/projects" className="flex items-center gap-2 font-semibold text-sm">
             <CheckSquare className="h-5 w-5" />
             TaskFlow
           </Link>

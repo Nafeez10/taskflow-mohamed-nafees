@@ -11,57 +11,38 @@ import type {
   ProjectListResponse,
 } from './types';
 
-// ── Mutations (called imperatively) ──────────────────────────────────────────
-
 export const ProjectsAPI = {
   create: (data: CreateProjectPayload) =>
-    axiosInstance.post<Project>('/projects', data).then((r) => r.data),
+    axiosInstance.post<Project>('/projects', data).then((response) => response.data),
 
   update: (id: string, data: UpdateProjectPayload) =>
-    axiosInstance.patch<Project>(`/projects/${id}`, data).then((r) => r.data),
+    axiosInstance.patch<Project>(`/projects/${id}`, data).then((response) => response.data),
 
-  delete: (id: string) =>
-    axiosInstance.delete(`/projects/${id}`).then((r) => r.data),
-
-  // ── Contributors ────────────────────────────────────────────────────────────
+  delete: (id: string) => axiosInstance.delete(`/projects/${id}`).then((response) => response.data),
 
   addContributor: (projectId: string, payload: AddContributorPayload) =>
     axiosInstance
       .post<User>(`/projects/${projectId}/contributors`, payload)
-      .then((r) => r.data),
+      .then((response) => response.data),
 
   removeContributor: (projectId: string, userId: string) =>
     axiosInstance
       .delete(`/projects/${projectId}/contributors/${userId}`)
-      .then((r) => r.data),
+      .then((response) => response.data),
 
-  // ── Kanban columns ──────────────────────────────────────────────────────────
-
-  /** Add a new custom column to a project. Returns the created column. */
   addColumn: (projectId: string, payload: AddColumnPayload) =>
     axiosInstance
       .post<ProjectColumn>(`/projects/${projectId}/columns`, payload)
-      .then((r) => r.data),
+      .then((response) => response.data),
 
-  /**
-   * Delete a custom column from a project.
-   * Tasks in that column are moved to "To Do" by the server.
-   */
   deleteColumn: (projectId: string, columnId: string) =>
     axiosInstance
       .delete(`/projects/${projectId}/columns/${columnId}`)
-      .then((r) => r.data),
+      .then((response) => response.data),
 };
 
-// ── SWR hooks (GET) ───────────────────────────────────────────────────────────
-
-
-
 export const useProjects = () => {
-  const { data, error, isLoading, mutate } = useSWR<ProjectListResponse>(
-    '/projects',
-    swrFetcher,
-  );
+  const { data, error, isLoading, mutate } = useSWR<ProjectListResponse>('/projects', swrFetcher);
   return {
     projects: data?.projects ?? [],
     error,
@@ -84,17 +65,14 @@ export const useProjectMembers = (projectId: string | undefined) => {
     swrFetcher,
   );
 
-  const owner: ProjectMember | null = data?.owner
-    ? { ...data.owner, role: 'owner' }
-    : null;
+  const owner: ProjectMember | null = data?.owner ? { ...data.owner, role: 'owner' } : null;
 
-  const contributors: ProjectMember[] = (data?.contributors ?? []).map(
-    (u) => ({ ...u, role: 'contributor' }),
-  );
+  const contributors: ProjectMember[] = (data?.contributors ?? []).map((user) => ({
+    ...user,
+    role: 'contributor',
+  }));
 
-  const allMembers: ProjectMember[] = owner
-    ? [owner, ...contributors]
-    : contributors;
+  const allMembers: ProjectMember[] = owner ? [owner, ...contributors] : contributors;
 
   return { owner, contributors, allMembers, error, isLoading, mutate };
 };

@@ -9,24 +9,20 @@ import {
   DialogTitle,
   DialogFooter,
 } from '@/components/ui/dialog';
-import { Button }   from '@/components/ui/button';
-import { Input }    from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ProjectsAPI } from '@/api/routes/ProjectsAPI';
 import InputContainer from '@/components/ui/InputContainer';
 import type { Project } from '@/types';
 import { toast } from 'sonner';
 
-// ── Schema ────────────────────────────────────────────────────────────────────
-
 const schema = z.object({
-  name:        z.string().min(1, 'Name is required').max(100),
+  name: z.string().min(1, 'Name is required').max(100),
   description: z.string().max(500).optional(),
 });
 
 type FormData = z.infer<typeof schema>;
-
-// ── Component ─────────────────────────────────────────────────────────────────
 
 interface Props {
   open: boolean;
@@ -46,7 +42,7 @@ const EditProjectDialog = ({ open, onClose, project, onUpdated }: Props) => {
   useEffect(() => {
     if (open) {
       reset({
-        name:        project.name,
+        name: project.name,
         description: project.description ?? '',
       });
     }
@@ -76,11 +72,7 @@ const EditProjectDialog = ({ open, onClose, project, onUpdated }: Props) => {
             name="name"
             render={({ field }) => (
               <InputContainer title="Name *" error={errors.name?.message}>
-                <Input
-                  {...field}
-                  id="edit-proj-name"
-                  placeholder="My Project"
-                />
+                <Input {...field} id="edit-proj-name" placeholder="My Project" />
               </InputContainer>
             )}
           />

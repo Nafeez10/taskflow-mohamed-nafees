@@ -1,36 +1,27 @@
 import { Button } from '@/components/ui/button';
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-} from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from '@/components/ui/avatar';
 import { formatDate, isOverdue } from '@/utils/date';
 import { cn } from '@/lib/utils';
 import type { Task, TaskStatus, User } from '@/types';
 import { Pencil, Trash2, Calendar } from 'lucide-react';
 
-// ── Style maps ────────────────────────────────────────────────────────────────
-
 const STATUS_STYLES: Record<TaskStatus, string> = {
-  todo:        'bg-secondary text-secondary-foreground',
+  todo: 'bg-secondary text-secondary-foreground',
   in_progress: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300',
-  done:        'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
+  done: 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
 };
 
 const STATUS_LABELS: Record<TaskStatus, string> = {
-  todo:        'To Do',
+  todo: 'To Do',
   in_progress: 'In Progress',
-  done:        'Done',
+  done: 'Done',
 };
 
 const PRIORITY_STYLES: Record<Task['priority'], string> = {
-  low:    'bg-muted text-muted-foreground',
+  low: 'bg-muted text-muted-foreground',
   medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300',
-  high:   'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
+  high: 'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
 };
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
 
 const getInitials = (name?: string): string => {
   if (!name) return '??';
@@ -44,8 +35,6 @@ const getInitials = (name?: string): string => {
 
 const MAX_VISIBLE_AVATARS = 3;
 
-// ── Component ─────────────────────────────────────────────────────────────────
-
 interface Props {
   task: Task;
   /** Resolved user objects for each ID in task.assignee_ids */
@@ -58,12 +47,11 @@ interface Props {
 const TaskCard = ({ task, assignees, onEdit, onDelete, onStatusChange }: Props) => {
   const overdue = isOverdue(task.due_date) && task.status !== 'done';
 
-  const visibleAssignees  = assignees.slice(0, MAX_VISIBLE_AVATARS);
-  const overflowCount     = assignees.length - MAX_VISIBLE_AVATARS;
+  const visibleAssignees = assignees.slice(0, MAX_VISIBLE_AVATARS);
+  const overflowCount = assignees.length - MAX_VISIBLE_AVATARS;
 
   return (
     <div className="bg-card border rounded-lg p-4 space-y-3 hover:shadow-sm transition-shadow">
-
       {/* Header — title + action buttons */}
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-medium text-sm leading-snug">{task.title}</h3>
@@ -92,18 +80,13 @@ const TaskCard = ({ task, assignees, onEdit, onDelete, onStatusChange }: Props) 
 
       {/* Description */}
       {task.description && (
-        <p className="text-xs text-muted-foreground line-clamp-2">
-          {task.description}
-        </p>
+        <p className="text-xs text-muted-foreground line-clamp-2">{task.description}</p>
       )}
 
       {/* Status + priority badges */}
       <div className="flex flex-wrap gap-1.5">
         <span
-          className={cn(
-            'text-xs px-2 py-0.5 rounded-full font-medium',
-            STATUS_STYLES[task.status],
-          )}
+          className={cn('text-xs px-2 py-0.5 rounded-full font-medium', STATUS_STYLES[task.status])}
         >
           {STATUS_LABELS[task.status]}
         </span>
@@ -141,16 +124,12 @@ const TaskCard = ({ task, assignees, onEdit, onDelete, onStatusChange }: Props) 
               </Avatar>
             ))}
             {overflowCount > 0 && (
-              <AvatarGroupCount className="text-xs">
-                +{overflowCount}
-              </AvatarGroupCount>
+              <AvatarGroupCount className="text-xs">+{overflowCount}</AvatarGroupCount>
             )}
           </AvatarGroup>
 
           <span className="text-xs text-muted-foreground">
-            {assignees.length === 1
-              ? assignees[0].name
-              : `${assignees.length} assignees`}
+            {assignees.length === 1 ? assignees[0].name : `${assignees.length} assignees`}
           </span>
         </div>
       )}

@@ -2,24 +2,15 @@ import { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from '@/components/ui/sheet';
-import { Button }          from '@/components/ui/button';
-import { Input }           from '@/components/ui/input';
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import InputContainer from '@/components/ui/InputContainer';
-import { Label }           from '@/components/ui/label';
-import { Textarea }        from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Calendar }        from '@/components/ui/calendar';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import {
   Select,
   SelectContent,
@@ -27,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { TasksAPI }    from '@/api/routes/TasksAPI';
+import { TasksAPI } from '@/api/routes/TasksAPI';
 import type { Task, ProjectMember } from '@/types';
 import type { KeyedMutator } from 'swr';
 import { cn } from '@/lib/utils';
@@ -35,19 +26,15 @@ import { Check, CalendarIcon } from 'lucide-react';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 
-// ── Schema ────────────────────────────────────────────────────────────────────
-
 const schema = z.object({
-  title:       z.string().min(1, 'Title is required').max(200),
+  title: z.string().min(1, 'Title is required').max(200),
   description: z.string().max(1000).optional(),
-  priority:    z.enum(['low', 'medium', 'high']),
-  status:      z.enum(['todo', 'in_progress', 'done']),
-  due_date:    z.string().optional(),
+  priority: z.enum(['low', 'medium', 'high']),
+  status: z.enum(['todo', 'in_progress', 'done']),
+  due_date: z.string().optional(),
 });
 
 type FormData = z.infer<typeof schema>;
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
 
 const getInitials = (name?: string): string => {
   if (!name) return '??';
@@ -58,8 +45,6 @@ const getInitials = (name?: string): string => {
     .toUpperCase()
     .slice(0, 2);
 };
-
-// ── Component ─────────────────────────────────────────────────────────────────
 
 interface Props {
   open: boolean;
@@ -87,7 +72,6 @@ const TaskFormSheet = ({
 }: Props) => {
   const isEdit = !!task;
 
-  // Assignee IDs are managed outside react-hook-form since they use a custom toggle UI
   const [selectedAssigneeIds, setSelectedAssigneeIds] = useState<string[]>([]);
 
   const {
@@ -100,24 +84,23 @@ const TaskFormSheet = ({
     defaultValues: { priority: 'medium', status: 'todo' },
   });
 
-  // Populate form when editing an existing task
   useEffect(() => {
     if (task) {
       reset({
-        title:       task.title,
+        title: task.title,
         description: task.description ?? '',
-        priority:    task.priority,
-        status:      task.status,
-        due_date:    task.due_date ?? '',
+        priority: task.priority,
+        status: task.status,
+        due_date: task.due_date ?? '',
       });
       setSelectedAssigneeIds(task.assignee_ids ?? []);
     } else {
       reset({
-        priority:    'medium',
-        status:      'todo',
-        title:       '',
+        priority: 'medium',
+        status: 'todo',
+        title: '',
         description: '',
-        due_date:    '',
+        due_date: '',
       });
       setSelectedAssigneeIds([]);
     }
@@ -125,9 +108,7 @@ const TaskFormSheet = ({
 
   const toggleAssignee = (memberId: string) => {
     setSelectedAssigneeIds((prev) =>
-      prev.includes(memberId)
-        ? prev.filter((id) => id !== memberId)
-        : [...prev, memberId],
+      prev.includes(memberId) ? prev.filter((id) => id !== memberId) : [...prev, memberId],
     );
   };
 
@@ -151,8 +132,6 @@ const TaskFormSheet = ({
     }
   };
 
-  // ── Render ──────────────────────────────────────────────────────────────────
-
   return (
     <Sheet open={open} onOpenChange={onClose}>
       <SheetContent className="w-full sm:max-w-lg overflow-y-auto sm:border-l sm:rounded-l-2xl shadow-2xl">
@@ -163,39 +142,26 @@ const TaskFormSheet = ({
         </SheetHeader>
 
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-6">
-
-          {/* Title */}
           <Controller
             control={control}
             name="title"
             render={({ field }) => (
               <InputContainer title="Title *" error={errors.title?.message}>
-                <Input
-                  {...field}
-                  id="task-title"
-                  placeholder="Task title"
-                />
+                <Input {...field} id="task-title" placeholder="Task title" />
               </InputContainer>
             )}
           />
 
-          {/* Description */}
           <Controller
             control={control}
             name="description"
             render={({ field }) => (
               <InputContainer title="Description">
-                <Textarea
-                  {...field}
-                  id="task-desc"
-                  placeholder="Optional description"
-                  rows={3}
-                />
+                <Textarea {...field} id="task-desc" placeholder="Optional description" rows={3} />
               </InputContainer>
             )}
           />
 
-          {/* Priority + Status */}
           <div className="grid grid-cols-2 gap-5">
             <Controller
               control={control}
@@ -244,7 +210,6 @@ const TaskFormSheet = ({
             />
           </div>
 
-          {/* Due date */}
           <Controller
             control={control}
             name="due_date"
@@ -254,14 +219,18 @@ const TaskFormSheet = ({
                   <PopoverTrigger
                     render={
                       <Button
-                        variant={"outline"}
+                        variant={'outline'}
                         className={cn(
-                          "w-full justify-start text-left font-normal",
-                          !field.value && "text-muted-foreground"
+                          'w-full justify-start text-left font-normal',
+                          !field.value && 'text-muted-foreground',
                         )}
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
-                        {field.value ? format(new Date(field.value), "PPP") : <span>Pick a due date</span>}
+                        {field.value ? (
+                          format(new Date(field.value), 'PPP')
+                        ) : (
+                          <span>Pick a due date</span>
+                        )}
                       </Button>
                     }
                   />
@@ -269,7 +238,7 @@ const TaskFormSheet = ({
                     <Calendar
                       mode="single"
                       selected={field.value ? new Date(field.value) : undefined}
-                      onSelect={(date) => field.onChange(date ? format(date, "yyyy-MM-dd") : "")}
+                      onSelect={(date) => field.onChange(date ? format(date, 'yyyy-MM-dd') : '')}
                       initialFocus
                     />
                   </PopoverContent>
@@ -278,7 +247,6 @@ const TaskFormSheet = ({
             )}
           />
 
-          {/* Assignees — inline toggle list */}
           <div className="space-y-2.5">
             <Label className="text-sm font-semibold tracking-tight text-foreground/90">
               Assignees
@@ -301,24 +269,31 @@ const TaskFormSheet = ({
                       className={cn(
                         'flex items-center gap-3 w-full px-4 py-3 text-sm text-left transition-all',
                         'hover:bg-accent/80',
-                        isSelected ? 'bg-primary/5 border-l-2 border-l-primary' : 'border-l-2 border-l-transparent'
+                        isSelected
+                          ? 'bg-primary/5 border-l-2 border-l-primary'
+                          : 'border-l-2 border-l-transparent',
                       )}
                     >
-                      {/* Check indicator */}
-                      <span className={cn(
-                        "w-5 h-5 flex items-center justify-center shrink-0 rounded-full border transition-colors",
-                        isSelected ? "bg-primary border-primary text-primary-foreground" : "border-input bg-background"
-                      )}>
-                        {isSelected && (
-                          <Check className="h-3 w-3 flex-shrink-0" strokeWidth={3} />
+                      <span
+                        className={cn(
+                          'w-5 h-5 flex items-center justify-center shrink-0 rounded-full border transition-colors',
+                          isSelected
+                            ? 'bg-primary border-primary text-primary-foreground'
+                            : 'border-input bg-background',
                         )}
+                      >
+                        {isSelected && <Check className="h-3 w-3 flex-shrink-0" strokeWidth={3} />}
                       </span>
 
                       <Avatar size="sm" className="ring-1 ring-border shadow-sm">
-                        <AvatarFallback className="bg-secondary/50 font-medium">{getInitials(member.name)}</AvatarFallback>
+                        <AvatarFallback className="bg-secondary/50 font-medium">
+                          {getInitials(member.name)}
+                        </AvatarFallback>
                       </Avatar>
 
-                      <span className="flex-1 truncate font-medium text-foreground/90">{member.name}</span>
+                      <span className="flex-1 truncate font-medium text-foreground/90">
+                        {member.name}
+                      </span>
 
                       {member.role === 'owner' && (
                         <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground shrink-0 bg-muted px-2 py-0.5 rounded-full">
@@ -339,17 +314,12 @@ const TaskFormSheet = ({
             )}
           </div>
 
-          {/* Actions */}
           <div className="flex justify-end gap-2 pt-4 border-t">
             <Button type="button" variant="outline" onClick={onClose}>
               Cancel
             </Button>
             <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting
-                ? 'Saving…'
-                : isEdit
-                  ? 'Save Changes'
-                  : 'Create Task'}
+              {isSubmitting ? 'Saving…' : isEdit ? 'Save Changes' : 'Create Task'}
             </Button>
           </div>
         </form>

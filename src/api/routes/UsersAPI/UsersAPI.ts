@@ -2,8 +2,6 @@ import axiosInstance from '@/api/axios/axiosInstance';
 import type { User } from '@/types';
 import type { UserLookupResponse } from './types';
 
-// ── Mutations (called imperatively) ──────────────────────────────────────────
-
 export const UsersAPI = {
   /**
    * Look up a single user by email address.
@@ -13,12 +11,12 @@ export const UsersAPI = {
   lookup: (identifier: string) =>
     axiosInstance
       .get<UserLookupResponse>(`/users/lookup?identifier=${encodeURIComponent(identifier)}`)
-      .then((r) => r.data),
+      .then((response) => response.data),
 
   search: (query: string) =>
     axiosInstance
       .get<User[]>(`/users/search?q=${encodeURIComponent(query)}`)
-      .then((r) => r.data),
+      .then((response) => response.data),
 };
 
 export type { UserLookupResponse };

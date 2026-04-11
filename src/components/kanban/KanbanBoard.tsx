@@ -12,26 +12,19 @@ import {
   type DragOverEvent,
 } from '@dnd-kit/core';
 import { arrayMove } from '@dnd-kit/sortable';
-import KanbanColumn   from './KanbanColumn';
+import KanbanColumn from './KanbanColumn';
 import KanbanTaskCard from './KanbanTaskCard';
-import TaskFormSheet  from '@/components/tasks/TaskFormSheet';
-import ConfirmDialog  from '@/components/ui/confirm-dialog';
-import { TasksAPI }   from '@/api/routes/TasksAPI';
+import TaskFormSheet from '@/components/tasks/TaskFormSheet';
+import ConfirmDialog from '@/components/ui/confirm-dialog';
+import { TasksAPI } from '@/api/routes/TasksAPI';
 import { ProjectsAPI } from '@/api/routes/ProjectsAPI';
-import { Button }     from '@/components/ui/button';
-import { Input }      from '@/components/ui/input';
-import type {
-  Task,
-  ProjectColumn,
-  ProjectMember,
-  User,
-} from '@/types';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import type { Task, ProjectColumn, ProjectMember, User } from '@/types';
 import type { KeyedMutator } from 'swr';
 import { Plus, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
-
-// ── Component ─────────────────────────────────────────────────────────────────
 
 interface Props {
   projectId: string;
@@ -53,11 +46,8 @@ const KanbanBoard = ({
   mutateTasks,
   onColumnsChange,
 }: Props) => {
-  // ── Local task state (for optimistic drag preview) ───────────────────────────
-
   const [localTasks, setLocalTasks] = useState<Task[]>(tasks);
 
-  // Sync with SWR whenever not dragging
   const isDraggingRef = useRef(false);
 
   useEffect(() => {
@@ -66,11 +56,7 @@ const KanbanBoard = ({
     }
   }, [tasks]);
 
-  // ── Drag state ───────────────────────────────────────────────────────────────
-
   const [activeTask, setActiveTask] = useState<Task | null>(null);
-
-  // ── Task form sheet state ────────────────────────────────────────────────────
 
   const [sheetState, setSheetState] = useState<{
     open: boolean;
@@ -78,16 +64,12 @@ const KanbanBoard = ({
     editTask: Task | null;
   }>({ open: false, columnId: 'todo', editTask: null });
 
-  const openAddTask = (columnId: string) =>
-    setSheetState({ open: true, columnId, editTask: null });
+  const openAddTask = (columnId: string) => setSheetState({ open: true, columnId, editTask: null });
 
   const openEditTask = (task: Task) =>
     setSheetState({ open: true, columnId: task.column_id, editTask: task });
 
-  const closeSheet = () =>
-    setSheetState((prev) => ({ ...prev, open: false, editTask: null }));
-
-  // ── Confirm dialog state ──────────────────────────────────────────────────────
+  const closeSheet = () => setSheetState((prev) => ({ ...prev, open: false, editTask: null }));
 
   const [confirmState, setConfirmState] = useState<{
     open: boolean;
@@ -98,20 +80,14 @@ const KanbanBoard = ({
 
   const closeConfirm = () => setConfirmState((prev) => ({ ...prev, open: false }));
 
-  // ── Add column state ─────────────────────────────────────────────────────────
-
-  const [addingColumn, setAddingColumn]       = useState(false);
-  const [newColumnName, setNewColumnName]     = useState('');
+  const [addingColumn, setAddingColumn] = useState(false);
+  const [newColumnName, setNewColumnName] = useState('');
   const [isCreatingColumn, setIsCreatingColumn] = useState(false);
-
-  // ── Member lookup map ────────────────────────────────────────────────────────
 
   const memberById = useMemo<Map<string, User>>(
     () => new Map(projectMembers.map((m) => [m.id, m])),
     [projectMembers],
   );
-
-  // ── DnD sensors ─────────────────────────────────────────────────────────────
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -121,8 +97,6 @@ const KanbanBoard = ({
       activationConstraint: { delay: 200, tolerance: 6 },
     }),
   );
-
-  // ── DnD handlers ────────────────────────────────────────────────────────────
 
   const handleDragStart = ({ active }: DragStartEvent) => {
     isDraggingRef.current = true;
@@ -152,7 +126,7 @@ const KanbanBoard = ({
         const overIndex = prev.findIndex((t) => t.id === overId);
         if (overIndex === -1) return prev;
         const overTask = prev[overIndex];
-        
+
         if (activeTask.column_id !== overTask.column_id) {
           const next = [...prev];
           next[activeIndex] = { ...activeTask, column_id: overTask.column_id };
@@ -176,7 +150,6 @@ const KanbanBoard = ({
     isDraggingRef.current = false;
     setActiveTask(null);
 
-    // If cancelled or dropped out of bounds
     if (!over) {
       setLocalTasks(tasks);
       return;
@@ -185,7 +158,7 @@ const KanbanBoard = ({
     const taskId = String(active.id);
     const finalTaskLocal = localTasks.find((t) => t.id === taskId);
     const originalTask = tasks.find((t) => t.id === taskId);
-    
+
     if (!finalTaskLocal || !originalTask) {
       setLocalTasks(tasks);
       return;
@@ -193,9 +166,8 @@ const KanbanBoard = ({
 
     const finalColumnId = finalTaskLocal.column_id ?? 'todo';
 
-    // If it was just reordered locally within the same column
     if (originalTask.column_id === finalColumnId) {
-      setLocalTasks(tasks); 
+      setLocalTasks(tasks);
       return;
     }
 
@@ -204,9 +176,7 @@ const KanbanBoard = ({
       ? { column_id: finalColumnId, status: finalColumnId as Task['status'] }
       : { column_id: finalColumnId };
 
-    const optimistic = tasks.map((t) =>
-      t.id === taskId ? { ...t, ...updatePayload } : t,
-    );
+    const optimistic = tasks.map((t) => (t.id === taskId ? { ...t, ...updatePayload } : t));
     setLocalTasks(optimistic);
     await mutateTasks({ tasks: optimistic }, { revalidate: false });
 
@@ -218,8 +188,6 @@ const KanbanBoard = ({
       toast.error('Failed to move task');
     }
   };
-
-  // ── Task delete ──────────────────────────────────────────────────────────────
 
   const handleDeleteTask = (task: Task) => {
     setConfirmState({
@@ -238,8 +206,6 @@ const KanbanBoard = ({
       },
     });
   };
-
-  // ── Column management ────────────────────────────────────────────────────────
 
   const handleAddColumn = async () => {
     const name = newColumnName.trim();
@@ -289,8 +255,6 @@ const KanbanBoard = ({
     }
   };
 
-  // ── Render ──────────────────────────────────────────────────────────────────
-
   return (
     <>
       <DndContext
@@ -300,13 +264,9 @@ const KanbanBoard = ({
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        {/* Horizontally scrollable column list */}
         <div className="flex gap-4 overflow-x-auto pb-4 items-start">
-
           {columns.map((column) => {
-            const columnTasks = localTasks.filter(
-              (t) => (t.column_id ?? t.status) === column.id,
-            );
+            const columnTasks = localTasks.filter((t) => (t.column_id ?? t.status) === column.id);
 
             return (
               <KanbanColumn
@@ -323,7 +283,6 @@ const KanbanBoard = ({
             );
           })}
 
-          {/* Add column section — owners only */}
           {isOwner && (
             <div className="shrink-0 w-72">
               {addingColumn ? (
@@ -344,11 +303,7 @@ const KanbanBoard = ({
                       disabled={!newColumnName.trim() || isCreatingColumn}
                       onClick={handleAddColumn}
                     >
-                      {isCreatingColumn ? (
-                        <Loader2 className="h-3 w-3 animate-spin" />
-                      ) : (
-                        'Add'
-                      )}
+                      {isCreatingColumn ? <Loader2 className="h-3 w-3 animate-spin" /> : 'Add'}
                     </Button>
                     <Button
                       variant="ghost"
@@ -381,7 +336,6 @@ const KanbanBoard = ({
           )}
         </div>
 
-        {/* Floating drag preview */}
         <DragOverlay dropAnimation={null}>
           {activeTask ? (
             <KanbanTaskCard
@@ -397,7 +351,6 @@ const KanbanBoard = ({
         </DragOverlay>
       </DndContext>
 
-      {/* Task create / edit form */}
       <TaskFormSheet
         open={sheetState.open}
         onClose={closeSheet}
@@ -408,7 +361,6 @@ const KanbanBoard = ({
         mutate={mutateTasks}
       />
 
-      {/* Confirmation dialog for task / column deletes */}
       <ConfirmDialog
         open={confirmState.open}
         title={confirmState.title}

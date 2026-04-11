@@ -1,15 +1,9 @@
-import { Link } from "react-router-dom";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { formatRelative } from "@/utils/date";
-import type { Project } from "@/types";
-import { ArrowRight } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { formatRelative } from '@/utils/date';
+import type { Project } from '@/types';
+import { ArrowRight } from 'lucide-react';
 
 interface Props {
   project: Project;
@@ -22,9 +16,7 @@ const ProjectCard = ({ project, isContributor = false }: Props) => (
     <Card className="hover:shadow-md transition-shadow cursor-pointer h-full flex flex-col">
       <CardHeader className="flex-1">
         <div className="flex items-start justify-between gap-2">
-          <CardTitle className="text-base leading-snug">
-            {project.name}
-          </CardTitle>
+          <CardTitle className="text-base leading-snug">{project.name}</CardTitle>
 
           {isContributor && (
             <Badge variant="secondary" className="text-xs shrink-0">

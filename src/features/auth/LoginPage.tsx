@@ -3,13 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -81,19 +75,12 @@ const LoginPage = () => {
               name="password"
               render={({ field }) => (
                 <InputContainer title="Password" error={errors.password?.message}>
-                  <Input
-                    {...field}
-                    id="password"
-                    type="password"
-                    autoComplete="current-password"
-                  />
+                  <Input {...field} id="password" type="password" autoComplete="current-password" />
                 </InputContainer>
               )}
             />
 
-            {serverError && (
-              <p className="text-sm text-destructive text-center">{serverError}</p>
-            )}
+            {serverError && <p className="text-sm text-destructive text-center">{serverError}</p>}
 
             <Button type="submit" className="w-full" disabled={isSubmitting}>
               {isSubmitting ? 'Signing in…' : 'Sign In'}

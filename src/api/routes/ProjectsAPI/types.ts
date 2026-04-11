@@ -1,7 +1,5 @@
 import type { User } from '@/types';
 
-// ── Payload Types (sent to API) ───────────────────────────────────────────────
-
 export interface CreateProjectPayload {
   name: string;
   description?: string;
@@ -19,8 +17,6 @@ export interface AddContributorPayload {
 export interface AddColumnPayload {
   name: string;
 }
-
-// ── Response Types (received from API) ───────────────────────────────────────
 
 export interface ProjectMembersResponse {
   owner: User;

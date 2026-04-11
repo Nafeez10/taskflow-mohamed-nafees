@@ -31,18 +31,13 @@ const ConfirmDialog = ({
     <DialogContent className="sm:max-w-sm" showCloseButton={false}>
       <DialogHeader>
         <DialogTitle>{title}</DialogTitle>
-        {description && (
-          <DialogDescription>{description}</DialogDescription>
-        )}
+        {description && <DialogDescription>{description}</DialogDescription>}
       </DialogHeader>
       <DialogFooter>
         <Button variant="outline" onClick={onCancel}>
           Cancel
         </Button>
-        <Button
-          variant={destructive ? 'destructive' : 'default'}
-          onClick={onConfirm}
-        >
+        <Button variant={destructive ? 'destructive' : 'default'} onClick={onConfirm}>
           {confirmLabel}
         </Button>
       </DialogFooter>

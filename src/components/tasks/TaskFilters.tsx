@@ -17,12 +17,7 @@ interface Props {
   currentUserId?: string;
 }
 
-const TaskFilters = ({
-  filters,
-  onChange,
-  members = [],
-  currentUserId,
-}: Props) => {
+const TaskFilters = ({ filters, onChange, members = [], currentUserId }: Props) => {
   if (members.length === 0) return null;
 
   const safeUserId = currentUserId ? String(currentUserId) : undefined;
@@ -31,9 +26,7 @@ const TaskFilters = ({
     <div className="flex flex-wrap gap-2">
       <Select
         value={filters.assignee ? String(filters.assignee) : 'all'}
-        onValueChange={(v) =>
-          onChange({ ...filters, assignee: v === 'all' ? undefined : v })
-        }
+        onValueChange={(v) => onChange({ ...filters, assignee: v === 'all' ? undefined : v })}
       >
         <SelectTrigger className="w-40 h-8 text-xs">
           <SelectValue placeholder="All assignees">
@@ -49,9 +42,7 @@ const TaskFilters = ({
         <SelectContent>
           <SelectItem value="all">All assignees</SelectItem>
 
-          {safeUserId && (
-            <SelectItem value={safeUserId}>Assigned to me</SelectItem>
-          )}
+          {safeUserId && <SelectItem value={safeUserId}>Assigned to me</SelectItem>}
 
           {members
             .filter((m) => String(m.id) !== safeUserId)
