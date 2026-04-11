@@ -19,15 +19,43 @@ TaskFlow is a modern, responsive Kanban board based task management application.
 - **Omissions:** Real-time WebSockets to update Kanban states globally and real JWT authentication. Since we are using a mock backend, full tokenized security and live server push via WebSockets were intentionally left out to prioritize UX and core state management flows for the frontend review.
 
 ## 3. Running Locally
-Assuming you have Docker installed, follow these commands to run both the frontend and the mock API backend.
+
+You have two options to run this project: using Native NPM or Docker Compose.
+
+### Option 1: Docker Compose
+
+If you have Docker Desktop installed, you can spin up the entire cluster in one command:
 
 ```bash
-git clone https://github.com/Nafeez10/taskflow-mohamed-nafees.git
-cd taskflow-frontend
-cp .env.example .env
+# This builds and runs both the mock-api and the frontend.
 docker compose up -d
 ```
-The app is available at http://localhost:3000
+**The app will be available at: http://localhost:3000**
+*(To stop the containers, run `docker compose down`)*
+
+### Option 2: Native NPM
+
+Requires **Node.js (v18+)** installed. You will need to start the mock database and frontend separately.
+
+1. Install all dependencies:
+   ```bash
+   npm install
+   ```
+
+2. **Terminal 1 (Mock API Engine):**
+   Starts the simulated backend database.
+   ```bash
+   npm run mock
+   ```
+
+3. **Terminal 2 (Frontend Client):**
+   Starts the Vite application server.
+   ```bash
+   npm run dev
+   ```
+   **The app will be available at: http://localhost:5173**
+
+---
 
 ## 4. Running Migrations
 Because the backend is powered by `json-server` for mock responses, there are no SQL migrations to run. Data persistence is handled via the initialized `mock-api/db.json` file. The server automatically serves these populated seeds on startup.
