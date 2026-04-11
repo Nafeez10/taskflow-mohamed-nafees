@@ -67,26 +67,156 @@ You can log in immediately using the following credentials without registering:
 - **Password:** `password123`
 
 ## 6. API Reference
-The application is currently communicating with the Mock API (running natively on port 4000 outside of docker, or routed internally via docker container).
 
-- **`GET /users`** 
-  - Retrieves all users.
-  - *Response example:* `[{ "id": "test-user-1", "name": "Test User", "email": "test@example.com" }]`
-- **`GET /projects`** 
-  - Retrieves all available projects.
-  - *Response example:* `[{ "id": "project-seed-1", "name": "Sample Project", "columns": [...] }]`
-- **`POST /projects`** 
-  - Creates a new project map.
-  - *Request example:* `{ "name": "New Project", "description": "About this project" }`
-- **`GET /tasks?project_id={id}`**
-  - Fetch all tasks relative to a single project workspace.
-  - *Response example:* `[{ "id": "task-seed-1", "title": "Establish Dark Mode", "status": "todo" }]`
-- **`POST /tasks`**
-  - Creates a new task.
-  - *Request example:* `{ "title": "Buy groceries", "project_id": "project-seed-1", "status": "todo" }`
-- **`PATCH /tasks/{id}`**
-  - Updates individual task information, typically used for Kanban drag-and-drop actions to change statuses.
-  - *Request example:* `{ "status": "in_progress" }`
+The mock API runs on **port 4000** locally (`npm run mock`) or is routed internally via Docker. All endpoints except Auth (`/auth/login`, `/auth/register`) require a **Bearer token** in the `Authorization` header.
+
+> **Authentication:** Tokens are base64-encoded JSON payloads (mock-only, not real JWTs). Obtain one via the login or register endpoints and pass it as `Authorization: Bearer <token>`.
+
+---
+
+### Auth
+
+#### `POST /auth/register`
+Create a new account.
+```
+Request:  { "name": "John", "username": "john", "email": "john@example.com", "password": "secret" }
+Response: { "token": "eyJ...", "user": { "id": "uuid", "name": "John", "username": "john", "email": "john@example.com" } }
+```
+Errors: `400` if validation fails (missing fields, duplicate email/username).
+
+#### `POST /auth/login`
+Log in with email/username and password.
+```
+Request:  { "emailOrUsername": "test@example.com", "password": "password123" }
+Response: { "token": "eyJ...", "user": { "id": "test-user-1", "name": "Mohamed Nafees", "email": "test@example.com" } }
+```
+Errors: `401` if credentials are invalid.
+
+#### `GET /auth/me`
+Get the currently authenticated user's profile.
+```
+Response: { "id": "test-user-1", "name": "Mohamed Nafees", "email": "test@example.com" }
+```
+
+---
+
+### Users
+
+#### `GET /users/lookup?identifier={email|username|id}`
+Look up a single user by email, username, or ID.
+```
+Response: { "id": "u2", "name": "Sarah Chen", "email": "sarah@zomato.dummy" }
+```
+Errors: `404` if no account found.
+
+#### `GET /users/search?q={query}`
+Search users by name, email, or username (max 5 results). Used for adding contributors.
+```
+Response: [{ "id": "u2", "name": "Sarah Chen", "email": "sarah@zomato.dummy" }, ...]
+```
+
+---
+
+### Projects
+
+#### `GET /projects`
+List all projects where the current user is an owner or contributor.
+```
+Response: { "projects": [{ "id": "p1", "name": "Rider App", "description": "...", "owner_id": "test-user-1", "contributor_ids": ["u2", "u3"], "columns": [...] }, ...] }
+```
+
+#### `POST /projects`
+Create a new project. The authenticated user becomes the owner.
+```
+Request:  { "name": "New Project", "description": "Optional description" }
+Response: { "id": "uuid", "name": "New Project", "description": "...", "owner_id": "test-user-1", "contributor_ids": [], "columns": [{ "id": "todo", ... }, { "id": "in_progress", ... }, { "id": "done", ... }] }
+```
+
+#### `GET /projects/:id`
+Get project details including all its tasks. Requires membership.
+```
+Response: { "id": "p1", "name": "Rider App", "owner_id": "test-user-1", "contributor_ids": [...], "columns": [...], "tasks": [{ "id": "t1-01", "title": "...", "column_id": "in_progress", ... }, ...] }
+```
+Errors: `403` if not a member, `404` if not found.
+
+#### `PATCH /projects/:id`
+Update project name or description. Owner only.
+```
+Request:  { "name": "Updated Name", "description": "Updated desc" }
+Response: { "id": "p1", "name": "Updated Name", ... }
+```
+
+#### `DELETE /projects/:id`
+Delete a project and all its tasks. Owner only. Returns `204 No Content`.
+
+---
+
+### Project Columns
+
+#### `POST /projects/:id/columns`
+Add a custom Kanban column. Owner only.
+```
+Request:  { "name": "QA Review" }
+Response: { "id": "uuid", "name": "QA Review", "isDefault": false }
+```
+
+#### `DELETE /projects/:id/columns/:columnId`
+Delete a custom column. Owner only. Tasks in the deleted column are moved to `todo`. Default columns (`todo`, `in_progress`, `done`) cannot be deleted. Returns `204 No Content`.
+
+---
+
+### Project Members
+
+#### `GET /projects/:id/members`
+List the owner and all contributors with full user profiles. Requires membership.
+```
+Response: { "owner": { "id": "test-user-1", "name": "Mohamed Nafees", ... }, "contributors": [{ "id": "u2", "name": "Sarah Chen", ... }, ...] }
+```
+
+#### `POST /projects/:id/contributors`
+Add a contributor by email, username, or user ID. Owner only.
+```
+Request:  { "identifier": "sarah@zomato.dummy" }
+Response: { "id": "u2", "name": "Sarah Chen", "email": "sarah@zomato.dummy" }
+```
+Errors: `400` if already a contributor/owner, `404` if user not found.
+
+#### `DELETE /projects/:id/contributors/:userId`
+Remove a contributor. Owner only. Returns `204 No Content`.
+
+---
+
+### Tasks
+
+#### `GET /projects/:id/tasks`
+List all tasks for a project. Supports optional query filters.
+```
+Query params: ?status=todo  |  ?assignee=test-user-1
+Response:     { "tasks": [{ "id": "t1-01", "title": "...", "status": "todo", "priority": "high", "column_id": "todo", "assignee_ids": [...], "due_date": "2026-04-20", ... }, ...] }
+```
+
+#### `POST /projects/:id/tasks`
+Create a new task within a project. Requires membership.
+```
+Request:  { "title": "Build login page", "description": "Optional", "priority": "high", "assignee_ids": ["u2", "u3"], "column_id": "todo", "due_date": "2026-04-20" }
+Response: { "id": "uuid", "title": "Build login page", "status": "todo", "priority": "high", "project_id": "p1", "column_id": "todo", "assignee_ids": ["u2", "u3"], "due_date": "2026-04-20", "created_at": "...", "updated_at": "..." }
+```
+
+#### `PATCH /tasks/:id`
+Update any task fields — used for Kanban drag-and-drop, editing details, reassigning, etc. When `column_id` is set to a default column (`todo`, `in_progress`, `done`), the `status` field is auto-synced.
+```
+Request:  { "column_id": "in_progress" }
+Response: { "id": "t1-01", "title": "...", "status": "in_progress", "column_id": "in_progress", ... }
+```
+
+#### `DELETE /tasks/:id`
+Delete a task. Returns `204 No Content`.
+
+#### `GET /tasks/mine`
+Get all tasks assigned to the current user across all accessible projects, enriched with project info.
+```
+Response: { "tasks": [{ "id": "t1-01", "title": "...", "column_id": "in_progress", "project": { "id": "p1", "name": "Rider App" }, ... }, ...] }
+```
 
 ## 7. What You'd Do With More Time
 - **Real Backend / Database:** I would migrate from the json-server mock API to a robust backend infrastructure (e.g., Node.js/Express with PostgreSQL) to enforce data integrity, advanced authentications, and relational dependencies properly.
