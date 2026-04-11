@@ -2,36 +2,11 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from '@/components/ui/avatar';
 import { formatDate, isOverdue } from '@/utils/date';
 import { cn } from '@/lib/utils';
-import type { Task, TaskStatus, User } from '@/types';
+import type { Task, User } from '@/types';
 import { Pencil, Trash2, Calendar } from 'lucide-react';
 
-const STATUS_STYLES: Record<TaskStatus, string> = {
-  todo: 'bg-secondary text-secondary-foreground',
-  in_progress: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300',
-  done: 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
-};
-
-const STATUS_LABELS: Record<TaskStatus, string> = {
-  todo: 'To Do',
-  in_progress: 'In Progress',
-  done: 'Done',
-};
-
-const PRIORITY_STYLES: Record<Task['priority'], string> = {
-  low: 'bg-muted text-muted-foreground',
-  medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300',
-  high: 'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
-};
-
-const getInitials = (name?: string): string => {
-  if (!name) return '??';
-  return name
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
-};
+import { TASK_STATUS_STYLES, TASK_PRIORITY_STYLES } from '@/constants/tasks';
+import { getInitials } from '@/utils/user';
 
 const MAX_VISIBLE_AVATARS = 3;
 
@@ -41,10 +16,9 @@ interface Props {
   assignees: User[];
   onEdit: (task: Task) => void;
   onDelete: (task: Task) => void;
-  onStatusChange: (task: Task, status: TaskStatus) => void;
 }
 
-const TaskCard = ({ task, assignees, onEdit, onDelete, onStatusChange }: Props) => {
+const TaskCard = ({ task, assignees, onEdit, onDelete }: Props) => {
   const overdue = isOverdue(task.due_date) && task.status !== 'done';
 
   const visibleAssignees = assignees.slice(0, MAX_VISIBLE_AVATARS);
@@ -86,14 +60,17 @@ const TaskCard = ({ task, assignees, onEdit, onDelete, onStatusChange }: Props) 
       {/* Status + priority badges */}
       <div className="flex flex-wrap gap-1.5">
         <span
-          className={cn('text-xs px-2 py-0.5 rounded-full font-medium', STATUS_STYLES[task.status])}
+          className={cn(
+            'text-xs px-2 py-0.5 rounded-full font-medium',
+            TASK_STATUS_STYLES[task.status] || 'bg-muted text-muted-foreground',
+          )}
         >
-          {STATUS_LABELS[task.status]}
+          {task.status_name || (task.status.charAt(0).toUpperCase() + task.status.slice(1))}
         </span>
         <span
           className={cn(
             'text-xs px-2 py-0.5 rounded-full font-medium capitalize',
-            PRIORITY_STYLES[task.priority],
+            TASK_PRIORITY_STYLES[task.priority],
           )}
         >
           {task.priority}
@@ -134,21 +111,6 @@ const TaskCard = ({ task, assignees, onEdit, onDelete, onStatusChange }: Props) 
         </div>
       )}
 
-      {/* Quick status change */}
-      <div className="flex gap-1 pt-1 border-t flex-wrap">
-        {(Object.keys(STATUS_LABELS) as TaskStatus[]).map((s) => (
-          <Button
-            key={s}
-            variant={task.status === s ? 'default' : 'outline'}
-            size="sm"
-            className="text-xs h-6 px-2"
-            onClick={() => task.status !== s && onStatusChange(task, s)}
-            disabled={task.status === s}
-          >
-            {STATUS_LABELS[s]}
-          </Button>
-        ))}
-      </div>
     </div>
   );
 };

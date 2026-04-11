@@ -6,21 +6,12 @@ import { Loader2 } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import type * as React from 'react';
 import { cn } from '@/lib/utils';
+import { getInitials } from '@/utils/user';
 
 type Props = Omit<React.ComponentProps<'input'>, 'onChange' | 'value'> & {
   value: string;
   onChange: (value: string) => void;
   onUserSelect?: (value: string) => void;
-};
-
-const getInitials = (name?: string): string => {
-  if (!name) return '??';
-  return name
-    .split(' ')
-    .map((w) => w[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
 };
 
 const ContributorSearch = ({ value, onChange, onUserSelect, ...props }: Props) => {

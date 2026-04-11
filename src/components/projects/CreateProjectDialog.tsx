@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import {
   Dialog,
   DialogContent,
@@ -24,20 +23,10 @@ import type { Project, User } from '@/types';
 import { X, UserPlus, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
-const schema = z.object({
-  name: z.string().min(1, 'Name is required').max(100),
-  description: z.string().max(500).optional(),
-});
+import { projectSchema } from '@/schemas/project';
+import { extractErrorMessage } from '@/utils/error';
 
-type FormData = z.infer<typeof schema>;
-
-const extractErrorMessage = (err: unknown, fallback: string): string => {
-  if (err && typeof err === 'object' && 'response' in err) {
-    const data = (err as { response?: { data?: { message?: string } } }).response?.data;
-    return data?.message ?? fallback;
-  }
-  return fallback;
-};
+type FormData = import('zod').infer<typeof projectSchema>;
 
 type Props = {
   open: boolean;
@@ -59,7 +48,7 @@ const CreateProjectDialog = ({ open, onClose, mutate }: Props) => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<FormData>({ resolver: zodResolver(projectSchema) });
 
   const handleAddPendingContributor = async (identifier: string) => {
     if (!identifier) return;

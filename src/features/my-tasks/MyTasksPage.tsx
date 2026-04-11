@@ -5,26 +5,10 @@ import Navbar from '@/components/layout/Navbar';
 import { Badge } from '@/components/ui/badge';
 import { formatDate, isOverdue } from '@/utils/date';
 import { cn } from '@/lib/utils';
-import type { TaskWithProject, TaskStatus, TaskPriority } from '@/types';
+import type { TaskWithProject } from '@/types';
 import { ClipboardList, Calendar, ExternalLink } from 'lucide-react';
 
-const STATUS_STYLES: Record<TaskStatus, string> = {
-  todo: 'bg-secondary text-secondary-foreground',
-  in_progress: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300',
-  done: 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300',
-};
-
-const STATUS_LABELS: Record<TaskStatus, string> = {
-  todo: 'To Do',
-  in_progress: 'In Progress',
-  done: 'Done',
-};
-
-const PRIORITY_STYLES: Record<TaskPriority, string> = {
-  low: 'bg-muted text-muted-foreground',
-  medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300',
-  high: 'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
-};
+import { TASK_STATUS_STYLES, TASK_PRIORITY_STYLES } from '@/constants/tasks';
 
 const MyTasksSkeleton = () => (
   <div className="space-y-6">
@@ -68,15 +52,18 @@ const TaskRow = ({ task }: { task: TaskWithProject }) => {
 
       <div className="flex flex-wrap items-center gap-1.5">
         <span
-          className={cn('text-xs px-2 py-0.5 rounded-full font-medium', STATUS_STYLES[task.status])}
+          className={cn(
+            'text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider',
+            TASK_STATUS_STYLES[task.status] || 'bg-muted text-muted-foreground',
+          )}
         >
-          {STATUS_LABELS[task.status]}
+          {task.status_name || (task.status.charAt(0).toUpperCase() + task.status.slice(1))}
         </span>
 
         <span
           className={cn(
-            'text-xs px-2 py-0.5 rounded-full font-medium capitalize',
-            PRIORITY_STYLES[task.priority],
+            'text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider',
+            TASK_PRIORITY_STYLES[task.priority],
           )}
         >
           {task.priority}

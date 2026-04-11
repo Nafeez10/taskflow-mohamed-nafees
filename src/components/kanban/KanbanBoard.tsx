@@ -171,10 +171,10 @@ const KanbanBoard = ({
       return;
     }
 
-    const defaultStatuses = new Set(['todo', 'in_progress', 'done']);
-    const updatePayload = defaultStatuses.has(finalColumnId)
-      ? { column_id: finalColumnId, status: finalColumnId as Task['status'] }
-      : { column_id: finalColumnId };
+    const updatePayload = {
+      column_id: finalColumnId,
+      status: finalColumnId,
+    };
 
     const optimistic = tasks.map((t) => (t.id === taskId ? { ...t, ...updatePayload } : t));
     setLocalTasks(optimistic);
@@ -357,6 +357,7 @@ const KanbanBoard = ({
         projectId={projectId}
         task={sheetState.editTask}
         projectMembers={projectMembers}
+        columns={columns}
         initialColumnId={sheetState.columnId}
         mutate={mutateTasks}
       />

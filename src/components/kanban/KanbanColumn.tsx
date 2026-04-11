@@ -6,12 +6,7 @@ import KanbanTaskCard from './KanbanTaskCard';
 import { cn } from '@/lib/utils';
 import type { ProjectColumn, Task, User } from '@/types';
 import { Plus, Trash2 } from 'lucide-react';
-
-const COLUMN_DOT: Record<string, string> = {
-  todo: 'bg-muted-foreground/50',
-  in_progress: 'bg-blue-400',
-  done: 'bg-green-400',
-};
+import { COLUMN_DOT_STYLES } from '@/constants/kanban';
 
 interface Props {
   column: ProjectColumn;
@@ -40,7 +35,7 @@ const KanbanColumn = ({
     data: { type: 'Column', column },
   });
 
-  const dotColor = COLUMN_DOT[column.id] ?? 'bg-purple-400';
+  const dotColor = COLUMN_DOT_STYLES[column.id] ?? 'bg-slate-400';
 
   const resolveAssignees = (assigneeIds: string[]): User[] =>
     assigneeIds.map((id) => memberById.get(id)).filter((u): u is User => u !== undefined);

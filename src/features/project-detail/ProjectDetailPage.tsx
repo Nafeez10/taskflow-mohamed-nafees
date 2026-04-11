@@ -18,18 +18,9 @@ import EditProjectDialog from '@/components/projects/EditProjectDialog';
 import ConfirmDialog from '@/components/ui/confirm-dialog';
 import Navbar from '@/components/layout/Navbar';
 import type { TaskFilterPayload as Filters } from '@/api/routes/TasksAPI';
+import { getInitials } from '@/utils/user';
 import { ChevronLeft, Users, MoreHorizontal, Pencil, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
-
-const getInitials = (name?: string): string => {
-  if (!name) return '??';
-  return name
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
-};
 
 const MAX_HEADER_AVATARS = 4;
 

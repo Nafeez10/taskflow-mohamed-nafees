@@ -30,18 +30,21 @@ export interface Project {
   tasks?: Task[];
 }
 
-export type TaskStatus = 'todo' | 'in_progress' | 'done';
+export type TaskStatus = string;
 export type TaskPriority = 'low' | 'medium' | 'high';
 
 export interface Task {
   id: string;
   title: string;
   description?: string;
+  /** Matches current column_id; used for filtering and legacy status display */
   status: TaskStatus;
+  /** The display name of the current status/column (resolved from column_id on the backend) */
+  status_name?: string;
   priority: TaskPriority;
   project_id: string;
   assignee_ids: string[];
-  /** Kanban column this task currently lives in */
+  /** Kanban column this task currently lives in (identical to status) */
   column_id: string;
   due_date?: string | null;
   created_at: string;

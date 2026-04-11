@@ -10,24 +10,8 @@ import { ProjectsAPI } from '@/api/routes/ProjectsAPI';
 import type { ProjectMember } from '@/types';
 import { Crown, X, Loader2, UserPlus } from 'lucide-react';
 import { toast } from 'sonner';
-
-const getInitials = (name?: string): string => {
-  if (!name) return '??';
-  return name
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
-};
-
-const extractErrorMessage = (err: unknown, fallback: string): string => {
-  if (err && typeof err === 'object' && 'response' in err) {
-    const data = (err as { response?: { data?: { message?: string } } }).response?.data;
-    return data?.message ?? fallback;
-  }
-  return fallback;
-};
+import { getInitials } from '@/utils/user';
+import { extractErrorMessage } from '@/utils/error';
 
 type Props = {
   open: boolean;

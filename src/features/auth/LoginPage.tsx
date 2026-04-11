@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,14 +9,10 @@ import { Input } from '@/components/ui/input';
 import { AuthAPI } from '@/api/routes/AuthAPI';
 import InputContainer from '@/components/ui/InputContainer';
 import { useAuth } from '@/context/AuthContext';
+import { loginSchema } from '@/schemas/auth';
 import { CheckSquare } from 'lucide-react';
 
-const schema = z.object({
-  emailOrUsername: z.string().min(1, 'Email or Username is required'),
-  password: z.string().min(1, 'Password is required'),
-});
-
-type FormData = z.infer<typeof schema>;
+type FormData = import('zod').infer<typeof loginSchema>;
 
 const LoginPage = () => {
   const [serverError, setServerError] = useState('');
@@ -28,7 +23,7 @@ const LoginPage = () => {
     control,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<FormData>({ resolver: zodResolver(loginSchema) });
 
   const onSubmit = async (data: FormData) => {
     setServerError('');

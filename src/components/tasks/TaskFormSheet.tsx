@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -26,25 +25,10 @@ import { Check, CalendarIcon } from 'lucide-react';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 
-const schema = z.object({
-  title: z.string().min(1, 'Title is required').max(200),
-  description: z.string().max(1000).optional(),
-  priority: z.enum(['low', 'medium', 'high']),
-  status: z.enum(['todo', 'in_progress', 'done']),
-  due_date: z.string().optional(),
-});
+import { taskSchema } from '@/schemas/task';
+import { getInitials } from '@/utils/user';
 
-type FormData = z.infer<typeof schema>;
-
-const getInitials = (name?: string): string => {
-  if (!name) return '??';
-  return name
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
-};
+type FormData = import('zod').infer<typeof taskSchema>;
 
 interface Props {
   open: boolean;
@@ -53,6 +37,8 @@ interface Props {
   task?: Task | null;
   /** All project members (owner + contributors) for the assignee picker */
   projectMembers: ProjectMember[];
+  /** Available columns in the project to show in the status dropdown */
+  columns: { id: string; name: string }[];
   /**
    * When creating a new task, the column it should be placed in.
    * Defaults to 'todo' on the server if not provided.
@@ -67,6 +53,7 @@ const TaskFormSheet = ({
   projectId,
   task,
   projectMembers,
+  columns,
   initialColumnId,
   mutate,
 }: Props) => {
@@ -80,8 +67,8 @@ const TaskFormSheet = ({
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
-    resolver: zodResolver(schema),
-    defaultValues: { priority: 'medium', status: 'todo' },
+    resolver: zodResolver(taskSchema),
+    defaultValues: { priority: 'medium', status: initialColumnId || 'todo' },
   });
 
   useEffect(() => {
@@ -97,7 +84,7 @@ const TaskFormSheet = ({
     } else {
       reset({
         priority: 'medium',
-        status: 'todo',
+        status: initialColumnId || 'todo',
         title: '',
         description: '',
         due_date: '',
@@ -194,15 +181,15 @@ const TaskFormSheet = ({
                   <Select value={field.value} onValueChange={field.onChange}>
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Status">
-                        {field.value === 'todo' && 'To Do'}
-                        {field.value === 'in_progress' && 'In Progress'}
-                        {field.value === 'done' && 'Done'}
+                        {columns.find((c) => c.id === field.value)?.name || field.value}
                       </SelectValue>
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="todo">To Do</SelectItem>
-                      <SelectItem value="in_progress">In Progress</SelectItem>
-                      <SelectItem value="done">Done</SelectItem>
+                      {columns.map((col) => (
+                        <SelectItem key={col.id} value={col.id}>
+                          {col.name}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </InputContainer>

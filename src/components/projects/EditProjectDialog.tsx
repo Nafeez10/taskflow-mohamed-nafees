@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import {
   Dialog,
   DialogContent,
@@ -13,16 +12,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ProjectsAPI } from '@/api/routes/ProjectsAPI';
+import { projectSchema } from '@/schemas/project';
 import InputContainer from '@/components/ui/InputContainer';
 import type { Project } from '@/types';
 import { toast } from 'sonner';
 
-const schema = z.object({
-  name: z.string().min(1, 'Name is required').max(100),
-  description: z.string().max(500).optional(),
-});
-
-type FormData = z.infer<typeof schema>;
+type FormData = import('zod').infer<typeof projectSchema>;
 
 interface Props {
   open: boolean;
@@ -37,7 +32,7 @@ const EditProjectDialog = ({ open, onClose, project, onUpdated }: Props) => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<FormData>({ resolver: zodResolver(projectSchema) });
 
   useEffect(() => {
     if (open) {

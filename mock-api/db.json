@@ -1,35 +1,215 @@
 {
   "users": [
-    { "id": "test-user-1", "name": "Mohamed Nafees", "username": "nafees", "email": "test@example.com", "password": "password123" },
-    { "id": "u2", "name": "Sarah Chen", "username": "sarahc", "email": "sarah@zomato.dummy", "password": "password123" },
-    { "id": "u3", "name": "Michael Ross", "username": "mross", "email": "michael@zomato.dummy", "password": "password123" },
-    { "id": "u4", "name": "David Gupta", "username": "davidg", "email": "david@zomato.dummy", "password": "password123" },
-    { "id": "u5", "name": "Elena Rodriguez", "username": "elenr", "email": "elena@zomato.dummy", "password": "password123" },
-    { "id": "u6", "name": "Alex Mercer", "username": "alexm", "email": "alex@zomato.dummy", "password": "password123" },
-    { "id": "u7", "name": "Priya Sharma", "username": "priyas", "email": "priya@zomato.dummy", "password": "password123" },
-    { "id": "u8", "name": "James Lee", "username": "jameslee", "email": "james@zomato.dummy", "password": "password123" },
-    { "id": "u9", "name": "Sophia Martinez", "username": "sophiam", "email": "sophia@zomato.dummy", "password": "password123" },
-    { "id": "u10", "name": "Vikram Patel", "username": "vikramp", "email": "vikram@zomato.dummy", "password": "password123" },
-    { "id": "u11", "name": "Nina Simons", "username": "ninas", "email": "nina@zomato.dummy", "password": "password123" },
-    { "id": "u12", "name": "Rahul Verma", "username": "rahulv", "email": "rahul@zomato.dummy", "password": "password123" },
-    { "id": "u13", "name": "Emily Watson", "username": "emilyw", "email": "emily@zomato.dummy", "password": "password123" },
-    { "id": "u14", "name": "Zain Malik", "username": "zainm", "email": "zain@zomato.dummy", "password": "password123" },
-    { "id": "u15", "name": "Olivia Kim", "username": "oliviak", "email": "olivia@zomato.dummy", "password": "password123" },
-    { "id": "u16", "name": "Tariq Hasan", "username": "tariqh", "email": "tariq@zomato.dummy", "password": "password123" },
-    { "id": "u17", "name": "Meera Joshi", "username": "meeraj", "email": "meera@zomato.dummy", "password": "password123" },
-    { "id": "u18", "name": "Daniel Carter", "username": "danielc", "email": "daniel@zomato.dummy", "password": "password123" },
-    { "id": "u19", "name": "Ananya Iyer", "username": "ananyai", "email": "ananya@zomato.dummy", "password": "password123" },
-    { "id": "u20", "name": "Chris Becker", "username": "chrisb", "email": "chris@zomato.dummy", "password": "password123" },
-    { "id": "u21", "name": "Fatima Al-Rashid", "username": "fatimar", "email": "fatima@zomato.dummy", "password": "password123" },
-    { "id": "u22", "name": "Rohan Desai", "username": "rohand", "email": "rohan@zomato.dummy", "password": "password123" },
-    { "id": "u23", "name": "Lisa Nguyen", "username": "lisan", "email": "lisa@zomato.dummy", "password": "password123" },
-    { "id": "u24", "name": "Karan Mehta", "username": "karanm", "email": "karan@zomato.dummy", "password": "password123" },
-    { "id": "u25", "name": "Jessica Park", "username": "jessicap", "email": "jessica@zomato.dummy", "password": "password123" },
-    { "id": "u26", "name": "Aditya Nair", "username": "adityan", "email": "aditya@zomato.dummy", "password": "password123" },
-    { "id": "u27", "name": "Rachel Green", "username": "rachelg", "email": "rachel@zomato.dummy", "password": "password123" },
-    { "id": "u28", "name": "Sameer Khan", "username": "sameerk", "email": "sameer@zomato.dummy", "password": "password123" },
-    { "id": "u29", "name": "Tanya Oberoi", "username": "tanyao", "email": "tanya@zomato.dummy", "password": "password123" },
-    { "id": "u30", "name": "Ben Mitchell", "username": "benm", "email": "ben@zomato.dummy", "password": "password123" }
+    {
+      "id": "test-user-1",
+      "name": "Mohamed Nafees",
+      "username": "nafees",
+      "email": "test@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "u2",
+      "name": "Sarah Chen",
+      "username": "sarahc",
+      "email": "sarah@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u3",
+      "name": "Michael Ross",
+      "username": "mross",
+      "email": "michael@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u4",
+      "name": "David Gupta",
+      "username": "davidg",
+      "email": "david@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u5",
+      "name": "Elena Rodriguez",
+      "username": "elenr",
+      "email": "elena@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u6",
+      "name": "Alex Mercer",
+      "username": "alexm",
+      "email": "alex@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u7",
+      "name": "Priya Sharma",
+      "username": "priyas",
+      "email": "priya@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u8",
+      "name": "James Lee",
+      "username": "jameslee",
+      "email": "james@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u9",
+      "name": "Sophia Martinez",
+      "username": "sophiam",
+      "email": "sophia@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u10",
+      "name": "Vikram Patel",
+      "username": "vikramp",
+      "email": "vikram@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u11",
+      "name": "Nina Simons",
+      "username": "ninas",
+      "email": "nina@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u12",
+      "name": "Rahul Verma",
+      "username": "rahulv",
+      "email": "rahul@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u13",
+      "name": "Emily Watson",
+      "username": "emilyw",
+      "email": "emily@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u14",
+      "name": "Zain Malik",
+      "username": "zainm",
+      "email": "zain@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u15",
+      "name": "Olivia Kim",
+      "username": "oliviak",
+      "email": "olivia@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u16",
+      "name": "Tariq Hasan",
+      "username": "tariqh",
+      "email": "tariq@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u17",
+      "name": "Meera Joshi",
+      "username": "meeraj",
+      "email": "meera@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u18",
+      "name": "Daniel Carter",
+      "username": "danielc",
+      "email": "daniel@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u19",
+      "name": "Ananya Iyer",
+      "username": "ananyai",
+      "email": "ananya@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u20",
+      "name": "Chris Becker",
+      "username": "chrisb",
+      "email": "chris@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u21",
+      "name": "Fatima Al-Rashid",
+      "username": "fatimar",
+      "email": "fatima@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u22",
+      "name": "Rohan Desai",
+      "username": "rohand",
+      "email": "rohan@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u23",
+      "name": "Lisa Nguyen",
+      "username": "lisan",
+      "email": "lisa@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u24",
+      "name": "Karan Mehta",
+      "username": "karanm",
+      "email": "karan@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u25",
+      "name": "Jessica Park",
+      "username": "jessicap",
+      "email": "jessica@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u26",
+      "name": "Aditya Nair",
+      "username": "adityan",
+      "email": "aditya@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u27",
+      "name": "Rachel Green",
+      "username": "rachelg",
+      "email": "rachel@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u28",
+      "name": "Sameer Khan",
+      "username": "sameerk",
+      "email": "sameer@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u29",
+      "name": "Tanya Oberoi",
+      "username": "tanyao",
+      "email": "tanya@zomato.dummy",
+      "password": "password123"
+    },
+    {
+      "id": "u30",
+      "name": "Ben Mitchell",
+      "username": "benm",
+      "email": "ben@zomato.dummy",
+      "password": "password123"
+    }
   ],
   "projects": [
     {
@@ -37,12 +217,45 @@
       "name": "Zomato Rider App — Q2 Overhaul",
       "description": "Complete redesign of the rider experience with real-time GPS, surge heatmaps, and voice navigation for delivery partners.",
       "owner_id": "test-user-1",
-      "contributor_ids": ["u2", "u3", "u4", "u5", "u6", "u7", "u8", "u9", "u10", "u11", "u19", "u22"],
+      "contributor_ids": [
+        "u2",
+        "u3",
+        "u4",
+        "u5",
+        "u6",
+        "u7",
+        "u8",
+        "u9",
+        "u10",
+        "u11",
+        "u19",
+        "u22"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "qa", "name": "QA / Testing", "isDefault": false, "order": 2 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "qa",
+          "name": "QA / Testing",
+          "isDefault": false,
+          "order": 2
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -50,12 +263,43 @@
       "name": "Blinkit Grocery Integration",
       "description": "Merging Blinkit's grocery checkout into the main Zomato app for a unified food + grocery experience.",
       "owner_id": "test-user-1",
-      "contributor_ids": ["u12", "u13", "u14", "u5", "u2", "u8", "u18", "u17", "u20", "u23"],
+      "contributor_ids": [
+        "u12",
+        "u13",
+        "u14",
+        "u5",
+        "u2",
+        "u8",
+        "u18",
+        "u17",
+        "u20",
+        "u23"
+      ],
       "columns": [
-        { "id": "todo", "name": "Backlog", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "Active Sprint", "isDefault": true, "order": 1 },
-        { "id": "review", "name": "Code Review", "isDefault": false, "order": 2 },
-        { "id": "done", "name": "Merged", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "Backlog",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "Active Sprint",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "review",
+          "name": "Code Review",
+          "isDefault": false,
+          "order": 2
+        },
+        {
+          "id": "done",
+          "name": "Merged",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -63,11 +307,37 @@
       "name": "Zomato Pay SDK Reboot",
       "description": "Rewriting the payment gateway with modern React Native hooks, Apple Pay, Google Pay, and UPI 2.0 support.",
       "owner_id": "u2",
-      "contributor_ids": ["test-user-1", "u7", "u8", "u9", "u16", "u11", "u4", "u3", "u24", "u26"],
+      "contributor_ids": [
+        "test-user-1",
+        "u7",
+        "u8",
+        "u9",
+        "u16",
+        "u11",
+        "u4",
+        "u3",
+        "u24",
+        "u26"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     },
     {
@@ -75,12 +345,43 @@
       "name": "Intercity Legends Expansion",
       "description": "Scaling air-shipped legendary regional dishes from 5 to 20+ metro areas with cold chain logistics.",
       "owner_id": "test-user-1",
-      "contributor_ids": ["u3", "u4", "u6", "u10", "u11", "u15", "u13", "u14", "u21", "u25"],
+      "contributor_ids": [
+        "u3",
+        "u4",
+        "u6",
+        "u10",
+        "u11",
+        "u15",
+        "u13",
+        "u14",
+        "u21",
+        "u25"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "staging", "name": "Staging", "isDefault": false, "order": 2 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "staging",
+          "name": "Staging",
+          "isDefault": false,
+          "order": 2
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -88,12 +389,43 @@
       "name": "Merchant Analytics Portal",
       "description": "Real-time analytics dashboard for restaurant partners — orders, revenue, menu heatmaps, and ad ROI tracking.",
       "owner_id": "u18",
-      "contributor_ids": ["test-user-1", "u3", "u5", "u7", "u8", "u10", "u17", "u12", "u27", "u29"],
+      "contributor_ids": [
+        "test-user-1",
+        "u3",
+        "u5",
+        "u7",
+        "u8",
+        "u10",
+        "u17",
+        "u12",
+        "u27",
+        "u29"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "review", "name": "Code Review", "isDefault": false, "order": 2 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "review",
+          "name": "Code Review",
+          "isDefault": false,
+          "order": 2
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -101,12 +433,43 @@
       "name": "AI Customer Support Bot",
       "description": "LLM-powered chatbot handling tier-1 delivery complaints, refund requests, and order tracking autonomously.",
       "owner_id": "u5",
-      "contributor_ids": ["test-user-1", "u4", "u6", "u9", "u11", "u16", "u19", "u22", "u28", "u30"],
+      "contributor_ids": [
+        "test-user-1",
+        "u4",
+        "u6",
+        "u9",
+        "u11",
+        "u16",
+        "u19",
+        "u22",
+        "u28",
+        "u30"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "testing", "name": "A/B Testing", "isDefault": false, "order": 2 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "testing",
+          "name": "A/B Testing",
+          "isDefault": false,
+          "order": 2
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -114,11 +477,37 @@
       "name": "HyperPure B2B Portal",
       "description": "React frontend for HyperPure — Zomato's ingredient sourcing platform for restaurants and cloud kitchens.",
       "owner_id": "u14",
-      "contributor_ids": ["test-user-1", "u2", "u12", "u15", "u8", "u7", "u3", "u20", "u23", "u26"],
+      "contributor_ids": [
+        "test-user-1",
+        "u2",
+        "u12",
+        "u15",
+        "u8",
+        "u7",
+        "u3",
+        "u20",
+        "u23",
+        "u26"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     },
     {
@@ -126,11 +515,37 @@
       "name": "Zomato Gold Subscription Rewrite",
       "description": "Overhauling Gold membership pricing — dynamic surges, micro-memberships, and family plan support.",
       "owner_id": "test-user-1",
-      "contributor_ids": ["u4", "u8", "u13", "u17", "u16", "u5", "u24", "u27", "u29", "u30"],
+      "contributor_ids": [
+        "u4",
+        "u8",
+        "u13",
+        "u17",
+        "u16",
+        "u5",
+        "u24",
+        "u27",
+        "u29",
+        "u30"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -138,11 +553,37 @@
       "name": "Feeding India App Refresh",
       "description": "Mobile app for Feeding India — volunteer matching, food recovery tracking, and NGO coordination.",
       "owner_id": "u11",
-      "contributor_ids": ["test-user-1", "u7", "u14", "u15", "u19", "u21", "u23", "u25", "u28", "u30"],
+      "contributor_ids": [
+        "test-user-1",
+        "u7",
+        "u14",
+        "u15",
+        "u19",
+        "u21",
+        "u23",
+        "u25",
+        "u28",
+        "u30"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     },
     {
@@ -150,11 +591,37 @@
       "name": "Drone Delivery Beta — Gurgaon",
       "description": "Drone logistics pilot for Sector 29 Gurgaon — flight path mapping, DGCA compliance, and live telemetry.",
       "owner_id": "u6",
-      "contributor_ids": ["test-user-1", "u2", "u3", "u10", "u15", "u18", "u20", "u22", "u26", "u29"],
+      "contributor_ids": [
+        "test-user-1",
+        "u2",
+        "u3",
+        "u10",
+        "u15",
+        "u18",
+        "u20",
+        "u22",
+        "u26",
+        "u29"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     },
     {
@@ -162,12 +629,43 @@
       "name": "Restaurant Onboarding Revamp",
       "description": "Streamlining the restaurant partner signup flow — from 14 steps to 4, with document AI verification.",
       "owner_id": "test-user-1",
-      "contributor_ids": ["u2", "u7", "u9", "u12", "u15", "u19", "u21", "u24", "u26", "u28"],
+      "contributor_ids": [
+        "u2",
+        "u7",
+        "u9",
+        "u12",
+        "u15",
+        "u19",
+        "u21",
+        "u24",
+        "u26",
+        "u28"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "ux_review", "name": "UX Review", "isDefault": false, "order": 2 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "ux_review",
+          "name": "UX Review",
+          "isDefault": false,
+          "order": 2
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -175,11 +673,37 @@
       "name": "Live Order Tracking 2.0",
       "description": "Next-gen order tracking with animated map, rider ETA prediction, and live video of food prep.",
       "owner_id": "u9",
-      "contributor_ids": ["test-user-1", "u3", "u6", "u8", "u10", "u13", "u17", "u20", "u25", "u27"],
+      "contributor_ids": [
+        "test-user-1",
+        "u3",
+        "u6",
+        "u8",
+        "u10",
+        "u13",
+        "u17",
+        "u20",
+        "u25",
+        "u27"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     },
     {
@@ -187,12 +711,43 @@
       "name": "Design System — Starter Kit v3",
       "description": "Unified component library for all Zomato products — tokens, primitives, and composable patterns.",
       "owner_id": "test-user-1",
-      "contributor_ids": ["u2", "u5", "u9", "u11", "u15", "u17", "u21", "u23", "u25", "u29"],
+      "contributor_ids": [
+        "u2",
+        "u5",
+        "u9",
+        "u11",
+        "u15",
+        "u17",
+        "u21",
+        "u23",
+        "u25",
+        "u29"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "design_qa", "name": "Design QA", "isDefault": false, "order": 2 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "design_qa",
+          "name": "Design QA",
+          "isDefault": false,
+          "order": 2
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -200,12 +755,43 @@
       "name": "Search & Discovery — ML Ranking",
       "description": "Personalized restaurant ranking using collaborative filtering, location signals, and cuisine embeddings.",
       "owner_id": "u4",
-      "contributor_ids": ["test-user-1", "u5", "u8", "u10", "u14", "u16", "u22", "u24", "u26", "u28"],
+      "contributor_ids": [
+        "test-user-1",
+        "u5",
+        "u8",
+        "u10",
+        "u14",
+        "u16",
+        "u22",
+        "u24",
+        "u26",
+        "u28"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "experiment", "name": "Experiment", "isDefault": false, "order": 2 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "experiment",
+          "name": "Experiment",
+          "isDefault": false,
+          "order": 2
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -213,11 +799,37 @@
       "name": "Zomato for Enterprise (Catering)",
       "description": "B2B catering platform — bulk ordering, corporate accounts, dietary filters, and invoice management.",
       "owner_id": "test-user-1",
-      "contributor_ids": ["u3", "u6", "u7", "u12", "u13", "u18", "u20", "u23", "u27", "u30"],
+      "contributor_ids": [
+        "u3",
+        "u6",
+        "u7",
+        "u12",
+        "u13",
+        "u18",
+        "u20",
+        "u23",
+        "u27",
+        "u30"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     },
     {
@@ -225,11 +837,37 @@
       "name": "Performance & Core Web Vitals",
       "description": "Driving LCP < 2.5s and CLS < 0.1 across all web surfaces — SSR migration, image optimization, and bundle splitting.",
       "owner_id": "u3",
-      "contributor_ids": ["test-user-1", "u2", "u4", "u8", "u11", "u14", "u19", "u24", "u27", "u30"],
+      "contributor_ids": [
+        "test-user-1",
+        "u2",
+        "u4",
+        "u8",
+        "u11",
+        "u14",
+        "u19",
+        "u24",
+        "u27",
+        "u30"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     },
     {
@@ -237,11 +875,37 @@
       "name": "Zomato Events & Experiences",
       "description": "Platform for food festivals, chef masterclasses, and curated dining experiences — ticketing and discovery.",
       "owner_id": "test-user-1",
-      "contributor_ids": ["u5", "u7", "u9", "u10", "u13", "u16", "u21", "u25", "u28", "u29"],
+      "contributor_ids": [
+        "u5",
+        "u7",
+        "u9",
+        "u10",
+        "u13",
+        "u16",
+        "u21",
+        "u25",
+        "u28",
+        "u29"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     },
     {
@@ -249,12 +913,43 @@
       "name": "Cloud Kitchen Management Suite",
       "description": "Internal tool for managing Zomato-owned cloud kitchen operations — inventory, staffing, and order routing.",
       "owner_id": "u10",
-      "contributor_ids": ["test-user-1", "u3", "u4", "u6", "u12", "u15", "u17", "u22", "u26", "u30"],
+      "contributor_ids": [
+        "test-user-1",
+        "u3",
+        "u4",
+        "u6",
+        "u12",
+        "u15",
+        "u17",
+        "u22",
+        "u26",
+        "u30"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "staging", "name": "Staging", "isDefault": false, "order": 2 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 3 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "staging",
+          "name": "Staging",
+          "isDefault": false,
+          "order": 2
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 3
+        }
       ]
     },
     {
@@ -262,11 +957,37 @@
       "name": "Notifications & Engagement Engine",
       "description": "Smart push notifications — personalized timing, deep links, A/B tested copy, and quiet hours respect.",
       "owner_id": "test-user-1",
-      "contributor_ids": ["u2", "u4", "u6", "u8", "u11", "u14", "u19", "u20", "u23", "u28"],
+      "contributor_ids": [
+        "u2",
+        "u4",
+        "u6",
+        "u8",
+        "u11",
+        "u14",
+        "u19",
+        "u20",
+        "u23",
+        "u28"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     },
     {
@@ -274,235 +995,2858 @@
       "name": "Table Reservation System",
       "description": "Full-stack table booking — real-time availability, waitlist management, and special occasion packages.",
       "owner_id": "u7",
-      "contributor_ids": ["test-user-1", "u2", "u5", "u9", "u12", "u16", "u18", "u22", "u25", "u29"],
+      "contributor_ids": [
+        "test-user-1",
+        "u2",
+        "u5",
+        "u9",
+        "u12",
+        "u16",
+        "u18",
+        "u22",
+        "u25",
+        "u29"
+      ],
       "columns": [
-        { "id": "todo", "name": "To Do", "isDefault": true, "order": 0 },
-        { "id": "in_progress", "name": "In Progress", "isDefault": true, "order": 1 },
-        { "id": "done", "name": "Done", "isDefault": true, "order": 2 }
+        {
+          "id": "todo",
+          "name": "To Do",
+          "isDefault": true,
+          "order": 0
+        },
+        {
+          "id": "in_progress",
+          "name": "In Progress",
+          "isDefault": true,
+          "order": 1
+        },
+        {
+          "id": "done",
+          "name": "Done",
+          "isDefault": true,
+          "order": 2
+        }
       ]
     }
   ],
   "tasks": [
-    { "id": "t1-01", "project_id": "p1", "title": "FE: Optimize Mapbox GL heatmap rendering", "description": "The heatmap layer causes severe frame drops on low-end Androids. Profile and batch WebGL draw calls.", "status": "in_progress", "priority": "high", "due_date": "2026-04-14", "assignee_ids": ["test-user-1", "u4"], "column_id": "in_progress" },
-    { "id": "t1-02", "project_id": "p1", "title": "BE: Build surge pricing API endpoint", "description": "Expose GET /api/v2/surge/heatmap using PostGIS bounding boxes. Must respond under 50ms p99.", "status": "done", "priority": "high", "due_date": "2026-04-10", "assignee_ids": ["u5", "u8"], "column_id": "done" },
-    { "id": "t1-03", "project_id": "p1", "title": "FE: Weather rain alerts overlay modal", "description": "Show warning modal to riders during heavy rain and conditionally adjust delivery SLA text.", "status": "todo", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["u2"], "column_id": "todo" },
-    { "id": "t1-04", "project_id": "p1", "title": "BE: Kafka consumer for weather events", "description": "Set up Kafka consumer on regional weather topic and emit WebSocket events to rider app instances.", "status": "todo", "priority": "high", "due_date": "2026-04-20", "assignee_ids": ["u6"], "column_id": "todo" },
-    { "id": "t1-05", "project_id": "p1", "title": "QA: Test offline reconnect logic", "description": "Verify queued actions sync correctly when dropping from 4G to Edge and back.", "status": "in_progress", "priority": "low", "due_date": "2026-04-25", "assignee_ids": ["u7", "u19"], "column_id": "qa" },
-    { "id": "t1-06", "project_id": "p1", "title": "Design: Rider identity verification flow", "description": "Finalize Figma screens for facial recognition + Aadhaar selfie match UI.", "status": "done", "priority": "medium", "due_date": "2026-04-05", "assignee_ids": ["u9", "test-user-1"], "column_id": "done" },
-    { "id": "t1-07", "project_id": "p1", "title": "FE: Apple Watch complication for distance", "description": "Show real-time delivery distance directly on Apple Watch face using WatchOS complication API.", "status": "todo", "priority": "low", "due_date": "2026-05-01", "assignee_ids": ["u11", "u22"], "column_id": "todo" },
-    { "id": "t1-08", "project_id": "p1", "title": "BE: Fix WebRTC signaling handshake drops", "description": "Socket connection closes unexpectedly before call bridges to merchant. Investigate TURN server timeouts.", "status": "in_progress", "priority": "high", "due_date": "2026-04-13", "assignee_ids": ["u3", "u10"], "column_id": "in_progress" },
-    { "id": "t1-09", "project_id": "p1", "title": "FE: Voice navigation integration with Google TTS", "description": "Implement turn-by-turn voice guidance using Google Text-to-Speech API in regional languages.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["test-user-1", "u2"], "column_id": "todo" },
-    { "id": "t1-10", "project_id": "p1", "title": "Product: Define rider incentive tiers for Q2", "description": "Work with ops team to finalize surge multiplier brackets and peak hour bonus structure.", "status": "done", "priority": "high", "due_date": "2026-04-08", "assignee_ids": ["u10", "u5"], "column_id": "done" },
-    { "id": "t1-11", "project_id": "p1", "title": "BE: Redis caching for active delivery sessions", "description": "Cache rider location pings in Redis with 30s TTL to reduce Postgres read load.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-16", "assignee_ids": ["u8"], "column_id": "in_progress" },
-    { "id": "t1-12", "project_id": "p1", "title": "FE: Animated route polyline on delivery map", "description": "Smooth animated polyline showing rider's traveled path with gradient coloring.", "status": "qa", "priority": "low", "due_date": "2026-04-19", "assignee_ids": ["u19", "u22"], "column_id": "qa" },
-
-    { "id": "t2-01", "project_id": "p2", "title": "Product: Map Blinkit taxonomy to Zomato categories", "description": "Merge grocery product taxonomy from Blinkit DB into Zomato's unified catalog schema.", "status": "in_progress", "priority": "high", "due_date": "2026-04-13", "assignee_ids": ["test-user-1", "u14"], "column_id": "in_progress" },
-    { "id": "t2-02", "project_id": "p2", "title": "FE: Combined cart drawer — food + grocery", "description": "Side-by-side cart showing food items and grocery items without losing state on tab switch.", "status": "todo", "priority": "high", "due_date": "2026-04-20", "assignee_ids": ["u2", "u23"], "column_id": "todo" },
-    { "id": "t2-03", "project_id": "p2", "title": "BE: Real-time inventory sync microservice", "description": "Sync dark store inventory to Zomato core DB via gRPC streaming with conflict resolution.", "status": "done", "priority": "medium", "due_date": "2026-03-30", "assignee_ids": ["u8", "u5"], "column_id": "done" },
-    { "id": "t2-04", "project_id": "p2", "title": "QA: Load test unified cart at 10k RPS", "description": "Blast test the unified cart checkout endpoint and measure p99 latency under load.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-15", "assignee_ids": ["u17", "u12"], "column_id": "in_progress" },
-    { "id": "t2-05", "project_id": "p2", "title": "FE: Grocery search with autocomplete", "description": "Implement debounced search with fuzzy matching for grocery items using Algolia.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u13"], "column_id": "todo" },
-    { "id": "t2-06", "project_id": "p2", "title": "Design: Empty state illustrations for grocery", "description": "Create custom illustrations for empty cart, no search results, and first-time grocery user.", "status": "done", "priority": "low", "due_date": "2026-04-06", "assignee_ids": ["u18", "u20"], "column_id": "done" },
-    { "id": "t2-07", "project_id": "p2", "title": "BE: Coupon engine — cross-vertical discounts", "description": "Support coupons that apply across food + grocery in a single checkout transaction.", "status": "review", "priority": "high", "due_date": "2026-04-17", "assignee_ids": ["u5", "u8"], "column_id": "review" },
-    { "id": "t2-08", "project_id": "p2", "title": "FE: Delivery slot picker component", "description": "Time slot picker for scheduled grocery deliveries with 15-min granularity.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["test-user-1"], "column_id": "in_progress" },
-    { "id": "t2-09", "project_id": "p2", "title": "Product: Define return/refund policy for groceries", "description": "Draft product spec for grocery return flow — damaged items, wrong items, missing items.", "status": "todo", "priority": "high", "due_date": "2026-04-25", "assignee_ids": ["u14", "u17"], "column_id": "todo" },
-    { "id": "t2-10", "project_id": "p2", "title": "BE: Order splitting logic for multi-store carts", "description": "Split a single cart into multiple orders when items come from different dark stores.", "status": "todo", "priority": "high", "due_date": "2026-04-28", "assignee_ids": ["u23", "u8"], "column_id": "todo" },
-
-    { "id": "t3-01", "project_id": "p3", "title": "BE: Stripe webhook processor rewrite", "description": "Fix race conditions in payment intents webhook handler. Implement idempotency keys.", "status": "in_progress", "priority": "high", "due_date": "2026-04-12", "assignee_ids": ["u7", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t3-02", "project_id": "p3", "title": "FE: Apple Pay native module integration", "description": "Bridge EventEmitters from Swift PKPaymentAuthorizationController to React Native JS layer.", "status": "todo", "priority": "high", "due_date": "2026-04-20", "assignee_ids": ["u16", "u24"], "column_id": "todo" },
-    { "id": "t3-03", "project_id": "p3", "title": "FE: Google Pay tokenization callback", "description": "Implement GPay payment data tokenization and callback flow on Android.", "status": "done", "priority": "medium", "due_date": "2026-04-01", "assignee_ids": ["u11", "u4"], "column_id": "done" },
-    { "id": "t3-04", "project_id": "p3", "title": "QA: Simulate 3D Secure payment failures", "description": "Test edge cases: bank OTP timeout, wrong OTP 3x, network drop during 3DS redirect.", "status": "todo", "priority": "low", "due_date": "2026-05-10", "assignee_ids": ["u9"], "column_id": "todo" },
-    { "id": "t3-05", "project_id": "p3", "title": "BE: UPI 2.0 collect flow integration", "description": "Integrate with NPCI UPI 2.0 APIs for collect requests with mandate support.", "status": "in_progress", "priority": "high", "due_date": "2026-04-16", "assignee_ids": ["u3", "u26"], "column_id": "in_progress" },
-    { "id": "t3-06", "project_id": "p3", "title": "FE: Payment method selection sheet redesign", "description": "Bottom sheet with saved cards, UPI IDs, wallets — sorted by last used. Figma handoff ready.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-14", "assignee_ids": ["test-user-1", "u8"], "column_id": "in_progress" },
-    { "id": "t3-07", "project_id": "p3", "title": "BE: PCI-DSS audit preparation scripts", "description": "Automate evidence collection for quarterly PCI compliance audit — log exports, access reviews.", "status": "todo", "priority": "medium", "due_date": "2026-04-30", "assignee_ids": ["u7", "u4"], "column_id": "todo" },
-    { "id": "t3-08", "project_id": "p3", "title": "Design: Transaction success/failure animations", "description": "Lottie animations for payment success checkmark, failure shake, and processing spinner.", "status": "done", "priority": "low", "due_date": "2026-04-03", "assignee_ids": ["u9", "u11"], "column_id": "done" },
-    { "id": "t3-09", "project_id": "p3", "title": "FE: Split payment between wallet + card", "description": "Allow users to pay partially from Zomato wallet and rest from card/UPI.", "status": "todo", "priority": "medium", "due_date": "2026-04-25", "assignee_ids": ["u16", "u24"], "column_id": "todo" },
-    { "id": "t3-10", "project_id": "p3", "title": "BE: Refund processing pipeline", "description": "Async refund queue with retry logic, dead letter queue, and merchant settlement reconciliation.", "status": "in_progress", "priority": "high", "due_date": "2026-04-18", "assignee_ids": ["u26", "u3"], "column_id": "in_progress" },
-
-    { "id": "t4-01", "project_id": "p4", "title": "Logistics: Partner with IndiGo Cargo", "description": "Draft SLA for cargo hold cold storage transit — temperature monitoring and insurance terms.", "status": "in_progress", "priority": "high", "due_date": "2026-04-15", "assignee_ids": ["test-user-1", "u15"], "column_id": "in_progress" },
-    { "id": "t4-02", "project_id": "p4", "title": "BE: Multi-city routing algorithm", "description": "Calculate ETAs factoring commercial flight schedules, ground transit, and cold chain handoff windows.", "status": "todo", "priority": "high", "due_date": "2026-04-22", "assignee_ids": ["u3", "u6", "u10"], "column_id": "todo" },
-    { "id": "t4-03", "project_id": "p4", "title": "FE: Legends city origins parallax UI", "description": "Parallax scrolling showcase for origin cities — Kolkata biryani, Hyderabadi haleem, Lucknowi kebabs.", "status": "done", "priority": "medium", "due_date": "2026-04-05", "assignee_ids": ["u21"], "column_id": "done" },
-    { "id": "t4-04", "project_id": "p4", "title": "BE: Cold chain temperature monitoring API", "description": "Ingest IoT sensor data from packaging and alert if temperature exceeds safe range during transit.", "status": "in_progress", "priority": "high", "due_date": "2026-04-17", "assignee_ids": ["u4", "u14"], "column_id": "in_progress" },
-    { "id": "t4-05", "project_id": "p4", "title": "Product: Define city launch priority matrix", "description": "Score 20 candidate cities by demand signals, logistics feasibility, and restaurant partner density.", "status": "done", "priority": "high", "due_date": "2026-04-08", "assignee_ids": ["test-user-1", "u25"], "column_id": "done" },
-    { "id": "t4-06", "project_id": "p4", "title": "FE: Order tracking with flight status", "description": "Show real-time flight tracking integrated into the order timeline — departed, in-air, landed.", "status": "todo", "priority": "medium", "due_date": "2026-04-26", "assignee_ids": ["u11", "u13"], "column_id": "todo" },
-    { "id": "t4-07", "project_id": "p4", "title": "Design: Packaging unboxing experience", "description": "Design insulated packaging with Legends branding — Figma mockups for print vendor.", "status": "staging", "priority": "medium", "due_date": "2026-04-12", "assignee_ids": ["u21", "u25"], "column_id": "staging" },
-    { "id": "t4-08", "project_id": "p4", "title": "QA: End-to-end Legends order flow", "description": "Full regression: place order in Mumbai, verify tracking, confirm delivery in Delhi with temp logs.", "status": "todo", "priority": "high", "due_date": "2026-04-28", "assignee_ids": ["u15", "u6"], "column_id": "todo" },
-    { "id": "t4-09", "project_id": "p4", "title": "BE: Dynamic pricing based on demand + distance", "description": "Implement surge pricing for high-demand routes with distance-based delivery fee tiers.", "status": "todo", "priority": "medium", "due_date": "2026-05-02", "assignee_ids": ["u3", "u10"], "column_id": "todo" },
-    { "id": "t4-10", "project_id": "p4", "title": "FE: Legends gift card flow", "description": "Allow users to send Legends dishes as gifts with personalized message and scheduled delivery.", "status": "in_progress", "priority": "low", "due_date": "2026-04-20", "assignee_ids": ["u13", "u14"], "column_id": "in_progress" },
-
-    { "id": "t5-01", "project_id": "p5", "title": "FE: Migrate Highcharts to Recharts", "description": "Replace Highcharts (licensing issue) with Recharts — start with Monthly Revenue and Order Volume charts.", "status": "in_progress", "priority": "high", "due_date": "2026-04-15", "assignee_ids": ["test-user-1", "u17"], "column_id": "in_progress" },
-    { "id": "t5-02", "project_id": "p5", "title": "BE: GraphQL endpoints for ad analytics", "description": "Expose CTR, CPC, and impression data for promoted listings via GraphQL resolvers.", "status": "review", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u3", "u5"], "column_id": "review" },
-    { "id": "t5-03", "project_id": "p5", "title": "FE: RBAC-based view restrictions", "description": "Restrict payout and revenue views to Admin role. Show graceful 'no access' state for others.", "status": "done", "priority": "high", "due_date": "2026-04-01", "assignee_ids": ["u18"], "column_id": "done" },
-    { "id": "t5-04", "project_id": "p5", "title": "FE: CSV export for large datasets", "description": "Build streaming CSV export using Web Workers so UI doesn't freeze on 100k+ row exports.", "status": "todo", "priority": "low", "due_date": "2026-05-02", "assignee_ids": ["test-user-1", "u7"], "column_id": "todo" },
-    { "id": "t5-05", "project_id": "p5", "title": "BE: Menu performance heatmap data pipeline", "description": "Aggregate item-level sales, ratings, and reorder rates into a heatmap-ready API response.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["u8", "u10"], "column_id": "in_progress" },
-    { "id": "t5-06", "project_id": "p5", "title": "Design: Dashboard dark mode theme", "description": "Create dark mode color tokens and update all Figma frames for merchant portal.", "status": "done", "priority": "low", "due_date": "2026-04-04", "assignee_ids": ["u29"], "column_id": "done" },
-    { "id": "t5-07", "project_id": "p5", "title": "FE: Real-time order notifications panel", "description": "WebSocket-powered notification feed showing new orders, cancellations, and reviews in real-time.", "status": "in_progress", "priority": "high", "due_date": "2026-04-16", "assignee_ids": ["u12", "u27"], "column_id": "in_progress" },
-    { "id": "t5-08", "project_id": "p5", "title": "Product: Define KPI benchmarks for merchants", "description": "Set target ranges for avg delivery time, rating, acceptance rate to show green/yellow/red status.", "status": "todo", "priority": "medium", "due_date": "2026-04-24", "assignee_ids": ["u18", "test-user-1"], "column_id": "todo" },
-    { "id": "t5-09", "project_id": "p5", "title": "BE: Automated weekly digest email", "description": "Cron job generating weekly performance summary email with charts sent to restaurant owners.", "status": "todo", "priority": "medium", "due_date": "2026-04-30", "assignee_ids": ["u5", "u3"], "column_id": "todo" },
-    { "id": "t5-10", "project_id": "p5", "title": "FE: Comparative analytics — vs competitors", "description": "Show anonymized percentile ranking vs similar restaurants in the same area.", "status": "todo", "priority": "low", "due_date": "2026-05-08", "assignee_ids": ["u17", "u27"], "column_id": "todo" },
-
-    { "id": "t6-01", "project_id": "p6", "title": "AI: Prompt injection guard rails", "description": "Implement input sanitization and output filtering to prevent jailbreak and prompt injection attacks.", "status": "in_progress", "priority": "high", "due_date": "2026-04-12", "assignee_ids": ["u5", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t6-02", "project_id": "p6", "title": "FE: Typing indicator animation", "description": "Framer Motion staggered dots animation while bot is generating response.", "status": "testing", "priority": "low", "due_date": "2026-04-20", "assignee_ids": ["u9", "u22"], "column_id": "testing" },
-    { "id": "t6-03", "project_id": "p6", "title": "BE: Vector embeddings search for FAQ", "description": "LangChain + Pinecone setup for semantic search across 2000+ support FAQ documents.", "status": "done", "priority": "high", "due_date": "2026-04-08", "assignee_ids": ["u4", "u6"], "column_id": "done" },
-    { "id": "t6-04", "project_id": "p6", "title": "FE: Chat UI with message threading", "description": "Build chat interface with message bubbles, timestamps, and conversation thread grouping.", "status": "done", "priority": "high", "due_date": "2026-04-06", "assignee_ids": ["u19", "u28"], "column_id": "done" },
-    { "id": "t6-05", "project_id": "p6", "title": "BE: Refund auto-approval decision engine", "description": "Rules engine: auto-approve refunds under ₹200 if order was late by >30min or item was missing.", "status": "in_progress", "priority": "high", "due_date": "2026-04-15", "assignee_ids": ["u16", "u11"], "column_id": "in_progress" },
-    { "id": "t6-06", "project_id": "p6", "title": "Product: Chatbot escalation flow to human agent", "description": "Define when bot should hand off to human — sentiment detection, repeated failures, explicit request.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u5", "test-user-1"], "column_id": "todo" },
-    { "id": "t6-07", "project_id": "p6", "title": "BE: Conversation history persistence", "description": "Store chat sessions in DynamoDB with TTL and allow users to resume past conversations.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["u30", "u4"], "column_id": "in_progress" },
-    { "id": "t6-08", "project_id": "p6", "title": "FE: Customer satisfaction rating after chat", "description": "Post-chat CSAT survey — thumbs up/down + optional text feedback, with analytics tracking.", "status": "todo", "priority": "medium", "due_date": "2026-04-25", "assignee_ids": ["u22", "u9"], "column_id": "todo" },
-    { "id": "t6-09", "project_id": "p6", "title": "AI: Fine-tune response tone for Indian English", "description": "Adjust system prompt and few-shot examples for natural Indian English tone — not overly formal.", "status": "todo", "priority": "low", "due_date": "2026-05-05", "assignee_ids": ["u28"], "column_id": "todo" },
-    { "id": "t6-10", "project_id": "p6", "title": "QA: Test bot with 500 real complaint transcripts", "description": "Run bot against anonymized real complaints and measure resolution accuracy and user satisfaction.", "status": "todo", "priority": "high", "due_date": "2026-04-28", "assignee_ids": ["u6", "u11"], "column_id": "todo" },
-
-    { "id": "t7-01", "project_id": "p7", "title": "FE: Supply chain node visualizer", "description": "React Flow-based interactive graph showing ingredient journey from farm to restaurant kitchen.", "status": "in_progress", "priority": "high", "due_date": "2026-04-14", "assignee_ids": ["u12", "u23"], "column_id": "in_progress" },
-    { "id": "t7-02", "project_id": "p7", "title": "BE: Bulk order tiered discount algorithm", "description": "Calculate volume discounts: 5% off 50kg+, 10% off 200kg+, 15% off 500kg+ with floor prices.", "status": "todo", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["test-user-1", "u3"], "column_id": "todo" },
-    { "id": "t7-03", "project_id": "p7", "title": "FE: Ingredient catalog with filters", "description": "Searchable catalog with filters for category, organic/non-organic, price range, and delivery speed.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-16", "assignee_ids": ["u15", "u20"], "column_id": "in_progress" },
-    { "id": "t7-04", "project_id": "p7", "title": "BE: Delivery scheduling optimizer", "description": "Optimize delivery routes for bulk orders across multiple restaurants in same area.", "status": "todo", "priority": "high", "due_date": "2026-04-24", "assignee_ids": ["u7", "u8"], "column_id": "todo" },
-    { "id": "t7-05", "project_id": "p7", "title": "Design: Invoice template for B2B orders", "description": "GST-compliant invoice template with HyperPure branding — PDF export ready.", "status": "done", "priority": "medium", "due_date": "2026-04-05", "assignee_ids": ["u26"], "column_id": "done" },
-    { "id": "t7-06", "project_id": "p7", "title": "FE: Order history with reorder functionality", "description": "Show past orders with one-click reorder, quantity adjustment, and delivery date picker.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u2", "test-user-1"], "column_id": "todo" },
-    { "id": "t7-07", "project_id": "p7", "title": "BE: Quality inspection checklist API", "description": "API for delivery agents to submit photo-based quality inspection at pickup and delivery.", "status": "in_progress", "priority": "high", "due_date": "2026-04-17", "assignee_ids": ["u3", "u26"], "column_id": "in_progress" },
-    { "id": "t7-08", "project_id": "p7", "title": "Product: Subscription ordering for regulars", "description": "Define weekly/monthly subscription model for restaurants that order same ingredients regularly.", "status": "todo", "priority": "low", "due_date": "2026-05-01", "assignee_ids": ["u14", "u15"], "column_id": "todo" },
-    { "id": "t7-09", "project_id": "p7", "title": "FE: Dashboard — spend analytics for buyers", "description": "Charts showing monthly spend, top categories, price trends, and savings from bulk orders.", "status": "todo", "priority": "medium", "due_date": "2026-04-28", "assignee_ids": ["u23", "u20"], "column_id": "todo" },
-    { "id": "t7-10", "project_id": "p7", "title": "QA: End-to-end B2B order regression", "description": "Full flow: browse catalog, add to cart, apply discount, place order, track delivery, rate quality.", "status": "todo", "priority": "high", "due_date": "2026-04-30", "assignee_ids": ["u8", "u12"], "column_id": "todo" },
-
-    { "id": "t8-01", "project_id": "p8", "title": "Product: Validate micro-membership concept", "description": "Can users buy 'Gold for 3 days'? Run survey and analyze willingness to pay at ₹29/₹49/₹99.", "status": "in_progress", "priority": "high", "due_date": "2026-04-12", "assignee_ids": ["u8", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t8-02", "project_id": "p8", "title": "BE: Dynamic recurring billing engine", "description": "Replace fixed monthly cron with event-driven billing — supports daily, weekly, monthly cycles.", "status": "todo", "priority": "high", "due_date": "2026-04-30", "assignee_ids": ["u4", "u13"], "column_id": "todo" },
-    { "id": "t8-03", "project_id": "p8", "title": "FE: Gold membership comparison page", "description": "Side-by-side comparison of Gold tiers — free delivery, extra discounts, priority support.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-16", "assignee_ids": ["test-user-1", "u29"], "column_id": "in_progress" },
-    { "id": "t8-04", "project_id": "p8", "title": "BE: Area-based surge pricing for Gold", "description": "Dynamic Gold pricing based on area demand density and average order value.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u5", "u16"], "column_id": "todo" },
-    { "id": "t8-05", "project_id": "p8", "title": "FE: Family plan member management", "description": "Allow Gold subscribers to add up to 4 family members with shared benefits.", "status": "todo", "priority": "medium", "due_date": "2026-04-25", "assignee_ids": ["u27", "u17"], "column_id": "todo" },
-    { "id": "t8-06", "project_id": "p8", "title": "Design: Gold onboarding flow", "description": "Figma designs for Gold signup — benefits carousel, plan selection, payment, confirmation.", "status": "done", "priority": "high", "due_date": "2026-04-07", "assignee_ids": ["u29", "u30"], "column_id": "done" },
-    { "id": "t8-07", "project_id": "p8", "title": "BE: Cancellation and pro-rata refund logic", "description": "Calculate pro-rata refund for mid-cycle cancellations with usage deduction.", "status": "in_progress", "priority": "high", "due_date": "2026-04-18", "assignee_ids": ["u4", "u24"], "column_id": "in_progress" },
-    { "id": "t8-08", "project_id": "p8", "title": "FE: Gold savings tracker widget", "description": "Show running total of how much user has saved this month with Gold membership.", "status": "todo", "priority": "low", "due_date": "2026-05-05", "assignee_ids": ["u13", "test-user-1"], "column_id": "todo" },
-    { "id": "t8-09", "project_id": "p8", "title": "Product: Gold referral program design", "description": "Design referral mechanics — both referrer and referee get 1 week free Gold extension.", "status": "todo", "priority": "medium", "due_date": "2026-04-28", "assignee_ids": ["u17", "u8"], "column_id": "todo" },
-    { "id": "t8-10", "project_id": "p8", "title": "QA: Billing edge cases — timezone, leap year", "description": "Test billing calculations for users in different timezones and edge dates (Feb 29, month ends).", "status": "todo", "priority": "low", "due_date": "2026-05-10", "assignee_ids": ["u16", "u5"], "column_id": "todo" },
-
-    { "id": "t9-01", "project_id": "p9", "title": "FE: React Native Maps for NGO locations", "description": "Accurate mapping of NGO and shelter locations in dense urban areas with clustering.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-16", "assignee_ids": ["u7", "u19"], "column_id": "in_progress" },
-    { "id": "t9-02", "project_id": "p9", "title": "QA: Offline collection reporting", "description": "Verify volunteers can submit food collection reports offline and sync when back online.", "status": "todo", "priority": "high", "due_date": "2026-04-19", "assignee_ids": ["test-user-1", "u23"], "column_id": "todo" },
-    { "id": "t9-03", "project_id": "p9", "title": "FE: Volunteer dashboard with impact stats", "description": "Show meals donated, hours volunteered, areas covered — with shareable achievement cards.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["u15", "u21"], "column_id": "in_progress" },
-    { "id": "t9-04", "project_id": "p9", "title": "BE: Food surplus matching algorithm", "description": "Match restaurant surplus food with nearest NGO based on quantity, food type, and pickup window.", "status": "todo", "priority": "high", "due_date": "2026-04-22", "assignee_ids": ["u14", "u28"], "column_id": "todo" },
-    { "id": "t9-05", "project_id": "p9", "title": "Design: Volunteer onboarding screens", "description": "Warm, inviting onboarding flow showing impact stories and easy signup for new volunteers.", "status": "done", "priority": "medium", "due_date": "2026-04-06", "assignee_ids": ["u25"], "column_id": "done" },
-    { "id": "t9-06", "project_id": "p9", "title": "FE: Push notifications for nearby pickups", "description": "Geo-fenced push notifications when surplus food is available near volunteer's location.", "status": "todo", "priority": "medium", "due_date": "2026-04-24", "assignee_ids": ["u19", "u30"], "column_id": "todo" },
-    { "id": "t9-07", "project_id": "p9", "title": "BE: Monthly impact report generator", "description": "Auto-generate PDF reports with stats on meals saved, CO2 reduced, and volunteer hours for NGO partners.", "status": "todo", "priority": "low", "due_date": "2026-05-01", "assignee_ids": ["u11", "u7"], "column_id": "todo" },
-    { "id": "t9-08", "project_id": "p9", "title": "Product: Corporate volunteering partnerships", "description": "Define program for companies to sponsor employee volunteering days through Feeding India.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-20", "assignee_ids": ["u11", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t9-09", "project_id": "p9", "title": "FE: Food safety checklist form", "description": "Digital checklist for volunteers to confirm food temperature, packaging integrity before pickup.", "status": "todo", "priority": "high", "due_date": "2026-04-26", "assignee_ids": ["u15", "u23"], "column_id": "todo" },
-    { "id": "t9-10", "project_id": "p9", "title": "BE: Photo verification for food donations", "description": "Image upload and AI-based verification to ensure donated food meets safety standards.", "status": "todo", "priority": "medium", "due_date": "2026-04-30", "assignee_ids": ["u28", "u14"], "column_id": "todo" },
-
-    { "id": "t10-01", "project_id": "p10", "title": "BE: Integrate DJI Flight Hub API", "description": "Sync real-time telemetry — GPS, altitude, battery, speed — from drones to our backend via WebSocket.", "status": "in_progress", "priority": "high", "due_date": "2026-04-19", "assignee_ids": ["u6", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t10-02", "project_id": "p10", "title": "FE: 3D drone tracker map", "description": "Three.js visualization showing drone altitude, pitch, and delivery path in 3D space.", "status": "todo", "priority": "medium", "due_date": "2026-05-12", "assignee_ids": ["u2", "u22"], "column_id": "todo" },
-    { "id": "t10-03", "project_id": "p10", "title": "Legal: DGCA airspace clearance", "description": "Finalize airspace buffer zones and submit paperwork for Gurgaon Sector 29 drone corridor.", "status": "done", "priority": "high", "due_date": "2026-03-01", "assignee_ids": ["u10"], "column_id": "done" },
-    { "id": "t10-04", "project_id": "p10", "title": "BE: Geofencing and no-fly zone enforcement", "description": "Real-time geofence checks against DGCA no-fly zones with automatic return-to-home trigger.", "status": "in_progress", "priority": "high", "due_date": "2026-04-16", "assignee_ids": ["u3", "u18"], "column_id": "in_progress" },
-    { "id": "t10-05", "project_id": "p10", "title": "FE: Drone delivery tracking for customers", "description": "Customer-facing page showing drone ETA, live camera feed, and landing zone preparation steps.", "status": "todo", "priority": "medium", "due_date": "2026-04-28", "assignee_ids": ["u20", "u26"], "column_id": "todo" },
-    { "id": "t10-06", "project_id": "p10", "title": "Product: Define weight/size limits for drone delivery", "description": "Max payload 2kg, max distance 5km. Map eligible menu items and restaurants within range.", "status": "done", "priority": "high", "due_date": "2026-04-02", "assignee_ids": ["u6", "u15"], "column_id": "done" },
-    { "id": "t10-07", "project_id": "p10", "title": "BE: Weather-based flight safety checker", "description": "Auto-ground drones when wind speed >25 kmph or visibility < 1km using weather API data.", "status": "todo", "priority": "high", "due_date": "2026-04-22", "assignee_ids": ["u10", "u29"], "column_id": "todo" },
-    { "id": "t10-08", "project_id": "p10", "title": "FE: Drone fleet management dashboard", "description": "Admin dashboard showing fleet status, battery levels, active deliveries, and maintenance schedule.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-20", "assignee_ids": ["test-user-1", "u2"], "column_id": "in_progress" },
-    { "id": "t10-09", "project_id": "p10", "title": "Design: Drone delivery order flow mockups", "description": "Figma designs for 'drone delivery available' badge, order placement, and landing zone selector.", "status": "done", "priority": "medium", "due_date": "2026-04-04", "assignee_ids": ["u22", "u26"], "column_id": "done" },
-    { "id": "t10-10", "project_id": "p10", "title": "QA: Simulated delivery runs in test zone", "description": "10 test deliveries in controlled environment — measure accuracy, time, and food condition.", "status": "todo", "priority": "high", "due_date": "2026-05-01", "assignee_ids": ["u18", "u3"], "column_id": "todo" },
-
-    { "id": "t11-01", "project_id": "p11", "title": "FE: Multi-step wizard with progress bar", "description": "Convert 14-step form to 4-step wizard with animated progress indicator and form validation.", "status": "in_progress", "priority": "high", "due_date": "2026-04-15", "assignee_ids": ["test-user-1", "u9"], "column_id": "in_progress" },
-    { "id": "t11-02", "project_id": "p11", "title": "BE: Document AI for FSSAI license verification", "description": "OCR + AI validation of uploaded FSSAI license documents — extract expiry, license number, name.", "status": "in_progress", "priority": "high", "due_date": "2026-04-17", "assignee_ids": ["u19", "u24"], "column_id": "in_progress" },
-    { "id": "t11-03", "project_id": "p11", "title": "FE: Camera-based menu digitization", "description": "Allow restaurant owners to photograph physical menus and auto-extract items using OCR.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u2", "u26"], "column_id": "todo" },
-    { "id": "t11-04", "project_id": "p11", "title": "Design: Onboarding completion celebration", "description": "Confetti animation and welcome screen after restaurant successfully onboards.", "status": "done", "priority": "low", "due_date": "2026-04-05", "assignee_ids": ["u9", "u21"], "column_id": "done" },
-    { "id": "t11-05", "project_id": "p11", "title": "BE: Auto-generate restaurant profile from GST", "description": "Fetch business name, address, and category from GST number to pre-fill onboarding fields.", "status": "todo", "priority": "high", "due_date": "2026-04-20", "assignee_ids": ["u12", "u28"], "column_id": "todo" },
-    { "id": "t11-06", "project_id": "p11", "title": "Product: Onboarding SLA — 24hr activation", "description": "Define process to activate restaurants within 24 hours of document submission.", "status": "done", "priority": "high", "due_date": "2026-04-08", "assignee_ids": ["test-user-1", "u15"], "column_id": "done" },
-    { "id": "t11-07", "project_id": "p11", "title": "FE: Live preview of restaurant listing", "description": "Show real-time preview of how the restaurant will appear on Zomato during onboarding.", "status": "ux_review", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["u7", "u24"], "column_id": "ux_review" },
-    { "id": "t11-08", "project_id": "p11", "title": "BE: Bulk restaurant import via CSV", "description": "Allow sales team to upload CSV of new restaurant partners for batch onboarding.", "status": "todo", "priority": "low", "due_date": "2026-04-28", "assignee_ids": ["u12", "u19"], "column_id": "todo" },
-    { "id": "t11-09", "project_id": "p11", "title": "QA: Onboarding flow accessibility audit", "description": "Screen reader compatibility, keyboard navigation, and WCAG 2.1 AA compliance check.", "status": "todo", "priority": "medium", "due_date": "2026-04-25", "assignee_ids": ["u26", "u28"], "column_id": "todo" },
-    { "id": "t11-10", "project_id": "p11", "title": "FE: Multi-language support for onboarding", "description": "Add Hindi, Tamil, Telugu, Bengali language options for restaurant onboarding form.", "status": "todo", "priority": "medium", "due_date": "2026-05-02", "assignee_ids": ["u7", "u21"], "column_id": "todo" },
-
-    { "id": "t12-01", "project_id": "p12", "title": "FE: Animated rider marker on map", "description": "Smooth CSS animation for rider icon moving along route with heading rotation.", "status": "in_progress", "priority": "high", "due_date": "2026-04-14", "assignee_ids": ["u3", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t12-02", "project_id": "p12", "title": "BE: ETA prediction ML model serving", "description": "Deploy TensorFlow Lite model for real-time ETA predictions based on traffic, weather, rider speed.", "status": "in_progress", "priority": "high", "due_date": "2026-04-16", "assignee_ids": ["u8", "u10"], "column_id": "in_progress" },
-    { "id": "t12-03", "project_id": "p12", "title": "FE: Live food prep video widget", "description": "Embedded video player showing restaurant kitchen cam during food preparation.", "status": "todo", "priority": "medium", "due_date": "2026-04-24", "assignee_ids": ["u6", "u25"], "column_id": "todo" },
-    { "id": "t12-04", "project_id": "p12", "title": "BE: WebSocket connection pooling", "description": "Optimize WebSocket connections with Redis pub/sub for handling 100k concurrent tracking sessions.", "status": "todo", "priority": "high", "due_date": "2026-04-20", "assignee_ids": ["u13", "u17"], "column_id": "todo" },
-    { "id": "t12-05", "project_id": "p12", "title": "Design: Order timeline with micro-interactions", "description": "Figma prototypes for order placed → confirmed → preparing → picked up → on the way → delivered.", "status": "done", "priority": "medium", "due_date": "2026-04-06", "assignee_ids": ["u9", "u27"], "column_id": "done" },
-    { "id": "t12-06", "project_id": "p12", "title": "FE: Share live tracking link", "description": "Generate shareable link for friends/family to track the delivery without logging in.", "status": "in_progress", "priority": "low", "due_date": "2026-04-18", "assignee_ids": ["u20", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t12-07", "project_id": "p12", "title": "BE: Historical delivery analytics API", "description": "API for showing average delivery times by restaurant, area, and time of day.", "status": "todo", "priority": "medium", "due_date": "2026-04-26", "assignee_ids": ["u10", "u8"], "column_id": "todo" },
-    { "id": "t12-08", "project_id": "p12", "title": "FE: Rider call/chat integration", "description": "In-app VoIP call and chat with delivery rider directly from tracking screen.", "status": "todo", "priority": "high", "due_date": "2026-04-22", "assignee_ids": ["u3", "u25"], "column_id": "todo" },
-    { "id": "t12-09", "project_id": "p12", "title": "Product: Define tracking accuracy benchmarks", "description": "Target: location refresh < 5s, ETA accuracy within 2 min, map load < 1s.", "status": "done", "priority": "high", "due_date": "2026-04-04", "assignee_ids": ["u9", "u17"], "column_id": "done" },
-    { "id": "t12-10", "project_id": "p12", "title": "QA: Cross-browser tracking page testing", "description": "Test on Chrome, Safari, Firefox, Samsung Internet — verify map rendering and WebSocket stability.", "status": "todo", "priority": "medium", "due_date": "2026-04-28", "assignee_ids": ["u27", "u13"], "column_id": "todo" },
-
-    { "id": "t13-01", "project_id": "p13", "title": "FE: Button component with all variants", "description": "Primary, secondary, ghost, destructive, outline buttons with loading states and icon support.", "status": "done", "priority": "high", "due_date": "2026-04-06", "assignee_ids": ["test-user-1", "u2"], "column_id": "done" },
-    { "id": "t13-02", "project_id": "p13", "title": "FE: Input and form field components", "description": "Text input, select, checkbox, radio, textarea with validation states and helper text.", "status": "in_progress", "priority": "high", "due_date": "2026-04-15", "assignee_ids": ["u5", "u15"], "column_id": "in_progress" },
-    { "id": "t13-03", "project_id": "p13", "title": "Design: Define color token system", "description": "Semantic color tokens for light/dark mode — primary, success, warning, error, neutral scales.", "status": "done", "priority": "high", "due_date": "2026-04-03", "assignee_ids": ["u9", "u29"], "column_id": "done" },
-    { "id": "t13-04", "project_id": "p13", "title": "FE: Modal and dialog components", "description": "Accessible modal with focus trap, escape to close, and multiple size variants.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-17", "assignee_ids": ["test-user-1", "u11"], "column_id": "in_progress" },
-    { "id": "t13-05", "project_id": "p13", "title": "FE: Toast notification system", "description": "Stackable toasts with auto-dismiss, progress bar, and action button support.", "status": "design_qa", "priority": "medium", "due_date": "2026-04-14", "assignee_ids": ["u17", "u23"], "column_id": "design_qa" },
-    { "id": "t13-06", "project_id": "p13", "title": "FE: Data table with sorting and pagination", "description": "Reusable table component with column sorting, row selection, and server-side pagination.", "status": "todo", "priority": "high", "due_date": "2026-04-22", "assignee_ids": ["u2", "u25"], "column_id": "todo" },
-    { "id": "t13-07", "project_id": "p13", "title": "Design: Typography scale and font tokens", "description": "Define type scale from xs to 4xl with line height and letter spacing tokens.", "status": "done", "priority": "medium", "due_date": "2026-04-04", "assignee_ids": ["u21"], "column_id": "done" },
-    { "id": "t13-08", "project_id": "p13", "title": "FE: Storybook setup and documentation", "description": "Configure Storybook with MDX docs, controls addon, and auto-generated prop tables.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-16", "assignee_ids": ["u5", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t13-09", "project_id": "p13", "title": "FE: Dropdown menu component", "description": "Radix-based dropdown with keyboard navigation, submenus, and custom item renderers.", "status": "todo", "priority": "medium", "due_date": "2026-04-24", "assignee_ids": ["u15", "u29"], "column_id": "todo" },
-    { "id": "t13-10", "project_id": "p13", "title": "QA: Visual regression testing setup", "description": "Configure Chromatic for automated visual regression tests on every PR for design system.", "status": "todo", "priority": "high", "due_date": "2026-04-20", "assignee_ids": ["u11", "u23"], "column_id": "todo" },
-
-    { "id": "t14-01", "project_id": "p14", "title": "ML: Collaborative filtering model training", "description": "Train user-restaurant interaction matrix using ALS on Spark for personalized recommendations.", "status": "in_progress", "priority": "high", "due_date": "2026-04-18", "assignee_ids": ["u4", "u22"], "column_id": "in_progress" },
-    { "id": "t14-02", "project_id": "p14", "title": "BE: Feature store for real-time signals", "description": "Redis-backed feature store serving user location, time, cuisine history at <5ms latency.", "status": "in_progress", "priority": "high", "due_date": "2026-04-16", "assignee_ids": ["u8", "u24"], "column_id": "in_progress" },
-    { "id": "t14-03", "project_id": "p14", "title": "FE: Personalized restaurant carousel", "description": "Dynamic 'For You' section on home screen powered by ML ranking API.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["test-user-1", "u14"], "column_id": "todo" },
-    { "id": "t14-04", "project_id": "p14", "title": "ML: Cuisine embedding vectors", "description": "Generate 128-dim embeddings for cuisines based on co-order patterns and user transitions.", "status": "done", "priority": "high", "due_date": "2026-04-08", "assignee_ids": ["u5", "u26"], "column_id": "done" },
-    { "id": "t14-05", "project_id": "p14", "title": "BE: A/B testing framework for ranking", "description": "Traffic splitting infrastructure for testing different ranking models side by side.", "status": "experiment", "priority": "high", "due_date": "2026-04-20", "assignee_ids": ["u10", "u16"], "column_id": "experiment" },
-    { "id": "t14-06", "project_id": "p14", "title": "Product: Define search quality metrics", "description": "Define NDCG, click-through rate, and conversion rate targets for search ranking.", "status": "done", "priority": "medium", "due_date": "2026-04-05", "assignee_ids": ["u4", "u28"], "column_id": "done" },
-    { "id": "t14-07", "project_id": "p14", "title": "FE: Search filters — cuisine, price, rating, distance", "description": "Horizontal filter chips with multi-select and instant results update.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-17", "assignee_ids": ["test-user-1", "u22"], "column_id": "in_progress" },
-    { "id": "t14-08", "project_id": "p14", "title": "BE: Elasticsearch query optimization", "description": "Tune ES queries for restaurant search — boost by rating, proximity, and open status.", "status": "todo", "priority": "high", "due_date": "2026-04-24", "assignee_ids": ["u8", "u14"], "column_id": "todo" },
-    { "id": "t14-09", "project_id": "p14", "title": "ML: Cold-start strategy for new restaurants", "description": "Handle new restaurants with no interaction data — use content features and area popularity.", "status": "todo", "priority": "medium", "due_date": "2026-04-28", "assignee_ids": ["u26", "u5"], "column_id": "todo" },
-    { "id": "t14-10", "project_id": "p14", "title": "QA: Search relevance evaluation suite", "description": "Annotated test set of 500 queries with expected top-3 results for automated relevance scoring.", "status": "todo", "priority": "medium", "due_date": "2026-05-02", "assignee_ids": ["u16", "u24"], "column_id": "todo" },
-
-    { "id": "t15-01", "project_id": "p15", "title": "FE: Corporate account dashboard", "description": "Admin view for companies — employee list, spending limits, department-wise ordering policies.", "status": "in_progress", "priority": "high", "due_date": "2026-04-16", "assignee_ids": ["test-user-1", "u6"], "column_id": "in_progress" },
-    { "id": "t15-02", "project_id": "p15", "title": "BE: Bulk order API with scheduling", "description": "API for placing orders for 50-500 people with delivery time slot and dietary split.", "status": "todo", "priority": "high", "due_date": "2026-04-22", "assignee_ids": ["u3", "u12"], "column_id": "todo" },
-    { "id": "t15-03", "project_id": "p15", "title": "FE: Menu customization for dietary filters", "description": "Filter menus by veg/non-veg, vegan, gluten-free, nut-free with clear allergen labels.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["u7", "u23"], "column_id": "in_progress" },
-    { "id": "t15-04", "project_id": "p15", "title": "BE: Invoice generation with GST compliance", "description": "Auto-generate GST-compliant invoices with company details, PO number, and department codes.", "status": "todo", "priority": "high", "due_date": "2026-04-25", "assignee_ids": ["u18", "u13"], "column_id": "todo" },
-    { "id": "t15-05", "project_id": "p15", "title": "Design: Catering order flow wireframes", "description": "End-to-end wireframes: select event type → choose menu → customize → review → pay → track.", "status": "done", "priority": "high", "due_date": "2026-04-07", "assignee_ids": ["u27", "u30"], "column_id": "done" },
-    { "id": "t15-06", "project_id": "p15", "title": "FE: Real-time headcount adjustment", "description": "Allow changing headcount up to 4 hours before delivery with automatic quantity recalculation.", "status": "todo", "priority": "medium", "due_date": "2026-04-26", "assignee_ids": ["u20", "test-user-1"], "column_id": "todo" },
-    { "id": "t15-07", "project_id": "p15", "title": "Product: Enterprise pricing tiers", "description": "Define pricing for <50, 50-200, 200-500 person orders with volume discounts and delivery fees.", "status": "in_progress", "priority": "high", "due_date": "2026-04-14", "assignee_ids": ["u13", "u6"], "column_id": "in_progress" },
-    { "id": "t15-08", "project_id": "p15", "title": "BE: Vendor capacity and availability checker", "description": "Check if restaurant partners can fulfill large orders at requested time — kitchen capacity API.", "status": "todo", "priority": "medium", "due_date": "2026-04-28", "assignee_ids": ["u3", "u12"], "column_id": "todo" },
-    { "id": "t15-09", "project_id": "p15", "title": "FE: Feedback collection post-event", "description": "Quick survey after catering delivery — food quality, portion size, delivery timing ratings.", "status": "todo", "priority": "low", "due_date": "2026-05-05", "assignee_ids": ["u23", "u7"], "column_id": "todo" },
-    { "id": "t15-10", "project_id": "p15", "title": "QA: Enterprise order flow regression", "description": "Full flow: create account → add employees → place bulk order → track → receive → review invoice.", "status": "todo", "priority": "high", "due_date": "2026-04-30", "assignee_ids": ["u30", "u18"], "column_id": "todo" },
-
-    { "id": "t16-01", "project_id": "p16", "title": "FE: Implement SSR for restaurant pages", "description": "Migrate restaurant detail pages to server-side rendering with Next.js for LCP improvement.", "status": "in_progress", "priority": "high", "due_date": "2026-04-15", "assignee_ids": ["u3", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t16-02", "project_id": "p16", "title": "FE: Image optimization pipeline", "description": "WebP/AVIF conversion, responsive srcset, lazy loading with blur placeholder for all images.", "status": "in_progress", "priority": "high", "due_date": "2026-04-14", "assignee_ids": ["u2", "u19"], "column_id": "in_progress" },
-    { "id": "t16-03", "project_id": "p16", "title": "FE: Route-based code splitting", "description": "Split bundles by route with React.lazy — target <150KB initial JS payload.", "status": "done", "priority": "high", "due_date": "2026-04-08", "assignee_ids": ["u4", "u8"], "column_id": "done" },
-    { "id": "t16-04", "project_id": "p16", "title": "FE: Reduce CLS from dynamic content", "description": "Fix layout shifts from late-loading images, ads, and dynamic menu sections — add skeleton placeholders.", "status": "todo", "priority": "medium", "due_date": "2026-04-20", "assignee_ids": ["u11", "u14"], "column_id": "todo" },
-    { "id": "t16-05", "project_id": "p16", "title": "BE: CDN configuration for static assets", "description": "Configure CloudFront with cache headers, Brotli compression, and edge-level image transformation.", "status": "done", "priority": "high", "due_date": "2026-04-06", "assignee_ids": ["u24"], "column_id": "done" },
-    { "id": "t16-06", "project_id": "p16", "title": "FE: Preconnect and prefetch optimization", "description": "Add preconnect hints for API domains, prefetch likely navigation targets on hover.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-16", "assignee_ids": ["test-user-1", "u30"], "column_id": "in_progress" },
-    { "id": "t16-07", "project_id": "p16", "title": "FE: Bundle analysis and tree shaking audit", "description": "Run webpack-bundle-analyzer, identify and eliminate unused code from large dependencies.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u4", "u27"], "column_id": "todo" },
-    { "id": "t16-08", "project_id": "p16", "title": "QA: Lighthouse CI integration", "description": "Add Lighthouse CI to GitHub Actions — fail PR if performance score drops below 90.", "status": "todo", "priority": "high", "due_date": "2026-04-18", "assignee_ids": ["u19", "u8"], "column_id": "todo" },
-    { "id": "t16-09", "project_id": "p16", "title": "FE: Service worker for offline menu caching", "description": "Cache restaurant menus and images for offline browsing using Workbox strategies.", "status": "todo", "priority": "low", "due_date": "2026-05-01", "assignee_ids": ["u14", "u2"], "column_id": "todo" },
-    { "id": "t16-10", "project_id": "p16", "title": "Product: Define Core Web Vitals targets per page", "description": "Set LCP, FID, CLS targets for home, search, restaurant, checkout — aligned with Google thresholds.", "status": "done", "priority": "medium", "due_date": "2026-04-03", "assignee_ids": ["u3", "u11"], "column_id": "done" },
-
-    { "id": "t17-01", "project_id": "p17", "title": "FE: Event discovery page with filters", "description": "Browse upcoming food events by city, date, cuisine type, and price range.", "status": "in_progress", "priority": "high", "due_date": "2026-04-16", "assignee_ids": ["test-user-1", "u9"], "column_id": "in_progress" },
-    { "id": "t17-02", "project_id": "p17", "title": "BE: Ticketing and booking engine", "description": "Support ticket tiers (VIP, regular), group bookings, and waitlist for sold-out events.", "status": "todo", "priority": "high", "due_date": "2026-04-22", "assignee_ids": ["u5", "u10"], "column_id": "todo" },
-    { "id": "t17-03", "project_id": "p17", "title": "FE: Event detail page with gallery", "description": "Rich event page with photo gallery, chef bios, menu preview, venue map, and reviews.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["u7", "u28"], "column_id": "in_progress" },
-    { "id": "t17-04", "project_id": "p17", "title": "Design: Event poster templates", "description": "Canva-like templates for event organizers to create promotional posters with Zomato branding.", "status": "done", "priority": "medium", "due_date": "2026-04-07", "assignee_ids": ["u21", "u25"], "column_id": "done" },
-    { "id": "t17-05", "project_id": "p17", "title": "BE: Event recommendation engine", "description": "Suggest events based on user's cuisine preferences, past attendance, and friend activity.", "status": "todo", "priority": "medium", "due_date": "2026-04-25", "assignee_ids": ["u16", "u13"], "column_id": "todo" },
-    { "id": "t17-06", "project_id": "p17", "title": "FE: QR code ticket with check-in flow", "description": "Generate QR code tickets, scan-to-check-in for event organizers, and attendance tracking.", "status": "todo", "priority": "high", "due_date": "2026-04-24", "assignee_ids": ["u29", "test-user-1"], "column_id": "todo" },
-    { "id": "t17-07", "project_id": "p17", "title": "Product: Chef masterclass format definition", "description": "Define class structure: live demo, Q&A, take-home recipe kit, recording access for 30 days.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-14", "assignee_ids": ["u10", "u5"], "column_id": "in_progress" },
-    { "id": "t17-08", "project_id": "p17", "title": "FE: Social sharing and invite friends", "description": "Share events on WhatsApp, Instagram Stories with deep links. Invite friends with group discount.", "status": "todo", "priority": "medium", "due_date": "2026-04-26", "assignee_ids": ["u9", "u28"], "column_id": "todo" },
-    { "id": "t17-09", "project_id": "p17", "title": "BE: Organizer payout and settlement", "description": "Automated post-event payout to organizers with commission deduction and tax documentation.", "status": "todo", "priority": "high", "due_date": "2026-04-30", "assignee_ids": ["u13", "u16"], "column_id": "todo" },
-    { "id": "t17-10", "project_id": "p17", "title": "QA: Event booking end-to-end testing", "description": "Full flow: discover → book → pay → receive ticket → check-in → rate → organizer payout.", "status": "todo", "priority": "high", "due_date": "2026-05-05", "assignee_ids": ["u25", "u29"], "column_id": "todo" },
-
-    { "id": "t18-01", "project_id": "p18", "title": "FE: Kitchen operations dashboard", "description": "Real-time dashboard showing active orders, prep times, station assignments, and bottlenecks.", "status": "in_progress", "priority": "high", "due_date": "2026-04-15", "assignee_ids": ["test-user-1", "u12"], "column_id": "in_progress" },
-    { "id": "t18-02", "project_id": "p18", "title": "BE: Ingredient inventory tracking system", "description": "Track stock levels, auto-generate purchase orders when items hit reorder point.", "status": "in_progress", "priority": "high", "due_date": "2026-04-17", "assignee_ids": ["u4", "u22"], "column_id": "in_progress" },
-    { "id": "t18-03", "project_id": "p18", "title": "FE: Staff scheduling calendar", "description": "Weekly shift calendar with drag-and-drop scheduling, conflict detection, and overtime alerts.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u3", "u26"], "column_id": "todo" },
-    { "id": "t18-04", "project_id": "p18", "title": "BE: Order routing optimizer", "description": "Route incoming orders to optimal kitchen station based on capacity, queue length, and item type.", "status": "todo", "priority": "high", "due_date": "2026-04-24", "assignee_ids": ["u6", "u15"], "column_id": "todo" },
-    { "id": "t18-05", "project_id": "p18", "title": "Design: Kitchen display system UI", "description": "Large-screen KDS interface for kitchen staff — order cards, timer progress bars, bump button.", "status": "done", "priority": "high", "due_date": "2026-04-08", "assignee_ids": ["u17", "u30"], "column_id": "done" },
-    { "id": "t18-06", "project_id": "p18", "title": "FE: Wastage tracking and reporting", "description": "Log food waste by category, reason, and amount — weekly reports with trend analysis.", "status": "staging", "priority": "medium", "due_date": "2026-04-19", "assignee_ids": ["test-user-1", "u22"], "column_id": "staging" },
-    { "id": "t18-07", "project_id": "p18", "title": "BE: Multi-kitchen performance comparison", "description": "API comparing throughput, prep times, and waste across all cloud kitchen locations.", "status": "todo", "priority": "medium", "due_date": "2026-04-26", "assignee_ids": ["u10", "u4"], "column_id": "todo" },
-    { "id": "t18-08", "project_id": "p18", "title": "Product: Define kitchen SLA metrics", "description": "Target: order acceptance < 30s, prep time < 15 min, rider wait < 3 min at pickup.", "status": "done", "priority": "high", "due_date": "2026-04-05", "assignee_ids": ["u10", "u15"], "column_id": "done" },
-    { "id": "t18-09", "project_id": "p18", "title": "FE: Equipment maintenance tracker", "description": "Track kitchen equipment — last service date, next maintenance, breakdown history.", "status": "todo", "priority": "low", "due_date": "2026-05-02", "assignee_ids": ["u12", "u26"], "column_id": "todo" },
-    { "id": "t18-10", "project_id": "p18", "title": "QA: Load test kitchen operations under peak", "description": "Simulate 500 concurrent orders across 5 kitchen locations — verify queue management and routing.", "status": "todo", "priority": "high", "due_date": "2026-04-28", "assignee_ids": ["u30", "u6"], "column_id": "todo" },
-
-    { "id": "t19-01", "project_id": "p19", "title": "FE: Notification preferences page", "description": "Settings page for users to manage push, email, and SMS notification preferences by category.", "status": "in_progress", "priority": "high", "due_date": "2026-04-14", "assignee_ids": ["test-user-1", "u4"], "column_id": "in_progress" },
-    { "id": "t19-02", "project_id": "p19", "title": "BE: Smart notification timing engine", "description": "ML model predicting optimal send time per user based on past open rates and app usage patterns.", "status": "in_progress", "priority": "high", "due_date": "2026-04-17", "assignee_ids": ["u6", "u14"], "column_id": "in_progress" },
-    { "id": "t19-03", "project_id": "p19", "title": "FE: Deep link routing for notifications", "description": "Ensure tapping notification opens correct screen — order tracking, restaurant page, promo, etc.", "status": "done", "priority": "high", "due_date": "2026-04-08", "assignee_ids": ["u2", "u19"], "column_id": "done" },
-    { "id": "t19-04", "project_id": "p19", "title": "BE: A/B testing for notification copy", "description": "Framework for testing different notification titles and body text to maximize open rates.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u8", "u20"], "column_id": "todo" },
-    { "id": "t19-05", "project_id": "p19", "title": "Product: Define quiet hours policy", "description": "No promotional notifications between 10 PM and 8 AM unless order-critical.", "status": "done", "priority": "medium", "due_date": "2026-04-06", "assignee_ids": ["test-user-1", "u11"], "column_id": "done" },
-    { "id": "t19-06", "project_id": "p19", "title": "BE: FCM and APNs integration layer", "description": "Unified push notification service supporting Firebase Cloud Messaging and Apple Push Notification.", "status": "in_progress", "priority": "high", "due_date": "2026-04-16", "assignee_ids": ["u23", "u28"], "column_id": "in_progress" },
-    { "id": "t19-07", "project_id": "p19", "title": "FE: In-app notification center", "description": "Bell icon with unread count, notification feed with read/unread states, and swipe-to-dismiss.", "status": "todo", "priority": "medium", "due_date": "2026-04-24", "assignee_ids": ["u4", "test-user-1"], "column_id": "todo" },
-    { "id": "t19-08", "project_id": "p19", "title": "BE: Notification analytics dashboard data", "description": "Track delivery rate, open rate, click-through, and opt-out rate per notification campaign.", "status": "todo", "priority": "medium", "due_date": "2026-04-26", "assignee_ids": ["u14", "u6"], "column_id": "todo" },
-    { "id": "t19-09", "project_id": "p19", "title": "FE: Rich notification with images", "description": "Support hero images in push notifications — food photos, promo banners, order status icons.", "status": "todo", "priority": "low", "due_date": "2026-05-01", "assignee_ids": ["u19", "u20"], "column_id": "todo" },
-    { "id": "t19-10", "project_id": "p19", "title": "QA: Notification delivery reliability test", "description": "Test push delivery across Android/iOS versions, background/foreground states, and do-not-disturb.", "status": "todo", "priority": "high", "due_date": "2026-04-28", "assignee_ids": ["u11", "u23"], "column_id": "todo" },
-
-    { "id": "t20-01", "project_id": "p20", "title": "FE: Restaurant availability calendar", "description": "Interactive calendar showing available time slots with capacity indicators for each slot.", "status": "in_progress", "priority": "high", "due_date": "2026-04-15", "assignee_ids": ["u7", "test-user-1"], "column_id": "in_progress" },
-    { "id": "t20-02", "project_id": "p20", "title": "BE: Real-time table availability engine", "description": "Track table status (available, reserved, occupied) with live updates from restaurant POS.", "status": "in_progress", "priority": "high", "due_date": "2026-04-17", "assignee_ids": ["u2", "u16"], "column_id": "in_progress" },
-    { "id": "t20-03", "project_id": "p20", "title": "FE: Waitlist join and status tracker", "description": "Join virtual waitlist, see position, get notified when table is ready with estimated wait time.", "status": "todo", "priority": "medium", "due_date": "2026-04-22", "assignee_ids": ["u5", "u18"], "column_id": "todo" },
-    { "id": "t20-04", "project_id": "p20", "title": "BE: Reservation confirmation and reminders", "description": "SMS + push reminders at 24hr and 1hr before reservation with cancellation/modification link.", "status": "todo", "priority": "high", "due_date": "2026-04-20", "assignee_ids": ["u12", "u22"], "column_id": "todo" },
-    { "id": "t20-05", "project_id": "p20", "title": "Design: Special occasion packages UI", "description": "Birthday, anniversary, date night packages — cake, decorations, special menu with booking flow.", "status": "done", "priority": "medium", "due_date": "2026-04-06", "assignee_ids": ["u9", "u25"], "column_id": "done" },
-    { "id": "t20-06", "project_id": "p20", "title": "FE: Guest preferences form", "description": "Capture dietary restrictions, seating preference, occasion type during booking.", "status": "in_progress", "priority": "medium", "due_date": "2026-04-18", "assignee_ids": ["test-user-1", "u29"], "column_id": "in_progress" },
-    { "id": "t20-07", "project_id": "p20", "title": "BE: No-show tracking and penalty system", "description": "Track no-shows per user, implement soft penalties (require prepayment after 3 no-shows).", "status": "todo", "priority": "medium", "due_date": "2026-04-25", "assignee_ids": ["u16", "u7"], "column_id": "todo" },
-    { "id": "t20-08", "project_id": "p20", "title": "Product: Restaurant partner onboarding for reservations", "description": "Define setup flow: table configuration, operating hours, advance booking window, auto-accept rules.", "status": "in_progress", "priority": "high", "due_date": "2026-04-14", "assignee_ids": ["u7", "u18"], "column_id": "in_progress" },
-    { "id": "t20-09", "project_id": "p20", "title": "FE: Reservation history and re-book", "description": "Show past reservations with one-tap re-book at same restaurant, same party size.", "status": "todo", "priority": "low", "due_date": "2026-05-02", "assignee_ids": ["u5", "u12"], "column_id": "todo" },
-    { "id": "t20-10", "project_id": "p20", "title": "QA: Booking conflict and edge case testing", "description": "Test double-booking prevention, timezone handling, restaurant closure override, and capacity limits.", "status": "todo", "priority": "high", "due_date": "2026-04-28", "assignee_ids": ["u22", "u29"], "column_id": "todo" }
+    {
+      "id": "t1-01",
+      "project_id": "p1",
+      "title": "FE: Optimize Mapbox GL heatmap rendering",
+      "description": "The heatmap layer causes severe frame drops on low-end Androids. Profile and batch WebGL draw calls.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "test-user-1",
+        "u4"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t1-02",
+      "project_id": "p1",
+      "title": "BE: Build surge pricing API endpoint",
+      "description": "Expose GET /api/v2/surge/heatmap using PostGIS bounding boxes. Must respond under 50ms p99.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-10",
+      "assignee_ids": [
+        "u5",
+        "u8"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t1-03",
+      "project_id": "p1",
+      "title": "FE: Weather rain alerts overlay modal",
+      "description": "Show warning modal to riders during heavy rain and conditionally adjust delivery SLA text.",
+      "status": "qa",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u2",
+        "u8"
+      ],
+      "column_id": "qa",
+      "updated_at": "2026-04-11T12:34:37.086Z"
+    },
+    {
+      "id": "t1-04",
+      "project_id": "p1",
+      "title": "BE: Kafka consumer for weather events",
+      "description": "Set up Kafka consumer on regional weather topic and emit WebSocket events to rider app instances.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u6"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t1-05",
+      "project_id": "p1",
+      "title": "QA: Test offline reconnect logic",
+      "description": "Verify queued actions sync correctly when dropping from 4G to Edge and back.",
+      "status": "in_progress",
+      "priority": "low",
+      "due_date": "2026-04-25",
+      "assignee_ids": [
+        "u7",
+        "u19"
+      ],
+      "column_id": "qa"
+    },
+    {
+      "id": "t1-06",
+      "project_id": "p1",
+      "title": "Design: Rider identity verification flow",
+      "description": "Finalize Figma screens for facial recognition + Aadhaar selfie match UI.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-05",
+      "assignee_ids": [
+        "u9",
+        "test-user-1"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t1-07",
+      "project_id": "p1",
+      "title": "FE: Apple Watch complication for distance",
+      "description": "Show real-time delivery distance directly on Apple Watch face using WatchOS complication API.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-01",
+      "assignee_ids": [
+        "u11",
+        "u22"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t1-08",
+      "project_id": "p1",
+      "title": "BE: Fix WebRTC signaling handshake drops",
+      "description": "Socket connection closes unexpectedly before call bridges to merchant. Investigate TURN server timeouts.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-13",
+      "assignee_ids": [
+        "u3",
+        "u10"
+      ],
+      "column_id": "todo",
+      "updated_at": "2026-04-11T12:34:50.236Z"
+    },
+    {
+      "id": "t1-09",
+      "project_id": "p1",
+      "title": "FE: Voice navigation integration with Google TTS",
+      "description": "Implement turn-by-turn voice guidance using Google Text-to-Speech API in regional languages.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "test-user-1",
+        "u2"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t1-10",
+      "project_id": "p1",
+      "title": "Product: Define rider incentive tiers for Q2",
+      "description": "Work with ops team to finalize surge multiplier brackets and peak hour bonus structure.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-08",
+      "assignee_ids": [
+        "u10",
+        "u5"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t1-11",
+      "project_id": "p1",
+      "title": "BE: Redis caching for active delivery sessions",
+      "description": "Cache rider location pings in Redis with 30s TTL to reduce Postgres read load.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u8"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t1-12",
+      "project_id": "p1",
+      "title": "FE: Animated route polyline on delivery map",
+      "description": "Smooth animated polyline showing rider's traveled path with gradient coloring.",
+      "status": "in_progress",
+      "priority": "low",
+      "due_date": "2026-04-19",
+      "assignee_ids": [
+        "u19",
+        "u22"
+      ],
+      "column_id": "in_progress",
+      "updated_at": "2026-04-11T12:34:43.566Z"
+    },
+    {
+      "id": "t2-01",
+      "project_id": "p2",
+      "title": "Product: Map Blinkit taxonomy to Zomato categories",
+      "description": "Merge grocery product taxonomy from Blinkit DB into Zomato's unified catalog schema.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-13",
+      "assignee_ids": [
+        "test-user-1",
+        "u14"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t2-02",
+      "project_id": "p2",
+      "title": "FE: Combined cart drawer — food + grocery",
+      "description": "Side-by-side cart showing food items and grocery items without losing state on tab switch.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u2",
+        "u23"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t2-03",
+      "project_id": "p2",
+      "title": "BE: Real-time inventory sync microservice",
+      "description": "Sync dark store inventory to Zomato core DB via gRPC streaming with conflict resolution.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-03-30",
+      "assignee_ids": [
+        "u8",
+        "u5"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t2-04",
+      "project_id": "p2",
+      "title": "QA: Load test unified cart at 10k RPS",
+      "description": "Blast test the unified cart checkout endpoint and measure p99 latency under load.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-15",
+      "assignee_ids": [
+        "u17",
+        "u12"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t2-05",
+      "project_id": "p2",
+      "title": "FE: Grocery search with autocomplete",
+      "description": "Implement debounced search with fuzzy matching for grocery items using Algolia.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u13"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t2-06",
+      "project_id": "p2",
+      "title": "Design: Empty state illustrations for grocery",
+      "description": "Create custom illustrations for empty cart, no search results, and first-time grocery user.",
+      "status": "done",
+      "priority": "low",
+      "due_date": "2026-04-06",
+      "assignee_ids": [
+        "u18",
+        "u20"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t2-07",
+      "project_id": "p2",
+      "title": "BE: Coupon engine — cross-vertical discounts",
+      "description": "Support coupons that apply across food + grocery in a single checkout transaction.",
+      "status": "review",
+      "priority": "high",
+      "due_date": "2026-04-17",
+      "assignee_ids": [
+        "u5",
+        "u8"
+      ],
+      "column_id": "review"
+    },
+    {
+      "id": "t2-08",
+      "project_id": "p2",
+      "title": "FE: Delivery slot picker component",
+      "description": "Time slot picker for scheduled grocery deliveries with 15-min granularity.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t2-09",
+      "project_id": "p2",
+      "title": "Product: Define return/refund policy for groceries",
+      "description": "Draft product spec for grocery return flow — damaged items, wrong items, missing items.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-25",
+      "assignee_ids": [
+        "u14",
+        "u17"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t2-10",
+      "project_id": "p2",
+      "title": "BE: Order splitting logic for multi-store carts",
+      "description": "Split a single cart into multiple orders when items come from different dark stores.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u23",
+        "u8"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t3-01",
+      "project_id": "p3",
+      "title": "BE: Stripe webhook processor rewrite",
+      "description": "Fix race conditions in payment intents webhook handler. Implement idempotency keys.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-12",
+      "assignee_ids": [
+        "u7",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t3-02",
+      "project_id": "p3",
+      "title": "FE: Apple Pay native module integration",
+      "description": "Bridge EventEmitters from Swift PKPaymentAuthorizationController to React Native JS layer.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u16",
+        "u24"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t3-03",
+      "project_id": "p3",
+      "title": "FE: Google Pay tokenization callback",
+      "description": "Implement GPay payment data tokenization and callback flow on Android.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-01",
+      "assignee_ids": [
+        "u11",
+        "u4"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t3-04",
+      "project_id": "p3",
+      "title": "QA: Simulate 3D Secure payment failures",
+      "description": "Test edge cases: bank OTP timeout, wrong OTP 3x, network drop during 3DS redirect.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-10",
+      "assignee_ids": [
+        "u9"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t3-05",
+      "project_id": "p3",
+      "title": "BE: UPI 2.0 collect flow integration",
+      "description": "Integrate with NPCI UPI 2.0 APIs for collect requests with mandate support.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u3",
+        "u26"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t3-06",
+      "project_id": "p3",
+      "title": "FE: Payment method selection sheet redesign",
+      "description": "Bottom sheet with saved cards, UPI IDs, wallets — sorted by last used. Figma handoff ready.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "test-user-1",
+        "u8"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t3-07",
+      "project_id": "p3",
+      "title": "BE: PCI-DSS audit preparation scripts",
+      "description": "Automate evidence collection for quarterly PCI compliance audit — log exports, access reviews.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-30",
+      "assignee_ids": [
+        "u7",
+        "u4"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t3-08",
+      "project_id": "p3",
+      "title": "Design: Transaction success/failure animations",
+      "description": "Lottie animations for payment success checkmark, failure shake, and processing spinner.",
+      "status": "done",
+      "priority": "low",
+      "due_date": "2026-04-03",
+      "assignee_ids": [
+        "u9",
+        "u11"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t3-09",
+      "project_id": "p3",
+      "title": "FE: Split payment between wallet + card",
+      "description": "Allow users to pay partially from Zomato wallet and rest from card/UPI.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-25",
+      "assignee_ids": [
+        "u16",
+        "u24"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t3-10",
+      "project_id": "p3",
+      "title": "BE: Refund processing pipeline",
+      "description": "Async refund queue with retry logic, dead letter queue, and merchant settlement reconciliation.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u26",
+        "u3"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t4-01",
+      "project_id": "p4",
+      "title": "Logistics: Partner with IndiGo Cargo",
+      "description": "Draft SLA for cargo hold cold storage transit — temperature monitoring and insurance terms.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-15",
+      "assignee_ids": [
+        "test-user-1",
+        "u15"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t4-02",
+      "project_id": "p4",
+      "title": "BE: Multi-city routing algorithm",
+      "description": "Calculate ETAs factoring commercial flight schedules, ground transit, and cold chain handoff windows.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u3",
+        "u6",
+        "u10"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t4-03",
+      "project_id": "p4",
+      "title": "FE: Legends city origins parallax UI",
+      "description": "Parallax scrolling showcase for origin cities — Kolkata biryani, Hyderabadi haleem, Lucknowi kebabs.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-05",
+      "assignee_ids": [
+        "u21"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t4-04",
+      "project_id": "p4",
+      "title": "BE: Cold chain temperature monitoring API",
+      "description": "Ingest IoT sensor data from packaging and alert if temperature exceeds safe range during transit.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-17",
+      "assignee_ids": [
+        "u4",
+        "u14"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t4-05",
+      "project_id": "p4",
+      "title": "Product: Define city launch priority matrix",
+      "description": "Score 20 candidate cities by demand signals, logistics feasibility, and restaurant partner density.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-08",
+      "assignee_ids": [
+        "test-user-1",
+        "u25"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t4-06",
+      "project_id": "p4",
+      "title": "FE: Order tracking with flight status",
+      "description": "Show real-time flight tracking integrated into the order timeline — departed, in-air, landed.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-26",
+      "assignee_ids": [
+        "u11",
+        "u13"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t4-07",
+      "project_id": "p4",
+      "title": "Design: Packaging unboxing experience",
+      "description": "Design insulated packaging with Legends branding — Figma mockups for print vendor.",
+      "status": "staging",
+      "priority": "medium",
+      "due_date": "2026-04-12",
+      "assignee_ids": [
+        "u21",
+        "u25"
+      ],
+      "column_id": "staging"
+    },
+    {
+      "id": "t4-08",
+      "project_id": "p4",
+      "title": "QA: End-to-end Legends order flow",
+      "description": "Full regression: place order in Mumbai, verify tracking, confirm delivery in Delhi with temp logs.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u15",
+        "u6"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t4-09",
+      "project_id": "p4",
+      "title": "BE: Dynamic pricing based on demand + distance",
+      "description": "Implement surge pricing for high-demand routes with distance-based delivery fee tiers.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-05-02",
+      "assignee_ids": [
+        "u3",
+        "u10"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t4-10",
+      "project_id": "p4",
+      "title": "FE: Legends gift card flow",
+      "description": "Allow users to send Legends dishes as gifts with personalized message and scheduled delivery.",
+      "status": "in_progress",
+      "priority": "low",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u13",
+        "u14"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t5-01",
+      "project_id": "p5",
+      "title": "FE: Migrate Highcharts to Recharts",
+      "description": "Replace Highcharts (licensing issue) with Recharts — start with Monthly Revenue and Order Volume charts.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-15",
+      "assignee_ids": [
+        "test-user-1",
+        "u17"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t5-02",
+      "project_id": "p5",
+      "title": "BE: GraphQL endpoints for ad analytics",
+      "description": "Expose CTR, CPC, and impression data for promoted listings via GraphQL resolvers.",
+      "status": "review",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u3",
+        "u5"
+      ],
+      "column_id": "review"
+    },
+    {
+      "id": "t5-03",
+      "project_id": "p5",
+      "title": "FE: RBAC-based view restrictions",
+      "description": "Restrict payout and revenue views to Admin role. Show graceful 'no access' state for others.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-01",
+      "assignee_ids": [
+        "u18"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t5-04",
+      "project_id": "p5",
+      "title": "FE: CSV export for large datasets",
+      "description": "Build streaming CSV export using Web Workers so UI doesn't freeze on 100k+ row exports.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-02",
+      "assignee_ids": [
+        "test-user-1",
+        "u7"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t5-05",
+      "project_id": "p5",
+      "title": "BE: Menu performance heatmap data pipeline",
+      "description": "Aggregate item-level sales, ratings, and reorder rates into a heatmap-ready API response.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u8",
+        "u10"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t5-06",
+      "project_id": "p5",
+      "title": "Design: Dashboard dark mode theme",
+      "description": "Create dark mode color tokens and update all Figma frames for merchant portal.",
+      "status": "done",
+      "priority": "low",
+      "due_date": "2026-04-04",
+      "assignee_ids": [
+        "u29"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t5-07",
+      "project_id": "p5",
+      "title": "FE: Real-time order notifications panel",
+      "description": "WebSocket-powered notification feed showing new orders, cancellations, and reviews in real-time.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u12",
+        "u27"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t5-08",
+      "project_id": "p5",
+      "title": "Product: Define KPI benchmarks for merchants",
+      "description": "Set target ranges for avg delivery time, rating, acceptance rate to show green/yellow/red status.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-24",
+      "assignee_ids": [
+        "u18",
+        "test-user-1"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t5-09",
+      "project_id": "p5",
+      "title": "BE: Automated weekly digest email",
+      "description": "Cron job generating weekly performance summary email with charts sent to restaurant owners.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-30",
+      "assignee_ids": [
+        "u5",
+        "u3"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t5-10",
+      "project_id": "p5",
+      "title": "FE: Comparative analytics — vs competitors",
+      "description": "Show anonymized percentile ranking vs similar restaurants in the same area.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-08",
+      "assignee_ids": [
+        "u17",
+        "u27"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t6-01",
+      "project_id": "p6",
+      "title": "AI: Prompt injection guard rails",
+      "description": "Implement input sanitization and output filtering to prevent jailbreak and prompt injection attacks.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-12",
+      "assignee_ids": [
+        "u5",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t6-02",
+      "project_id": "p6",
+      "title": "FE: Typing indicator animation",
+      "description": "Framer Motion staggered dots animation while bot is generating response.",
+      "status": "testing",
+      "priority": "low",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u9",
+        "u22"
+      ],
+      "column_id": "testing"
+    },
+    {
+      "id": "t6-03",
+      "project_id": "p6",
+      "title": "BE: Vector embeddings search for FAQ",
+      "description": "LangChain + Pinecone setup for semantic search across 2000+ support FAQ documents.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-08",
+      "assignee_ids": [
+        "u4",
+        "u6"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t6-04",
+      "project_id": "p6",
+      "title": "FE: Chat UI with message threading",
+      "description": "Build chat interface with message bubbles, timestamps, and conversation thread grouping.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-06",
+      "assignee_ids": [
+        "u19",
+        "u28"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t6-05",
+      "project_id": "p6",
+      "title": "BE: Refund auto-approval decision engine",
+      "description": "Rules engine: auto-approve refunds under ₹200 if order was late by >30min or item was missing.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-15",
+      "assignee_ids": [
+        "u16",
+        "u11"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t6-06",
+      "project_id": "p6",
+      "title": "Product: Chatbot escalation flow to human agent",
+      "description": "Define when bot should hand off to human — sentiment detection, repeated failures, explicit request.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u5",
+        "test-user-1"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t6-07",
+      "project_id": "p6",
+      "title": "BE: Conversation history persistence",
+      "description": "Store chat sessions in DynamoDB with TTL and allow users to resume past conversations.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u30",
+        "u4"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t6-08",
+      "project_id": "p6",
+      "title": "FE: Customer satisfaction rating after chat",
+      "description": "Post-chat CSAT survey — thumbs up/down + optional text feedback, with analytics tracking.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-25",
+      "assignee_ids": [
+        "u22",
+        "u9"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t6-09",
+      "project_id": "p6",
+      "title": "AI: Fine-tune response tone for Indian English",
+      "description": "Adjust system prompt and few-shot examples for natural Indian English tone — not overly formal.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-05",
+      "assignee_ids": [
+        "u28"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t6-10",
+      "project_id": "p6",
+      "title": "QA: Test bot with 500 real complaint transcripts",
+      "description": "Run bot against anonymized real complaints and measure resolution accuracy and user satisfaction.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u6",
+        "u11"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t7-01",
+      "project_id": "p7",
+      "title": "FE: Supply chain node visualizer",
+      "description": "React Flow-based interactive graph showing ingredient journey from farm to restaurant kitchen.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "u12",
+        "u23"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t7-02",
+      "project_id": "p7",
+      "title": "BE: Bulk order tiered discount algorithm",
+      "description": "Calculate volume discounts: 5% off 50kg+, 10% off 200kg+, 15% off 500kg+ with floor prices.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "test-user-1",
+        "u3"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t7-03",
+      "project_id": "p7",
+      "title": "FE: Ingredient catalog with filters",
+      "description": "Searchable catalog with filters for category, organic/non-organic, price range, and delivery speed.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u15",
+        "u20"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t7-04",
+      "project_id": "p7",
+      "title": "BE: Delivery scheduling optimizer",
+      "description": "Optimize delivery routes for bulk orders across multiple restaurants in same area.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-24",
+      "assignee_ids": [
+        "u7",
+        "u8"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t7-05",
+      "project_id": "p7",
+      "title": "Design: Invoice template for B2B orders",
+      "description": "GST-compliant invoice template with HyperPure branding — PDF export ready.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-05",
+      "assignee_ids": [
+        "u26"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t7-06",
+      "project_id": "p7",
+      "title": "FE: Order history with reorder functionality",
+      "description": "Show past orders with one-click reorder, quantity adjustment, and delivery date picker.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u2",
+        "test-user-1"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t7-07",
+      "project_id": "p7",
+      "title": "BE: Quality inspection checklist API",
+      "description": "API for delivery agents to submit photo-based quality inspection at pickup and delivery.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-17",
+      "assignee_ids": [
+        "u3",
+        "u26"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t7-08",
+      "project_id": "p7",
+      "title": "Product: Subscription ordering for regulars",
+      "description": "Define weekly/monthly subscription model for restaurants that order same ingredients regularly.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-01",
+      "assignee_ids": [
+        "u14",
+        "u15"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t7-09",
+      "project_id": "p7",
+      "title": "FE: Dashboard — spend analytics for buyers",
+      "description": "Charts showing monthly spend, top categories, price trends, and savings from bulk orders.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u23",
+        "u20"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t7-10",
+      "project_id": "p7",
+      "title": "QA: End-to-end B2B order regression",
+      "description": "Full flow: browse catalog, add to cart, apply discount, place order, track delivery, rate quality.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-30",
+      "assignee_ids": [
+        "u8",
+        "u12"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t8-01",
+      "project_id": "p8",
+      "title": "Product: Validate micro-membership concept",
+      "description": "Can users buy 'Gold for 3 days'? Run survey and analyze willingness to pay at ₹29/₹49/₹99.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-12",
+      "assignee_ids": [
+        "u8",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t8-02",
+      "project_id": "p8",
+      "title": "BE: Dynamic recurring billing engine",
+      "description": "Replace fixed monthly cron with event-driven billing — supports daily, weekly, monthly cycles.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-30",
+      "assignee_ids": [
+        "u4",
+        "u13"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t8-03",
+      "project_id": "p8",
+      "title": "FE: Gold membership comparison page",
+      "description": "Side-by-side comparison of Gold tiers — free delivery, extra discounts, priority support.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "test-user-1",
+        "u29"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t8-04",
+      "project_id": "p8",
+      "title": "BE: Area-based surge pricing for Gold",
+      "description": "Dynamic Gold pricing based on area demand density and average order value.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u5",
+        "u16"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t8-05",
+      "project_id": "p8",
+      "title": "FE: Family plan member management",
+      "description": "Allow Gold subscribers to add up to 4 family members with shared benefits.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-25",
+      "assignee_ids": [
+        "u27",
+        "u17"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t8-06",
+      "project_id": "p8",
+      "title": "Design: Gold onboarding flow",
+      "description": "Figma designs for Gold signup — benefits carousel, plan selection, payment, confirmation.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-07",
+      "assignee_ids": [
+        "u29",
+        "u30"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t8-07",
+      "project_id": "p8",
+      "title": "BE: Cancellation and pro-rata refund logic",
+      "description": "Calculate pro-rata refund for mid-cycle cancellations with usage deduction.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u4",
+        "u24"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t8-08",
+      "project_id": "p8",
+      "title": "FE: Gold savings tracker widget",
+      "description": "Show running total of how much user has saved this month with Gold membership.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-05",
+      "assignee_ids": [
+        "u13",
+        "test-user-1"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t8-09",
+      "project_id": "p8",
+      "title": "Product: Gold referral program design",
+      "description": "Design referral mechanics — both referrer and referee get 1 week free Gold extension.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u17",
+        "u8"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t8-10",
+      "project_id": "p8",
+      "title": "QA: Billing edge cases — timezone, leap year",
+      "description": "Test billing calculations for users in different timezones and edge dates (Feb 29, month ends).",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-10",
+      "assignee_ids": [
+        "u16",
+        "u5"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t9-01",
+      "project_id": "p9",
+      "title": "FE: React Native Maps for NGO locations",
+      "description": "Accurate mapping of NGO and shelter locations in dense urban areas with clustering.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u7",
+        "u19"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t9-02",
+      "project_id": "p9",
+      "title": "QA: Offline collection reporting",
+      "description": "Verify volunteers can submit food collection reports offline and sync when back online.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-19",
+      "assignee_ids": [
+        "test-user-1",
+        "u23"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t9-03",
+      "project_id": "p9",
+      "title": "FE: Volunteer dashboard with impact stats",
+      "description": "Show meals donated, hours volunteered, areas covered — with shareable achievement cards.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u15",
+        "u21"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t9-04",
+      "project_id": "p9",
+      "title": "BE: Food surplus matching algorithm",
+      "description": "Match restaurant surplus food with nearest NGO based on quantity, food type, and pickup window.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u14",
+        "u28"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t9-05",
+      "project_id": "p9",
+      "title": "Design: Volunteer onboarding screens",
+      "description": "Warm, inviting onboarding flow showing impact stories and easy signup for new volunteers.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-06",
+      "assignee_ids": [
+        "u25"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t9-06",
+      "project_id": "p9",
+      "title": "FE: Push notifications for nearby pickups",
+      "description": "Geo-fenced push notifications when surplus food is available near volunteer's location.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-24",
+      "assignee_ids": [
+        "u19",
+        "u30"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t9-07",
+      "project_id": "p9",
+      "title": "BE: Monthly impact report generator",
+      "description": "Auto-generate PDF reports with stats on meals saved, CO2 reduced, and volunteer hours for NGO partners.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-01",
+      "assignee_ids": [
+        "u11",
+        "u7"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t9-08",
+      "project_id": "p9",
+      "title": "Product: Corporate volunteering partnerships",
+      "description": "Define program for companies to sponsor employee volunteering days through Feeding India.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u11",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t9-09",
+      "project_id": "p9",
+      "title": "FE: Food safety checklist form",
+      "description": "Digital checklist for volunteers to confirm food temperature, packaging integrity before pickup.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-26",
+      "assignee_ids": [
+        "u15",
+        "u23"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t9-10",
+      "project_id": "p9",
+      "title": "BE: Photo verification for food donations",
+      "description": "Image upload and AI-based verification to ensure donated food meets safety standards.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-30",
+      "assignee_ids": [
+        "u28",
+        "u14"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t10-01",
+      "project_id": "p10",
+      "title": "BE: Integrate DJI Flight Hub API",
+      "description": "Sync real-time telemetry — GPS, altitude, battery, speed — from drones to our backend via WebSocket.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-19",
+      "assignee_ids": [
+        "u6",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t10-02",
+      "project_id": "p10",
+      "title": "FE: 3D drone tracker map",
+      "description": "Three.js visualization showing drone altitude, pitch, and delivery path in 3D space.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-05-12",
+      "assignee_ids": [
+        "u2",
+        "u22"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t10-03",
+      "project_id": "p10",
+      "title": "Legal: DGCA airspace clearance",
+      "description": "Finalize airspace buffer zones and submit paperwork for Gurgaon Sector 29 drone corridor.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-03-01",
+      "assignee_ids": [
+        "u10"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t10-04",
+      "project_id": "p10",
+      "title": "BE: Geofencing and no-fly zone enforcement",
+      "description": "Real-time geofence checks against DGCA no-fly zones with automatic return-to-home trigger.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u3",
+        "u18"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t10-05",
+      "project_id": "p10",
+      "title": "FE: Drone delivery tracking for customers",
+      "description": "Customer-facing page showing drone ETA, live camera feed, and landing zone preparation steps.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u20",
+        "u26"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t10-06",
+      "project_id": "p10",
+      "title": "Product: Define weight/size limits for drone delivery",
+      "description": "Max payload 2kg, max distance 5km. Map eligible menu items and restaurants within range.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-02",
+      "assignee_ids": [
+        "u6",
+        "u15"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t10-07",
+      "project_id": "p10",
+      "title": "BE: Weather-based flight safety checker",
+      "description": "Auto-ground drones when wind speed >25 kmph or visibility < 1km using weather API data.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u10",
+        "u29"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t10-08",
+      "project_id": "p10",
+      "title": "FE: Drone fleet management dashboard",
+      "description": "Admin dashboard showing fleet status, battery levels, active deliveries, and maintenance schedule.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "test-user-1",
+        "u2"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t10-09",
+      "project_id": "p10",
+      "title": "Design: Drone delivery order flow mockups",
+      "description": "Figma designs for 'drone delivery available' badge, order placement, and landing zone selector.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-04",
+      "assignee_ids": [
+        "u22",
+        "u26"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t10-10",
+      "project_id": "p10",
+      "title": "QA: Simulated delivery runs in test zone",
+      "description": "10 test deliveries in controlled environment — measure accuracy, time, and food condition.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-05-01",
+      "assignee_ids": [
+        "u18",
+        "u3"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t11-01",
+      "project_id": "p11",
+      "title": "FE: Multi-step wizard with progress bar",
+      "description": "Convert 14-step form to 4-step wizard with animated progress indicator and form validation.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-15",
+      "assignee_ids": [
+        "test-user-1",
+        "u9"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t11-02",
+      "project_id": "p11",
+      "title": "BE: Document AI for FSSAI license verification",
+      "description": "OCR + AI validation of uploaded FSSAI license documents — extract expiry, license number, name.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-17",
+      "assignee_ids": [
+        "u19",
+        "u24"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t11-03",
+      "project_id": "p11",
+      "title": "FE: Camera-based menu digitization",
+      "description": "Allow restaurant owners to photograph physical menus and auto-extract items using OCR.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u2",
+        "u26"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t11-04",
+      "project_id": "p11",
+      "title": "Design: Onboarding completion celebration",
+      "description": "Confetti animation and welcome screen after restaurant successfully onboards.",
+      "status": "done",
+      "priority": "low",
+      "due_date": "2026-04-05",
+      "assignee_ids": [
+        "u9",
+        "u21"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t11-05",
+      "project_id": "p11",
+      "title": "BE: Auto-generate restaurant profile from GST",
+      "description": "Fetch business name, address, and category from GST number to pre-fill onboarding fields.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u12",
+        "u28"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t11-06",
+      "project_id": "p11",
+      "title": "Product: Onboarding SLA — 24hr activation",
+      "description": "Define process to activate restaurants within 24 hours of document submission.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-08",
+      "assignee_ids": [
+        "test-user-1",
+        "u15"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t11-07",
+      "project_id": "p11",
+      "title": "FE: Live preview of restaurant listing",
+      "description": "Show real-time preview of how the restaurant will appear on Zomato during onboarding.",
+      "status": "ux_review",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u7",
+        "u24"
+      ],
+      "column_id": "ux_review"
+    },
+    {
+      "id": "t11-08",
+      "project_id": "p11",
+      "title": "BE: Bulk restaurant import via CSV",
+      "description": "Allow sales team to upload CSV of new restaurant partners for batch onboarding.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u12",
+        "u19"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t11-09",
+      "project_id": "p11",
+      "title": "QA: Onboarding flow accessibility audit",
+      "description": "Screen reader compatibility, keyboard navigation, and WCAG 2.1 AA compliance check.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-25",
+      "assignee_ids": [
+        "u26",
+        "u28"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t11-10",
+      "project_id": "p11",
+      "title": "FE: Multi-language support for onboarding",
+      "description": "Add Hindi, Tamil, Telugu, Bengali language options for restaurant onboarding form.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-05-02",
+      "assignee_ids": [
+        "u7",
+        "u21"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t12-01",
+      "project_id": "p12",
+      "title": "FE: Animated rider marker on map",
+      "description": "Smooth CSS animation for rider icon moving along route with heading rotation.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "u3",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t12-02",
+      "project_id": "p12",
+      "title": "BE: ETA prediction ML model serving",
+      "description": "Deploy TensorFlow Lite model for real-time ETA predictions based on traffic, weather, rider speed.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u8",
+        "u10"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t12-03",
+      "project_id": "p12",
+      "title": "FE: Live food prep video widget",
+      "description": "Embedded video player showing restaurant kitchen cam during food preparation.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-24",
+      "assignee_ids": [
+        "u6",
+        "u25"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t12-04",
+      "project_id": "p12",
+      "title": "BE: WebSocket connection pooling",
+      "description": "Optimize WebSocket connections with Redis pub/sub for handling 100k concurrent tracking sessions.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u13",
+        "u17"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t12-05",
+      "project_id": "p12",
+      "title": "Design: Order timeline with micro-interactions",
+      "description": "Figma prototypes for order placed → confirmed → preparing → picked up → on the way → delivered.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-06",
+      "assignee_ids": [
+        "u9",
+        "u27"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t12-06",
+      "project_id": "p12",
+      "title": "FE: Share live tracking link",
+      "description": "Generate shareable link for friends/family to track the delivery without logging in.",
+      "status": "in_progress",
+      "priority": "low",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u20",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t12-07",
+      "project_id": "p12",
+      "title": "BE: Historical delivery analytics API",
+      "description": "API for showing average delivery times by restaurant, area, and time of day.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-26",
+      "assignee_ids": [
+        "u10",
+        "u8"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t12-08",
+      "project_id": "p12",
+      "title": "FE: Rider call/chat integration",
+      "description": "In-app VoIP call and chat with delivery rider directly from tracking screen.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u3",
+        "u25"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t12-09",
+      "project_id": "p12",
+      "title": "Product: Define tracking accuracy benchmarks",
+      "description": "Target: location refresh < 5s, ETA accuracy within 2 min, map load < 1s.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-04",
+      "assignee_ids": [
+        "u9",
+        "u17"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t12-10",
+      "project_id": "p12",
+      "title": "QA: Cross-browser tracking page testing",
+      "description": "Test on Chrome, Safari, Firefox, Samsung Internet — verify map rendering and WebSocket stability.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u27",
+        "u13"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t13-01",
+      "project_id": "p13",
+      "title": "FE: Button component with all variants",
+      "description": "Primary, secondary, ghost, destructive, outline buttons with loading states and icon support.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-06",
+      "assignee_ids": [
+        "test-user-1",
+        "u2"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t13-02",
+      "project_id": "p13",
+      "title": "FE: Input and form field components",
+      "description": "Text input, select, checkbox, radio, textarea with validation states and helper text.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-15",
+      "assignee_ids": [
+        "u5",
+        "u15"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t13-03",
+      "project_id": "p13",
+      "title": "Design: Define color token system",
+      "description": "Semantic color tokens for light/dark mode — primary, success, warning, error, neutral scales.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-03",
+      "assignee_ids": [
+        "u9",
+        "u29"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t13-04",
+      "project_id": "p13",
+      "title": "FE: Modal and dialog components",
+      "description": "Accessible modal with focus trap, escape to close, and multiple size variants.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-17",
+      "assignee_ids": [
+        "test-user-1",
+        "u11"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t13-05",
+      "project_id": "p13",
+      "title": "FE: Toast notification system",
+      "description": "Stackable toasts with auto-dismiss, progress bar, and action button support.",
+      "status": "design_qa",
+      "priority": "medium",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "u17",
+        "u23"
+      ],
+      "column_id": "design_qa"
+    },
+    {
+      "id": "t13-06",
+      "project_id": "p13",
+      "title": "FE: Data table with sorting and pagination",
+      "description": "Reusable table component with column sorting, row selection, and server-side pagination.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u2",
+        "u25"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t13-07",
+      "project_id": "p13",
+      "title": "Design: Typography scale and font tokens",
+      "description": "Define type scale from xs to 4xl with line height and letter spacing tokens.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-04",
+      "assignee_ids": [
+        "u21"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t13-08",
+      "project_id": "p13",
+      "title": "FE: Storybook setup and documentation",
+      "description": "Configure Storybook with MDX docs, controls addon, and auto-generated prop tables.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u5",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t13-09",
+      "project_id": "p13",
+      "title": "FE: Dropdown menu component",
+      "description": "Radix-based dropdown with keyboard navigation, submenus, and custom item renderers.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-24",
+      "assignee_ids": [
+        "u15",
+        "u29"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t13-10",
+      "project_id": "p13",
+      "title": "QA: Visual regression testing setup",
+      "description": "Configure Chromatic for automated visual regression tests on every PR for design system.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u11",
+        "u23"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t14-01",
+      "project_id": "p14",
+      "title": "ML: Collaborative filtering model training",
+      "description": "Train user-restaurant interaction matrix using ALS on Spark for personalized recommendations.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u4",
+        "u22"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t14-02",
+      "project_id": "p14",
+      "title": "BE: Feature store for real-time signals",
+      "description": "Redis-backed feature store serving user location, time, cuisine history at <5ms latency.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u8",
+        "u24"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t14-03",
+      "project_id": "p14",
+      "title": "FE: Personalized restaurant carousel",
+      "description": "Dynamic 'For You' section on home screen powered by ML ranking API.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "test-user-1",
+        "u14"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t14-04",
+      "project_id": "p14",
+      "title": "ML: Cuisine embedding vectors",
+      "description": "Generate 128-dim embeddings for cuisines based on co-order patterns and user transitions.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-08",
+      "assignee_ids": [
+        "u5",
+        "u26"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t14-05",
+      "project_id": "p14",
+      "title": "BE: A/B testing framework for ranking",
+      "description": "Traffic splitting infrastructure for testing different ranking models side by side.",
+      "status": "experiment",
+      "priority": "high",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u10",
+        "u16"
+      ],
+      "column_id": "experiment"
+    },
+    {
+      "id": "t14-06",
+      "project_id": "p14",
+      "title": "Product: Define search quality metrics",
+      "description": "Define NDCG, click-through rate, and conversion rate targets for search ranking.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-05",
+      "assignee_ids": [
+        "u4",
+        "u28"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t14-07",
+      "project_id": "p14",
+      "title": "FE: Search filters — cuisine, price, rating, distance",
+      "description": "Horizontal filter chips with multi-select and instant results update.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-17",
+      "assignee_ids": [
+        "test-user-1",
+        "u22"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t14-08",
+      "project_id": "p14",
+      "title": "BE: Elasticsearch query optimization",
+      "description": "Tune ES queries for restaurant search — boost by rating, proximity, and open status.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-24",
+      "assignee_ids": [
+        "u8",
+        "u14"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t14-09",
+      "project_id": "p14",
+      "title": "ML: Cold-start strategy for new restaurants",
+      "description": "Handle new restaurants with no interaction data — use content features and area popularity.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u26",
+        "u5"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t14-10",
+      "project_id": "p14",
+      "title": "QA: Search relevance evaluation suite",
+      "description": "Annotated test set of 500 queries with expected top-3 results for automated relevance scoring.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-05-02",
+      "assignee_ids": [
+        "u16",
+        "u24"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t15-01",
+      "project_id": "p15",
+      "title": "FE: Corporate account dashboard",
+      "description": "Admin view for companies — employee list, spending limits, department-wise ordering policies.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "test-user-1",
+        "u6"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t15-02",
+      "project_id": "p15",
+      "title": "BE: Bulk order API with scheduling",
+      "description": "API for placing orders for 50-500 people with delivery time slot and dietary split.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u3",
+        "u12"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t15-03",
+      "project_id": "p15",
+      "title": "FE: Menu customization for dietary filters",
+      "description": "Filter menus by veg/non-veg, vegan, gluten-free, nut-free with clear allergen labels.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u7",
+        "u23"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t15-04",
+      "project_id": "p15",
+      "title": "BE: Invoice generation with GST compliance",
+      "description": "Auto-generate GST-compliant invoices with company details, PO number, and department codes.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-25",
+      "assignee_ids": [
+        "u18",
+        "u13"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t15-05",
+      "project_id": "p15",
+      "title": "Design: Catering order flow wireframes",
+      "description": "End-to-end wireframes: select event type → choose menu → customize → review → pay → track.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-07",
+      "assignee_ids": [
+        "u27",
+        "u30"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t15-06",
+      "project_id": "p15",
+      "title": "FE: Real-time headcount adjustment",
+      "description": "Allow changing headcount up to 4 hours before delivery with automatic quantity recalculation.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-26",
+      "assignee_ids": [
+        "u20",
+        "test-user-1"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t15-07",
+      "project_id": "p15",
+      "title": "Product: Enterprise pricing tiers",
+      "description": "Define pricing for <50, 50-200, 200-500 person orders with volume discounts and delivery fees.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "u13",
+        "u6"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t15-08",
+      "project_id": "p15",
+      "title": "BE: Vendor capacity and availability checker",
+      "description": "Check if restaurant partners can fulfill large orders at requested time — kitchen capacity API.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u3",
+        "u12"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t15-09",
+      "project_id": "p15",
+      "title": "FE: Feedback collection post-event",
+      "description": "Quick survey after catering delivery — food quality, portion size, delivery timing ratings.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-05",
+      "assignee_ids": [
+        "u23",
+        "u7"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t15-10",
+      "project_id": "p15",
+      "title": "QA: Enterprise order flow regression",
+      "description": "Full flow: create account → add employees → place bulk order → track → receive → review invoice.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-30",
+      "assignee_ids": [
+        "u30",
+        "u18"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t16-01",
+      "project_id": "p16",
+      "title": "FE: Implement SSR for restaurant pages",
+      "description": "Migrate restaurant detail pages to server-side rendering with Next.js for LCP improvement.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-15",
+      "assignee_ids": [
+        "u3",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t16-02",
+      "project_id": "p16",
+      "title": "FE: Image optimization pipeline",
+      "description": "WebP/AVIF conversion, responsive srcset, lazy loading with blur placeholder for all images.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "u2",
+        "u19"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t16-03",
+      "project_id": "p16",
+      "title": "FE: Route-based code splitting",
+      "description": "Split bundles by route with React.lazy — target <150KB initial JS payload.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-08",
+      "assignee_ids": [
+        "u4",
+        "u8"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t16-04",
+      "project_id": "p16",
+      "title": "FE: Reduce CLS from dynamic content",
+      "description": "Fix layout shifts from late-loading images, ads, and dynamic menu sections — add skeleton placeholders.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u11",
+        "u14"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t16-05",
+      "project_id": "p16",
+      "title": "BE: CDN configuration for static assets",
+      "description": "Configure CloudFront with cache headers, Brotli compression, and edge-level image transformation.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-06",
+      "assignee_ids": [
+        "u24"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t16-06",
+      "project_id": "p16",
+      "title": "FE: Preconnect and prefetch optimization",
+      "description": "Add preconnect hints for API domains, prefetch likely navigation targets on hover.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "test-user-1",
+        "u30"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t16-07",
+      "project_id": "p16",
+      "title": "FE: Bundle analysis and tree shaking audit",
+      "description": "Run webpack-bundle-analyzer, identify and eliminate unused code from large dependencies.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u4",
+        "u27"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t16-08",
+      "project_id": "p16",
+      "title": "QA: Lighthouse CI integration",
+      "description": "Add Lighthouse CI to GitHub Actions — fail PR if performance score drops below 90.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u19",
+        "u8"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t16-09",
+      "project_id": "p16",
+      "title": "FE: Service worker for offline menu caching",
+      "description": "Cache restaurant menus and images for offline browsing using Workbox strategies.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-01",
+      "assignee_ids": [
+        "u14",
+        "u2"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t16-10",
+      "project_id": "p16",
+      "title": "Product: Define Core Web Vitals targets per page",
+      "description": "Set LCP, FID, CLS targets for home, search, restaurant, checkout — aligned with Google thresholds.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-03",
+      "assignee_ids": [
+        "u3",
+        "u11"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t17-01",
+      "project_id": "p17",
+      "title": "FE: Event discovery page with filters",
+      "description": "Browse upcoming food events by city, date, cuisine type, and price range.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "test-user-1",
+        "u9"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t17-02",
+      "project_id": "p17",
+      "title": "BE: Ticketing and booking engine",
+      "description": "Support ticket tiers (VIP, regular), group bookings, and waitlist for sold-out events.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u5",
+        "u10"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t17-03",
+      "project_id": "p17",
+      "title": "FE: Event detail page with gallery",
+      "description": "Rich event page with photo gallery, chef bios, menu preview, venue map, and reviews.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "u7",
+        "u28"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t17-04",
+      "project_id": "p17",
+      "title": "Design: Event poster templates",
+      "description": "Canva-like templates for event organizers to create promotional posters with Zomato branding.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-07",
+      "assignee_ids": [
+        "u21",
+        "u25"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t17-05",
+      "project_id": "p17",
+      "title": "BE: Event recommendation engine",
+      "description": "Suggest events based on user's cuisine preferences, past attendance, and friend activity.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-25",
+      "assignee_ids": [
+        "u16",
+        "u13"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t17-06",
+      "project_id": "p17",
+      "title": "FE: QR code ticket with check-in flow",
+      "description": "Generate QR code tickets, scan-to-check-in for event organizers, and attendance tracking.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-24",
+      "assignee_ids": [
+        "u29",
+        "test-user-1"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t17-07",
+      "project_id": "p17",
+      "title": "Product: Chef masterclass format definition",
+      "description": "Define class structure: live demo, Q&A, take-home recipe kit, recording access for 30 days.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "u10",
+        "u5"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t17-08",
+      "project_id": "p17",
+      "title": "FE: Social sharing and invite friends",
+      "description": "Share events on WhatsApp, Instagram Stories with deep links. Invite friends with group discount.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-26",
+      "assignee_ids": [
+        "u9",
+        "u28"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t17-09",
+      "project_id": "p17",
+      "title": "BE: Organizer payout and settlement",
+      "description": "Automated post-event payout to organizers with commission deduction and tax documentation.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-30",
+      "assignee_ids": [
+        "u13",
+        "u16"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t17-10",
+      "project_id": "p17",
+      "title": "QA: Event booking end-to-end testing",
+      "description": "Full flow: discover → book → pay → receive ticket → check-in → rate → organizer payout.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-05-05",
+      "assignee_ids": [
+        "u25",
+        "u29"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t18-01",
+      "project_id": "p18",
+      "title": "FE: Kitchen operations dashboard",
+      "description": "Real-time dashboard showing active orders, prep times, station assignments, and bottlenecks.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-15",
+      "assignee_ids": [
+        "test-user-1",
+        "u12"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t18-02",
+      "project_id": "p18",
+      "title": "BE: Ingredient inventory tracking system",
+      "description": "Track stock levels, auto-generate purchase orders when items hit reorder point.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-17",
+      "assignee_ids": [
+        "u4",
+        "u22"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t18-03",
+      "project_id": "p18",
+      "title": "FE: Staff scheduling calendar",
+      "description": "Weekly shift calendar with drag-and-drop scheduling, conflict detection, and overtime alerts.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u3",
+        "u26"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t18-04",
+      "project_id": "p18",
+      "title": "BE: Order routing optimizer",
+      "description": "Route incoming orders to optimal kitchen station based on capacity, queue length, and item type.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-24",
+      "assignee_ids": [
+        "u6",
+        "u15"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t18-05",
+      "project_id": "p18",
+      "title": "Design: Kitchen display system UI",
+      "description": "Large-screen KDS interface for kitchen staff — order cards, timer progress bars, bump button.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-08",
+      "assignee_ids": [
+        "u17",
+        "u30"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t18-06",
+      "project_id": "p18",
+      "title": "FE: Wastage tracking and reporting",
+      "description": "Log food waste by category, reason, and amount — weekly reports with trend analysis.",
+      "status": "staging",
+      "priority": "medium",
+      "due_date": "2026-04-19",
+      "assignee_ids": [
+        "test-user-1",
+        "u22"
+      ],
+      "column_id": "staging"
+    },
+    {
+      "id": "t18-07",
+      "project_id": "p18",
+      "title": "BE: Multi-kitchen performance comparison",
+      "description": "API comparing throughput, prep times, and waste across all cloud kitchen locations.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-26",
+      "assignee_ids": [
+        "u10",
+        "u4"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t18-08",
+      "project_id": "p18",
+      "title": "Product: Define kitchen SLA metrics",
+      "description": "Target: order acceptance < 30s, prep time < 15 min, rider wait < 3 min at pickup.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-05",
+      "assignee_ids": [
+        "u10",
+        "u15"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t18-09",
+      "project_id": "p18",
+      "title": "FE: Equipment maintenance tracker",
+      "description": "Track kitchen equipment — last service date, next maintenance, breakdown history.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-02",
+      "assignee_ids": [
+        "u12",
+        "u26"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t18-10",
+      "project_id": "p18",
+      "title": "QA: Load test kitchen operations under peak",
+      "description": "Simulate 500 concurrent orders across 5 kitchen locations — verify queue management and routing.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u30",
+        "u6"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t19-01",
+      "project_id": "p19",
+      "title": "FE: Notification preferences page",
+      "description": "Settings page for users to manage push, email, and SMS notification preferences by category.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "test-user-1",
+        "u4"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t19-02",
+      "project_id": "p19",
+      "title": "BE: Smart notification timing engine",
+      "description": "ML model predicting optimal send time per user based on past open rates and app usage patterns.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-17",
+      "assignee_ids": [
+        "u6",
+        "u14"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t19-03",
+      "project_id": "p19",
+      "title": "FE: Deep link routing for notifications",
+      "description": "Ensure tapping notification opens correct screen — order tracking, restaurant page, promo, etc.",
+      "status": "done",
+      "priority": "high",
+      "due_date": "2026-04-08",
+      "assignee_ids": [
+        "u2",
+        "u19"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t19-04",
+      "project_id": "p19",
+      "title": "BE: A/B testing for notification copy",
+      "description": "Framework for testing different notification titles and body text to maximize open rates.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u8",
+        "u20"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t19-05",
+      "project_id": "p19",
+      "title": "Product: Define quiet hours policy",
+      "description": "No promotional notifications between 10 PM and 8 AM unless order-critical.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-06",
+      "assignee_ids": [
+        "test-user-1",
+        "u11"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t19-06",
+      "project_id": "p19",
+      "title": "BE: FCM and APNs integration layer",
+      "description": "Unified push notification service supporting Firebase Cloud Messaging and Apple Push Notification.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-16",
+      "assignee_ids": [
+        "u23",
+        "u28"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t19-07",
+      "project_id": "p19",
+      "title": "FE: In-app notification center",
+      "description": "Bell icon with unread count, notification feed with read/unread states, and swipe-to-dismiss.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-24",
+      "assignee_ids": [
+        "u4",
+        "test-user-1"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t19-08",
+      "project_id": "p19",
+      "title": "BE: Notification analytics dashboard data",
+      "description": "Track delivery rate, open rate, click-through, and opt-out rate per notification campaign.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-26",
+      "assignee_ids": [
+        "u14",
+        "u6"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t19-09",
+      "project_id": "p19",
+      "title": "FE: Rich notification with images",
+      "description": "Support hero images in push notifications — food photos, promo banners, order status icons.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-01",
+      "assignee_ids": [
+        "u19",
+        "u20"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t19-10",
+      "project_id": "p19",
+      "title": "QA: Notification delivery reliability test",
+      "description": "Test push delivery across Android/iOS versions, background/foreground states, and do-not-disturb.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u11",
+        "u23"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t20-01",
+      "project_id": "p20",
+      "title": "FE: Restaurant availability calendar",
+      "description": "Interactive calendar showing available time slots with capacity indicators for each slot.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-15",
+      "assignee_ids": [
+        "u7",
+        "test-user-1"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t20-02",
+      "project_id": "p20",
+      "title": "BE: Real-time table availability engine",
+      "description": "Track table status (available, reserved, occupied) with live updates from restaurant POS.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-17",
+      "assignee_ids": [
+        "u2",
+        "u16"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t20-03",
+      "project_id": "p20",
+      "title": "FE: Waitlist join and status tracker",
+      "description": "Join virtual waitlist, see position, get notified when table is ready with estimated wait time.",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-22",
+      "assignee_ids": [
+        "u5",
+        "u18"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t20-04",
+      "project_id": "p20",
+      "title": "BE: Reservation confirmation and reminders",
+      "description": "SMS + push reminders at 24hr and 1hr before reservation with cancellation/modification link.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-20",
+      "assignee_ids": [
+        "u12",
+        "u22"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t20-05",
+      "project_id": "p20",
+      "title": "Design: Special occasion packages UI",
+      "description": "Birthday, anniversary, date night packages — cake, decorations, special menu with booking flow.",
+      "status": "done",
+      "priority": "medium",
+      "due_date": "2026-04-06",
+      "assignee_ids": [
+        "u9",
+        "u25"
+      ],
+      "column_id": "done"
+    },
+    {
+      "id": "t20-06",
+      "project_id": "p20",
+      "title": "FE: Guest preferences form",
+      "description": "Capture dietary restrictions, seating preference, occasion type during booking.",
+      "status": "in_progress",
+      "priority": "medium",
+      "due_date": "2026-04-18",
+      "assignee_ids": [
+        "test-user-1",
+        "u29"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t20-07",
+      "project_id": "p20",
+      "title": "BE: No-show tracking and penalty system",
+      "description": "Track no-shows per user, implement soft penalties (require prepayment after 3 no-shows).",
+      "status": "todo",
+      "priority": "medium",
+      "due_date": "2026-04-25",
+      "assignee_ids": [
+        "u16",
+        "u7"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t20-08",
+      "project_id": "p20",
+      "title": "Product: Restaurant partner onboarding for reservations",
+      "description": "Define setup flow: table configuration, operating hours, advance booking window, auto-accept rules.",
+      "status": "in_progress",
+      "priority": "high",
+      "due_date": "2026-04-14",
+      "assignee_ids": [
+        "u7",
+        "u18"
+      ],
+      "column_id": "in_progress"
+    },
+    {
+      "id": "t20-09",
+      "project_id": "p20",
+      "title": "FE: Reservation history and re-book",
+      "description": "Show past reservations with one-tap re-book at same restaurant, same party size.",
+      "status": "todo",
+      "priority": "low",
+      "due_date": "2026-05-02",
+      "assignee_ids": [
+        "u5",
+        "u12"
+      ],
+      "column_id": "todo"
+    },
+    {
+      "id": "t20-10",
+      "project_id": "p20",
+      "title": "QA: Booking conflict and edge case testing",
+      "description": "Test double-booking prevention, timezone handling, restaurant closure override, and capacity limits.",
+      "status": "todo",
+      "priority": "high",
+      "due_date": "2026-04-28",
+      "assignee_ids": [
+        "u22",
+        "u29"
+      ],
+      "column_id": "todo"
+    }
   ]
 }

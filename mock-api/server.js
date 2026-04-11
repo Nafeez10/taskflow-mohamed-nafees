@@ -73,13 +73,26 @@ const isProjectMember = (project, userId) =>
   (project.contributor_ids ?? []).includes(userId);
 
 /**
- * Normalize a task object — ensures column_id is always present.
- * Legacy tasks (created before Kanban) fall back to their status value.
+ * Normalize a task object — ensures column_id and status are in sync.
+ * Dynamically resolves status_name from the parent project's columns.
  */
-const normalizeTask = (task) => ({
-  ...task,
-  column_id: task.column_id ?? task.status ?? "todo",
-});
+const normalizeTask = (task, project = null) => {
+  const columnId = task.column_id ?? task.status ?? 'todo';
+  let statusName = columnId; // fallback
+
+  const p = project || db().get('projects').find({ id: task.project_id }).value();
+  if (p && p.columns) {
+    const col = p.columns.find((c) => c.id === columnId);
+    if (col) statusName = col.name;
+  }
+
+  return {
+    ...task,
+    column_id: columnId,
+    status: columnId,
+    status_name: statusName,
+  };
+};
 
 // ── Auth ──────────────────────────────────────────────────────────────────────
 
@@ -259,10 +272,10 @@ app.get("/projects/:id", requireAuth, (req, res) => {
   }
 
   const tasks = db()
-    .get("tasks")
+    .get('tasks')
     .filter({ project_id: req.params.id })
     .value()
-    .map(normalizeTask);
+    .map((t) => normalizeTask(t, project));
 
   // Ensure project itself has columns (migration shim)
   const safeProject = {
@@ -374,13 +387,13 @@ app.delete("/projects/:id/columns/:columnId", requireAuth, (req, res) => {
 
   // Move tasks in this column to 'todo'
   db()
-    .get("tasks")
+    .get('tasks')
     .filter({ project_id: req.params.id, column_id: req.params.columnId })
     .each((task) => {
       db()
-        .get("tasks")
+        .get('tasks')
         .find({ id: task.id })
-        .assign({ column_id: "todo", updated_at: now() })
+        .assign({ column_id: 'todo', status: 'todo', updated_at: now() })
         .write();
     })
     .value();
@@ -513,10 +526,10 @@ app.get("/projects/:id/tasks", requireAuth, (req, res) => {
   }
 
   let tasks = db()
-    .get("tasks")
+    .get('tasks')
     .filter({ project_id: req.params.id })
     .value()
-    .map(normalizeTask);
+    .map((t) => normalizeTask(t, project));
 
   if (req.query.status) {
     tasks = tasks.filter((t) => t.status === req.query.status);
@@ -550,21 +563,15 @@ app.post("/projects/:id/tasks", requireAuth, (req, res) => {
   }
 
   // Determine which column the task starts in; default to 'todo'
-  const resolvedColumnId = column_id ?? "todo";
-
-  // If the column is a default status column, sync the status field
-  const defaultStatusIds = ["todo", "in_progress", "done"];
-  const resolvedStatus = defaultStatusIds.includes(resolvedColumnId)
-    ? resolvedColumnId
-    : "todo";
+  const resolvedColumnId = column_id ?? status ?? 'todo';
 
   const ts = now();
   const task = {
     id: randomUUID(),
     title,
     description: description ?? null,
-    status: resolvedStatus,
-    priority: priority ?? "medium",
+    status: resolvedColumnId, // status IS the column identifier now
+    priority: priority ?? 'medium',
     project_id: req.params.id,
     assignee_ids: Array.isArray(assignee_ids) ? assignee_ids : [],
     column_id: resolvedColumnId,
@@ -573,8 +580,8 @@ app.post("/projects/:id/tasks", requireAuth, (req, res) => {
     updated_at: ts,
   };
 
-  db().get("tasks").push(task).write();
-  return res.status(201).json(task);
+  db().get('tasks').push(task).write();
+  return res.status(201).json(normalizeTask(task, project));
 });
 
 app.patch("/tasks/:id", requireAuth, (req, res) => {
@@ -583,22 +590,11 @@ app.patch("/tasks/:id", requireAuth, (req, res) => {
 
   const updateData = { ...req.body, updated_at: now() };
 
-  // Guard: assignee_ids must stay an array if provided
-  if (
-    updateData.assignee_ids !== undefined &&
-    !Array.isArray(updateData.assignee_ids)
-  ) {
-    updateData.assignee_ids = [];
-  }
-
-  // If column_id is being updated to a default column, sync status
-  const defaultStatusIds = ["todo", "in_progress", "done"];
-  if (
-    updateData.column_id !== undefined &&
-    defaultStatusIds.includes(updateData.column_id) &&
-    updateData.status === undefined
-  ) {
+  // Sync status and column_id if either is provided
+  if (updateData.column_id !== undefined && updateData.status === undefined) {
     updateData.status = updateData.column_id;
+  } else if (updateData.status !== undefined && updateData.column_id === undefined) {
+    updateData.column_id = updateData.status;
   }
 
   db().get("tasks").find({ id: req.params.id }).assign(updateData).write();
@@ -643,7 +639,7 @@ app.get("/tasks/mine", requireAuth, (req, res) => {
     )
     .value()
     .map((task) => ({
-      ...normalizeTask(task),
+      ...normalizeTask(task, accessibleProjects.find(p => p.id === task.project_id)),
       project: projectById[task.project_id],
     }));
 

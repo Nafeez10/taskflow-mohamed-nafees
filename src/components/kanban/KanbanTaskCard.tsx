@@ -8,21 +8,8 @@ import { cn } from '@/lib/utils';
 import type { Task, User } from '@/types';
 import { Pencil, Trash2, Calendar, GripVertical } from 'lucide-react';
 
-const PRIORITY_STYLES: Record<Task['priority'], string> = {
-  low: 'bg-muted text-muted-foreground',
-  medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300',
-  high: 'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300',
-};
-
-const getInitials = (name?: string): string => {
-  if (!name) return '??';
-  return name
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
-};
+import { TASK_PRIORITY_STYLES } from '@/constants/tasks';
+import { getInitials } from '@/utils/user';
 
 const MAX_VISIBLE_AVATARS = 2;
 
@@ -123,14 +110,14 @@ const KanbanTaskCard = ({ task, assignees, onEdit, onDelete, isDragOverlay = fal
       <div className="flex items-center justify-between gap-2 pl-5">
         <div className="flex items-center gap-1.5 flex-wrap">
           {/* Priority badge */}
-          <span
+          <div
             className={cn(
-              'text-xs px-1.5 py-0.5 rounded-full font-medium capitalize',
-              PRIORITY_STYLES[task.priority],
+              'px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider',
+              TASK_PRIORITY_STYLES[task.priority],
             )}
           >
             {task.priority}
-          </span>
+          </div>
 
           {/* Due date */}
           {task.due_date && (
