@@ -1523,28 +1523,30 @@
       "project_id": "p4",
       "title": "BE: Cold chain temperature monitoring API",
       "description": "Ingest IoT sensor data from packaging and alert if temperature exceeds safe range during transit.",
-      "status": "in_progress",
+      "status": "done",
       "priority": "high",
       "due_date": "2026-04-17",
       "assignee_ids": [
         "u4",
         "u14"
       ],
-      "column_id": "in_progress"
+      "column_id": "done",
+      "updated_at": "2026-04-11T15:01:41.635Z"
     },
     {
       "id": "t4-05",
       "project_id": "p4",
       "title": "Product: Define city launch priority matrix",
       "description": "Score 20 candidate cities by demand signals, logistics feasibility, and restaurant partner density.",
-      "status": "done",
+      "status": "staging",
       "priority": "high",
       "due_date": "2026-04-08",
       "assignee_ids": [
         "test-user-1",
         "u25"
       ],
-      "column_id": "done"
+      "column_id": "staging",
+      "updated_at": "2026-04-11T15:01:37.708Z"
     },
     {
       "id": "t4-06",
@@ -1565,14 +1567,15 @@
       "project_id": "p4",
       "title": "Design: Packaging unboxing experience",
       "description": "Design insulated packaging with Legends branding — Figma mockups for print vendor.",
-      "status": "staging",
+      "status": "done",
       "priority": "medium",
       "due_date": "2026-04-12",
       "assignee_ids": [
         "u21",
         "u25"
       ],
-      "column_id": "staging"
+      "column_id": "done",
+      "updated_at": "2026-04-11T15:01:35.171Z"
     },
     {
       "id": "t4-08",

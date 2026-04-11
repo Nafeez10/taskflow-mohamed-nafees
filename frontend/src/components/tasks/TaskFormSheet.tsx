@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import InputContainer from '@/components/ui/InputContainer';
@@ -47,8 +47,7 @@ interface Props {
   mutate: KeyedMutator<{ tasks: Task[] }>;
 }
 
-const TaskFormSheet = ({
-  open,
+const TaskFormSheetInner = ({
   onClose,
   projectId,
   task,
@@ -56,42 +55,35 @@ const TaskFormSheet = ({
   columns,
   initialColumnId,
   mutate,
-}: Props) => {
+}: Omit<Props, 'open'>) => {
   const isEdit = !!task;
 
-  const [selectedAssigneeIds, setSelectedAssigneeIds] = useState<string[]>([]);
+  const [selectedAssigneeIds, setSelectedAssigneeIds] = useState<string[]>(
+    task?.assignee_ids ?? [],
+  );
 
   const {
     control,
     handleSubmit,
-    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(taskSchema),
-    defaultValues: { priority: 'medium', status: initialColumnId || 'todo' },
+    defaultValues: task
+      ? {
+          title: task.title,
+          description: task.description ?? '',
+          priority: task.priority,
+          status: task.status,
+          due_date: task.due_date ?? '',
+        }
+      : {
+          title: '',
+          description: '',
+          priority: 'medium',
+          status: initialColumnId || 'todo',
+          due_date: '',
+        },
   });
-
-  useEffect(() => {
-    if (task) {
-      reset({
-        title: task.title,
-        description: task.description ?? '',
-        priority: task.priority,
-        status: task.status,
-        due_date: task.due_date ?? '',
-      });
-      setSelectedAssigneeIds(task.assignee_ids ?? []);
-    } else {
-      reset({
-        priority: 'medium',
-        status: initialColumnId || 'todo',
-        title: '',
-        description: '',
-        due_date: '',
-      });
-      setSelectedAssigneeIds([]);
-    }
-  }, [task, reset, open]);
 
   const toggleAssignee = (memberId: string) => {
     setSelectedAssigneeIds((prev) =>
@@ -120,196 +112,207 @@ const TaskFormSheet = ({
   };
 
   return (
-    <Sheet open={open} onOpenChange={onClose}>
-      <SheetContent className="w-full sm:max-w-lg overflow-y-auto sm:border-l sm:rounded-l-2xl shadow-2xl">
-        <SheetHeader className="pb-4 border-b/50">
-          <SheetTitle className="text-xl font-bold tracking-tight">
-            {isEdit ? 'Edit Task' : 'New Task'}
-          </SheetTitle>
-        </SheetHeader>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col h-full">
+          {/* Fixed Header */}
+          <SheetHeader className="shrink-0 pb-4 border-b">
+            <SheetTitle className="text-xl font-bold tracking-tight">
+              {isEdit ? 'Edit Task' : 'New Task'}
+            </SheetTitle>
+          </SheetHeader>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-6">
-          <Controller
-            control={control}
-            name="title"
-            render={({ field }) => (
-              <InputContainer title="Title *" error={errors.title?.message}>
-                <Input {...field} id="task-title" placeholder="Task title" />
-              </InputContainer>
-            )}
-          />
-
-          <Controller
-            control={control}
-            name="description"
-            render={({ field }) => (
-              <InputContainer title="Description">
-                <Textarea {...field} id="task-desc" placeholder="Optional description" rows={3} />
-              </InputContainer>
-            )}
-          />
-
-          <div className="grid grid-cols-2 gap-5">
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto py-6 space-y-6">
             <Controller
               control={control}
-              name="priority"
+              name="title"
               render={({ field }) => (
-                <InputContainer title="Priority">
-                  <Select value={field.value} onValueChange={field.onChange}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Priority">
-                        {field.value === 'low' && 'Low'}
-                        {field.value === 'medium' && 'Medium'}
-                        {field.value === 'high' && 'High'}
-                      </SelectValue>
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="low">Low</SelectItem>
-                      <SelectItem value="medium">Medium</SelectItem>
-                      <SelectItem value="high">High</SelectItem>
-                    </SelectContent>
-                  </Select>
+                <InputContainer title="Title *" error={errors.title?.message}>
+                  <Input {...field} id="task-title" placeholder="Task title" />
                 </InputContainer>
               )}
             />
 
             <Controller
               control={control}
-              name="status"
+              name="description"
               render={({ field }) => (
-                <InputContainer title="Status">
-                  <Select value={field.value} onValueChange={field.onChange}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Status">
-                        {columns.find((c) => c.id === field.value)?.name || field.value}
-                      </SelectValue>
-                    </SelectTrigger>
-                    <SelectContent>
-                      {columns.map((col) => (
-                        <SelectItem key={col.id} value={col.id}>
-                          {col.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                <InputContainer title="Description">
+                  <Textarea {...field} id="task-desc" placeholder="Optional description" rows={3} />
                 </InputContainer>
               )}
             />
-          </div>
 
-          <Controller
-            control={control}
-            name="due_date"
-            render={({ field }) => (
-              <InputContainer title="Due Date">
-                <Popover>
-                  <PopoverTrigger
-                    render={
-                      <Button
-                        variant={'outline'}
-                        className={cn(
-                          'w-full justify-start text-left font-normal',
-                          !field.value && 'text-muted-foreground',
-                        )}
-                      >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {field.value ? (
-                          format(new Date(field.value), 'PPP')
-                        ) : (
-                          <span>Pick a due date</span>
-                        )}
-                      </Button>
-                    }
-                  />
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={field.value ? new Date(field.value) : undefined}
-                      onSelect={(date) => field.onChange(date ? format(date, 'yyyy-MM-dd') : '')}
-                      initialFocus
+            <div className="grid grid-cols-2 gap-5">
+              <Controller
+                control={control}
+                name="priority"
+                render={({ field }) => (
+                  <InputContainer title="Priority">
+                    <Select value={field.value} onValueChange={field.onChange}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Priority">
+                          {field.value === 'low' && 'Low'}
+                          {field.value === 'medium' && 'Medium'}
+                          {field.value === 'high' && 'High'}
+                        </SelectValue>
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="low">Low</SelectItem>
+                        <SelectItem value="medium">Medium</SelectItem>
+                        <SelectItem value="high">High</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </InputContainer>
+                )}
+              />
+
+              <Controller
+                control={control}
+                name="status"
+                render={({ field }) => (
+                  <InputContainer title="Status">
+                    <Select value={field.value} onValueChange={field.onChange}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Status">
+                          {columns.find((c) => c.id === field.value)?.name || field.value}
+                        </SelectValue>
+                      </SelectTrigger>
+                      <SelectContent>
+                        {columns.map((col) => (
+                          <SelectItem key={col.id} value={col.id}>
+                            {col.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </InputContainer>
+                )}
+              />
+            </div>
+
+            <Controller
+              control={control}
+              name="due_date"
+              render={({ field }) => (
+                <InputContainer title="Due Date">
+                  <Popover>
+                    <PopoverTrigger
+                      render={
+                        <Button
+                          variant={'outline'}
+                          className={cn(
+                            'w-full justify-start text-left font-normal',
+                            !field.value && 'text-muted-foreground',
+                          )}
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {field.value ? (
+                            format(new Date(field.value), 'PPP')
+                          ) : (
+                            <span>Pick a due date</span>
+                          )}
+                        </Button>
+                      }
                     />
-                  </PopoverContent>
-                </Popover>
-              </InputContainer>
-            )}
-          />
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={field.value ? new Date(field.value) : undefined}
+                        onSelect={(date) => field.onChange(date ? format(date, 'yyyy-MM-dd') : '')}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </InputContainer>
+              )}
+            />
 
-          <div className="space-y-2.5">
-            <Label className="text-sm font-semibold tracking-tight text-foreground/90">
-              Assignees
-            </Label>
+            <div className="space-y-2.5">
+              <Label className="text-sm font-semibold tracking-tight text-foreground/90">
+                Assignees
+              </Label>
 
-            {projectMembers.length === 0 ? (
-              <p className="text-sm text-muted-foreground bg-muted/30 rounded-lg p-4 border border-dashed flex items-center justify-center">
-                No members on this project yet.
-              </p>
-            ) : (
-              <div className="rounded-xl border shadow-sm divide-y overflow-hidden bg-card transition-all">
-                {projectMembers.map((member) => {
-                  const isSelected = selectedAssigneeIds.includes(member.id);
+              {projectMembers.length === 0 ? (
+                <p className="text-sm text-muted-foreground bg-muted/30 rounded-lg p-4 border border-dashed flex items-center justify-center">
+                  No members on this project yet.
+                </p>
+              ) : (
+                <div className="rounded-xl border shadow-sm divide-y overflow-hidden bg-card transition-all">
+                  {projectMembers.map((member) => {
+                    const isSelected = selectedAssigneeIds.includes(member.id);
 
-                  return (
-                    <button
-                      key={member.id}
-                      type="button"
-                      onClick={() => toggleAssignee(member.id)}
-                      className={cn(
-                        'flex items-center gap-3 w-full px-4 py-3 text-sm text-left transition-all',
-                        'hover:bg-accent/80',
-                        isSelected
-                          ? 'bg-primary/5 border-l-2 border-l-primary'
-                          : 'border-l-2 border-l-transparent',
-                      )}
-                    >
-                      <span
+                    return (
+                      <button
+                        key={member.id}
+                        type="button"
+                        onClick={() => toggleAssignee(member.id)}
                         className={cn(
-                          'w-5 h-5 flex items-center justify-center shrink-0 rounded-full border transition-colors',
+                          'flex items-center gap-3 w-full px-4 py-3 text-sm text-left transition-all',
+                          'hover:bg-accent/80',
                           isSelected
-                            ? 'bg-primary border-primary text-primary-foreground'
-                            : 'border-input bg-background',
+                            ? 'bg-primary/5 border-l-2 border-l-primary'
+                            : 'border-l-2 border-l-transparent',
                         )}
                       >
-                        {isSelected && <Check className="h-3 w-3 flex-shrink-0" strokeWidth={3} />}
-                      </span>
-
-                      <Avatar size="sm" className="ring-1 ring-border shadow-sm">
-                        <AvatarFallback className="bg-secondary/50 font-medium">
-                          {getInitials(member.name)}
-                        </AvatarFallback>
-                      </Avatar>
-
-                      <span className="flex-1 truncate font-medium text-foreground/90">
-                        {member.name}
-                      </span>
-
-                      {member.role === 'owner' && (
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground shrink-0 bg-muted px-2 py-0.5 rounded-full">
-                          Owner
+                        <span
+                          className={cn(
+                            'w-5 h-5 flex items-center justify-center shrink-0 rounded-full border transition-colors',
+                            isSelected
+                              ? 'bg-primary border-primary text-primary-foreground'
+                              : 'border-input bg-background',
+                          )}
+                        >
+                          {isSelected && <Check className="h-3 w-3 flex-shrink-0" strokeWidth={3} />}
                         </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
 
-            {selectedAssigneeIds.length > 0 && (
-              <p className="text-xs font-medium text-muted-foreground animate-in fade-in slide-in-from-top-1">
-                {selectedAssigneeIds.length}{' '}
-                {selectedAssigneeIds.length === 1 ? 'person' : 'people'} assigned
-              </p>
-            )}
+                        <Avatar size="sm" className="ring-1 ring-border shadow-sm">
+                          <AvatarFallback className="bg-secondary/50 font-medium">
+                            {getInitials(member.name)}
+                          </AvatarFallback>
+                        </Avatar>
+
+                        <span className="flex-1 truncate font-medium text-foreground/90">
+                          {member.name}
+                        </span>
+
+                        {member.role === 'owner' && (
+                          <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground shrink-0 bg-muted px-2 py-0.5 rounded-full">
+                            Owner
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
+              {selectedAssigneeIds.length > 0 && (
+                <p className="text-xs font-medium text-muted-foreground animate-in fade-in slide-in-from-top-1">
+                  {selectedAssigneeIds.length}{' '}
+                  {selectedAssigneeIds.length === 1 ? 'person' : 'people'} assigned
+                </p>
+              )}
+            </div>
           </div>
 
-          <div className="flex justify-end gap-2 pt-4 border-t">
+          {/* Fixed Footer */}
+          <SheetFooter className="shrink-0 flex-row justify-end gap-2 border-t pt-4">
             <Button type="button" variant="outline" onClick={onClose}>
               Cancel
             </Button>
             <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? 'Saving…' : isEdit ? 'Save Changes' : 'Create Task'}
             </Button>
-          </div>
+          </SheetFooter>
         </form>
+  );
+};
+
+const TaskFormSheet = ({ open, ...props }: Props) => {
+  return (
+    <Sheet open={open} onOpenChange={props.onClose}>
+      <SheetContent className="w-full sm:max-w-lg sm:border-l sm:rounded-l-2xl shadow-2xl overflow-hidden">
+        {open && <TaskFormSheetInner key={props.task?.id ?? 'new'} {...props} />}
       </SheetContent>
     </Sheet>
   );

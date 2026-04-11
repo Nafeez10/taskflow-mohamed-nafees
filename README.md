@@ -19,37 +19,33 @@ TaskFlow is a modern, responsive Kanban board based task management application.
 
 ## 2. Running the Project
 
-### Option 1: Docker Compose (Recommended)
+You can run the full stack (Frontend + Mock API) using either **Docker** (recommended) or locally with **Node.js**.
 
-If you have Docker Desktop installed, you can spin up the entire cluster (frontend + backend) with one command from the project root:
-
+### Method 1: Docker Compose (One-Click)
+Ensure you have Docker Desktop installed.
 ```bash
-# This builds and runs both the backend and the frontend.
-docker compose up -d --build
-```
+# This builds and runs everything concurrently
+npm run docker:up
 
+# To stop the containers
+npm run docker:down
+```
 - **Frontend:** http://localhost:3000
 - **Backend API:** http://localhost:4000
 
-_(To stop the containers, run `docker compose down`)_
+---
 
-### Option 2: Native NPM
+### Method 2: Native Node.js (Dev Mode)
+Requires Node.js 18+.
+```bash
+# 1. Install all dependencies across the monorepo
+npm run install:all
 
-Requires **Node.js (v18+)**. You must start the services in their respective directories.
-
-1. **Backend (Mock API):**
-   ```bash
-   cd backend
-   npm install
-   npm start
-   ```
-
-2. **Frontend (App):**
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
+# 2. Start both services in parallel
+npm run dev
+```
+- **Frontend:** http://localhost:5173
+- **Backend API:** http://localhost:4000
    **The app will be available at: http://localhost:5173**
 
 ---
