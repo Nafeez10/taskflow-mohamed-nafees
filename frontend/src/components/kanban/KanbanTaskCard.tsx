@@ -45,30 +45,21 @@ const KanbanTaskCard = ({ task, assignees, onEdit, onDelete, isDragOverlay = fal
   return (
     <div
       ref={setNodeRef}
+      {...attributes}
+      {...listeners}
       style={style}
       className={cn(
         'bg-card border rounded-lg p-3 space-y-2 group',
         'hover:shadow-sm transition-shadow',
+        'cursor-grab active:cursor-grabbing',
         isDragOverlay && 'shadow-lg rotate-1 cursor-grabbing',
         isDragging && 'cursor-grabbing',
       )}
     >
-      {/* Header row: drag handle + title + actions */}
-      <div className="flex items-start gap-1.5">
-        {/* Drag handle */}
-        <button
-          {...listeners}
-          {...attributes}
-          className={cn(
-            'mt-0.5 shrink-0 text-muted-foreground/40 hover:text-muted-foreground',
-            'cursor-grab active:cursor-grabbing transition-colors',
-            'opacity-0 group-hover:opacity-100',
-          )}
-          aria-label="Drag to move"
-          tabIndex={-1}
-        >
-          <GripVertical className="h-3.5 w-3.5" />
-        </button>
+      {/* Header row: title + actions */}
+      <div className="flex items-start gap-1.5 min-h-[1.5rem]">
+        {/* Visual drag indicator (Static) */}
+        <GripVertical className="mt-0.5 shrink-0 h-3.5 w-3.5 text-muted-foreground/30 opacity-0 group-hover:opacity-100 transition-opacity" />
 
         {/* Title */}
         <p
