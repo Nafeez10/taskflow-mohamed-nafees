@@ -1,71 +1,62 @@
-# TaskFlow Frontend
+# TaskFlow (Monorepo)
 
 ## 1. Overview
 
-TaskFlow is a modern, responsive Kanban board based task management application. It allows users to track their assignments, drag and drop their workflow states, create new projects, and securely manage their tasks.
+TaskFlow is a modern, responsive Kanban board based task management application. This repository is organized as a monorepo containing both the frontend client and a mock backend server.
+
+**Repo Structure:**
+- `/frontend`: React 19 + Vite + TypeScript application.
+- `/backend`: Node.js mock API based on `json-server`.
+- `docker-compose.yml`: Root orchestration for both services.
 
 **Tech Stack:**
-
 - **Framework:** React 19 + Vite + TypeScript
-- **Styling:** Tailwind CSS V4 + shadcn/ui + Radix UI Primitives (with class-variance-authority, clsx, tailwind-merge)
+- **Styling:** Tailwind CSS V4 + shadcn/ui + Radix UI Primitives
 - **Data Fetching:** SWR for React Hooks-based data fetching and caching
 - **Forms & Validation:** react-hook-form + Zod
-- **Drag & Drop:** @dnd-kit/core & @dnd-kit/sortable for Kanban board
-- **Mock Backend:** json-server for rapid prototyping
+- **Drag & Drop:** @dnd-kit/core & @dnd-kit/sortable
+- **Mock Backend:** Node.js + json-server
 
-## 2. Architecture Decisions
+## 2. Running the Project
 
-- **Feature-Based Structure:** The source code is organized primarily by feature (`src/features/`, `src/components/`, `src/api/`) instead of by file type. This keeps related code bundled closely, scaling better as the application complexity grows compared to traditional MVC-style component dumping.
-- **SWR for Data Fetching:** We chose SWR instead of Redux or raw `useEffect` fetches for simplified hook-based state, automatic caching, revalidation, and optimistic UI updates without the heavy boilerplate of traditional state management.
-- **Tailwind + shadcn/ui:** Offers excellent unstyled primitives that are fully accessible via Radix UI, but natively themed to our CSS variables to quickly build out robust, good-looking components without custom CSS compilation rules.
-- **Mock-API / json-server:** In lieu of a real backend, a `json-server` powers persistence for this frontend challenge.
-- **Omissions:** Real-time WebSockets to update Kanban states globally and real JWT authentication. Since we are using a mock backend, full tokenized security and live server push via WebSockets were intentionally left out to prioritize UX and core state management flows for the frontend review.
+### Option 1: Docker Compose (Recommended)
 
-## 3. Running Locally
-
-You have two options to run this project: using Native NPM or Docker Compose.
-
-### Option 1: Docker Compose
-
-If you have Docker Desktop installed, you can spin up the entire cluster in one command:
+If you have Docker Desktop installed, you can spin up the entire cluster (frontend + backend) with one command from the project root:
 
 ```bash
-# This builds and runs both the mock-api and the frontend.
-docker compose up -d
+# This builds and runs both the backend and the frontend.
+docker compose up -d --build
 ```
 
-**The app will be available at: http://localhost:3000**
+- **Frontend:** http://localhost:3000
+- **Backend API:** http://localhost:4000
+
 _(To stop the containers, run `docker compose down`)_
 
 ### Option 2: Native NPM
 
-Requires **Node.js (v18+)** installed. You will need to start the mock database and frontend separately.
+Requires **Node.js (v18+)**. You must start the services in their respective directories.
 
-1. Install all dependencies:
-
+1. **Backend (Mock API):**
    ```bash
+   cd backend
    npm install
+   npm start
    ```
 
-2. **Terminal 1 (Mock API Engine):**
-   Starts the simulated backend database.
-
+2. **Frontend (App):**
    ```bash
-   npm run mock
-   ```
-
-3. **Terminal 2 (Frontend Client):**
-   Starts the Vite application server.
-   ```bash
+   cd frontend
+   npm install
    npm run dev
    ```
    **The app will be available at: http://localhost:5173**
 
 ---
 
-## 4. Running Migrations
+## 3. Data Persistence
 
-Because the backend is powered by `json-server` for mock responses, there are no SQL migrations to run. Data persistence is handled via the initialized `mock-api/db.json` file. The server automatically serves these populated seeds on startup.
+Data is stored in `backend/db.json`. When running via Docker, this file is mounted as a volume so changes persist between container restarts.
 
 ## 5. Test Credentials
 

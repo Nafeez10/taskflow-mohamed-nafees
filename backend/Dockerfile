@@ -3,10 +3,10 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY mock-api/package*.json ./
+COPY package*.json ./
 RUN npm install --omit=dev
 
-COPY mock-api/ .
+COPY . .
 
 EXPOSE 4000
 

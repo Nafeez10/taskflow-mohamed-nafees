@@ -1,25 +1,24 @@
 services:
-  # ── Mock API (json-server) ─────────────────────────────────────────────────
-  mock-api:
+  # ── Mock API (backend) ──────────────────────────────────────────────────
+  backend:
     build:
-      context: .
-      dockerfile: Dockerfile.mock
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "${API_PORT:-4000}:4000"
     environment:
       PORT: 4000
     restart: unless-stopped
 
-  # ── React App (nginx) ──────────────────────────────────────────────────────
+  # ── React App (frontend) ────────────────────────────────────────────────
   frontend:
     build:
-      context: .
+      context: ./frontend
       dockerfile: Dockerfile
       args:
-        # Browser calls the API on the host machine, so localhost works here.
         VITE_API_URL: http://localhost:${API_PORT:-4000}
     ports:
       - "${APP_PORT:-3000}:80"
     depends_on:
-      - mock-api
+      - backend
     restart: unless-stopped

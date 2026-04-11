@@ -13,7 +13,7 @@ export default defineConfig({
   },
   server: {
     watch: {
-      ignored: ['**/mock-api/**'],
+      ignored: ['**/backend/**'],
     },
   },
 });
