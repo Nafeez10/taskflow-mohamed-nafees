@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const initials =
     user?.name
-      .split(' ')
+      ?.split(' ')
       .map((n) => n[0])
       .join('')
       .toUpperCase()

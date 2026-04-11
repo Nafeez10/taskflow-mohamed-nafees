@@ -23,7 +23,6 @@ axiosInstance.interceptors.response.use(
       // Do not trigger a full page reload if the user is actively failing a login attempt.
       if (!url.includes('/auth/login')) {
         localStorage.removeItem(StorageKeys.TOKEN);
-        localStorage.removeItem(StorageKeys.USER);
         window.location.href = '/login';
       }
     }

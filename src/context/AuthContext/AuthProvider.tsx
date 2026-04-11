@@ -1,32 +1,33 @@
-import { useState, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { StorageKeys } from '@/enum/StorageKeys';
 import type { User } from '@/types';
 import { AuthContext } from './AuthContext';
+import { useCurrentUser } from '@/api/routes/AuthAPI';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(() => {
-    const stored = localStorage.getItem(StorageKeys.USER);
-    return stored ? (JSON.parse(stored) as User) : null;
-  });
-
-  const [token, setToken] = useState<string | null>(() => localStorage.getItem(StorageKeys.TOKEN));
+  const { user, isLoading, mutate: mutateUser } = useCurrentUser();
 
   const login = (newToken: string, newUser: User) => {
     localStorage.setItem(StorageKeys.TOKEN, newToken);
-    localStorage.setItem(StorageKeys.USER, JSON.stringify(newUser));
-    setToken(newToken);
-    setUser(newUser);
+    // Optimistically update the user data from login response
+    mutateUser(newUser, false);
   };
 
   const logout = () => {
     localStorage.removeItem(StorageKeys.TOKEN);
-    localStorage.removeItem(StorageKeys.USER);
-    setToken(null);
-    setUser(null);
+    mutateUser(undefined, false);
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, login, logout, isAuthenticated: !!token }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        logout,
+        isAuthenticated: !!user,
+        isLoading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
