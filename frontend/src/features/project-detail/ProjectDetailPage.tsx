@@ -34,16 +34,6 @@ const ProjectDetailPage = () => {
   const [editProjectOpen, setEditProjectOpen] = useState(false);
   const [deleteProjectOpen, setDeleteProjectOpen] = useState(false);
 
-  const handleDeleteProject = async () => {
-    try {
-      await ProjectsAPI.delete(id!);
-      toast.success('Project deleted');
-      navigate('/projects');
-    } catch {
-      toast.error('Failed to delete project');
-    }
-  };
-
   const {
     project,
     isLoading: projectLoading,
@@ -59,6 +49,16 @@ const ProjectDetailPage = () => {
     error: tasksError,
     mutate: mutateTasks,
   } = useTasks(id, filters);
+
+  const handleDeleteProject = async () => {
+    try {
+      await ProjectsAPI.delete(id!);
+      toast.success('Project deleted');
+      navigate('/projects');
+    } catch {
+      toast.error('Failed to delete project');
+    }
+  };
 
   const isOwner = project?.owner_id === user?.id;
 
