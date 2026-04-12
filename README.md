@@ -5,11 +5,13 @@
 TaskFlow is a modern, responsive Kanban board based task management application. This repository is organized as a monorepo containing both the frontend client and a mock backend server.
 
 **Repo Structure:**
+
 - `/frontend`: React 19 + Vite + TypeScript application.
 - `/backend`: Node.js mock API based on `json-server`.
 - `docker-compose.yml`: Root orchestration for both services.
 
 **Tech Stack:**
+
 - **Framework:** React 19 + Vite + TypeScript
 - **Styling:** Tailwind CSS V4 + shadcn/ui + Radix UI Primitives
 - **Data Fetching:** SWR for React Hooks-based data fetching and caching
@@ -22,21 +24,28 @@ TaskFlow is a modern, responsive Kanban board based task management application.
 You can run the full stack (Frontend + Mock API) using either **Docker** (recommended) or locally with **Node.js**.
 
 ### Method 1: Docker Compose (One-Click)
+
 Ensure you have Docker Desktop installed.
+
 ```bash
 # This builds and runs everything concurrently
 npm run docker:up
+or
+docker compose up -d --build
 
 # To stop the containers
 npm run docker:down
 ```
+
 - **Frontend:** http://localhost:3000
 - **Backend API:** http://localhost:4000
 
 ---
 
 ### Method 2: Native Node.js (Dev Mode)
+
 Requires Node.js 18+.
+
 ```bash
 # 1. Install all dependencies across the monorepo
 npm run install:all
@@ -44,9 +53,10 @@ npm run install:all
 # 2. Start both services in parallel
 npm run dev
 ```
+
 - **Frontend:** http://localhost:5173
 - **Backend API:** http://localhost:4000
-   **The app will be available at: http://localhost:5173**
+  **The app will be available at: http://localhost:5173**
 
 ---
 
@@ -84,6 +94,7 @@ Response: { "token": "eyJ...", "user": { "id": "uuid", "name": "John", "username
 ```
 
 Errors: `400` if validation fails (missing fields, duplicate email/username).
+
 ```json
 { "error": "validation failed", "fields": { "email": "already in use" } }
 ```
@@ -120,8 +131,12 @@ Response: { "id": "u2", "name": "Sarah Chen", "email": "sarah@zomato.dummy" }
 ```
 
 Errors: `404` if no account found.
+
 ```json
-{ "error": "no_account", "message": "No TaskFlow account found for this identity" }
+{
+  "error": "no_account",
+  "message": "No TaskFlow account found for this identity"
+}
 ```
 
 #### `GET /users/search?q={query}`
@@ -215,8 +230,12 @@ Response: { "id": "u2", "name": "Sarah Chen", "email": "sarah@zomato.dummy" }
 ```
 
 Errors: `400` if already a contributor/owner, `404` if user not found.
+
 ```json
-{ "error": "already_contributor", "message": "This person is already a contributor" }
+{
+  "error": "already_contributor",
+  "message": "This person is already a contributor"
+}
 ```
 
 #### `DELETE /projects/:id/contributors/:userId`
@@ -269,7 +288,7 @@ Response: { "tasks": [{ "id": "t1-01", "title": "...", "status": "in_progress", 
 ## 7. What You'd Do With More Time
 
 - **Real Backend / Database:** I would migrate from the json-server mock API to a robust backend infrastructure (e.g., Node.js/Express with PostgreSQL) to enforce data integrity, advanced authentications, and relational dependencies properly.
+- **Pagination and Infinite Scrolling:** For projects with hundreds of tasks, I would implement robust server-side pagination or infinite scrolling (using `useSWRInfinite`) to maintain peak performance and reduce initial load times.
 - **Global Error Boundary and Toast Overhaul:** Handle failed API responses more gracefully with retry logic embedded deep into SWR, surfaced to the user seamlessly.
 - **End-to-End Testing (E2E):** Introduce a testing suite like Cypress or Playwright to simulate specific user journeys, particularly the drag-and-drop feature which can be fragile without visually anchored tests.
-- **Pagination and Infinite Scrolling:** For projects with hundreds of tasks, I would implement robust server-side pagination or infinite scrolling (using `useSWRInfinite`) to maintain peak performance and reduce initial load times.
 - **Optimistic Updates:** Apply stronger optimistic UI patterns correctly inside the Kanban board so that dropping a card reacts instantaneously to visually reflect local state regardless of server latency, before synchronizing perfectly.
