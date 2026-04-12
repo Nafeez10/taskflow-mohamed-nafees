@@ -9,6 +9,7 @@ dist/
 # IDE & Editor
 .vscode/
 .idea/
+.claude/
 *.suo
 *.ntvs*
 *.njsproj
