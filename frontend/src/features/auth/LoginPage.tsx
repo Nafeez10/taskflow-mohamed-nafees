@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -17,7 +17,6 @@ type FormData = import('zod').infer<typeof loginSchema>;
 const LoginPage = () => {
   const [serverError, setServerError] = useState('');
   const { login } = useAuth();
-  const navigate = useNavigate();
 
   const {
     control,
@@ -30,7 +29,6 @@ const LoginPage = () => {
     try {
       const res = await AuthAPI.login(data);
       login(res.token, res.user);
-      navigate('/projects');
     } catch {
       setServerError('Invalid email/username or password');
     }

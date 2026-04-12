@@ -43,7 +43,7 @@ const ContributorSearch = ({ value, onChange, onUserSelect, ...props }: Props) =
         const users = await UsersAPI.search(q);
         setResults(users);
         setShowDropdown(true);
-      } catch (e) {
+      } catch {
         setResults([]);
       } finally {
         setIsSearching(false);

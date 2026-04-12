@@ -1054,24 +1054,28 @@
       "due_date": "2026-04-10",
       "assignee_ids": [
         "u5",
-        "u8"
+        "u8",
+        "u3",
+        "u4",
+        "u6"
       ],
-      "column_id": "done"
+      "column_id": "done",
+      "updated_at": "2026-04-12T13:03:02.919Z"
     },
     {
       "id": "t1-03",
       "project_id": "p1",
       "title": "FE: Weather rain alerts overlay modal",
       "description": "Show warning modal to riders during heavy rain and conditionally adjust delivery SLA text.",
-      "status": "qa",
+      "status": "done",
       "priority": "medium",
       "due_date": "2026-04-18",
       "assignee_ids": [
         "u2",
         "u8"
       ],
-      "column_id": "qa",
-      "updated_at": "2026-04-11T12:34:37.086Z"
+      "column_id": "done",
+      "updated_at": "2026-04-12T13:02:43.395Z"
     },
     {
       "id": "t1-04",
