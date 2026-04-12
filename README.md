@@ -61,6 +61,9 @@ You can log in immediately using the following credentials without registering:
 - **Email:** `test@example.com`
 - **Password:** `password123`
 
+- **Email:** `jane@example.com`
+- **Password:** `password123` (Contributor Seed)
+
 ## 6. API Reference
 
 The mock API runs on **port 4000** locally (`npm run mock`) or is routed internally via Docker. All endpoints except Auth (`/auth/login`, `/auth/register`) require a **Bearer token** in the `Authorization` header.
@@ -81,6 +84,9 @@ Response: { "token": "eyJ...", "user": { "id": "uuid", "name": "John", "username
 ```
 
 Errors: `400` if validation fails (missing fields, duplicate email/username).
+```json
+{ "error": "validation failed", "fields": { "email": "already in use" } }
+```
 
 #### `POST /auth/login`
 
@@ -114,6 +120,9 @@ Response: { "id": "u2", "name": "Sarah Chen", "email": "sarah@zomato.dummy" }
 ```
 
 Errors: `404` if no account found.
+```json
+{ "error": "no_account", "message": "No TaskFlow account found for this identity" }
+```
 
 #### `GET /users/search?q={query}`
 
@@ -149,7 +158,7 @@ Response: { "id": "uuid", "name": "New Project", "description": "...", "owner_id
 Get project details including all its tasks. Requires membership.
 
 ```
-Response: { "id": "p1", "name": "Rider App", "owner_id": "test-user-1", "contributor_ids": [...], "columns": [...], "tasks": [{ "id": "t1-01", "title": "...", "column_id": "in_progress", ... }, ...] }
+Response: { "id": "p1", "name": "Rider App", "owner_id": "test-user-1", "contributor_ids": [...], "columns": [...], "tasks": [{ "id": "t1-01", "title": "...", "status": "in_progress", "status_name": "In Progress", "column_id": "in_progress", ... }, ...] }
 ```
 
 Errors: `403` if not a member, `404` if not found.
@@ -206,6 +215,9 @@ Response: { "id": "u2", "name": "Sarah Chen", "email": "sarah@zomato.dummy" }
 ```
 
 Errors: `400` if already a contributor/owner, `404` if user not found.
+```json
+{ "error": "already_contributor", "message": "This person is already a contributor" }
+```
 
 #### `DELETE /projects/:id/contributors/:userId`
 
@@ -220,8 +232,8 @@ Remove a contributor. Owner only. Returns `204 No Content`.
 List all tasks for a project. Supports optional query filters.
 
 ```
-Query params: ?status=todo  |  ?assignee=test-user-1
-Response:     { "tasks": [{ "id": "t1-01", "title": "...", "status": "todo", "priority": "high", "column_id": "todo", "assignee_ids": [...], "due_date": "2026-04-20", ... }, ...] }
+Query params: `?status=todo` | `?assignee=test-user-1`
+Response:     { "tasks": [{ "id": "t1-01", "title": "...", "status": "todo", "status_name": "To Do", "priority": "high", "column_id": "todo", "assignee_ids": [...], "due_date": "2026-04-20", ... }, ...] }
 ```
 
 #### `POST /projects/:id/tasks`
@@ -230,7 +242,7 @@ Create a new task within a project. Requires membership.
 
 ```
 Request:  { "title": "Build login page", "description": "Optional", "priority": "high", "assignee_ids": ["u2", "u3"], "column_id": "todo", "due_date": "2026-04-20" }
-Response: { "id": "uuid", "title": "Build login page", "status": "todo", "priority": "high", "project_id": "p1", "column_id": "todo", "assignee_ids": ["u2", "u3"], "due_date": "2026-04-20", "created_at": "...", "updated_at": "..." }
+Response: { "id": "uuid", "title": "Build login page", "status": "todo", "status_name": "To Do", "priority": "high", "project_id": "p1", "column_id": "todo", "assignee_ids": ["u2", "u3"], "due_date": "2026-04-20", "created_at": "...", "updated_at": "..." }
 ```
 
 #### `PATCH /tasks/:id`
@@ -239,7 +251,7 @@ Update any task fields — used for Kanban drag-and-drop, editing details, reass
 
 ```
 Request:  { "column_id": "in_progress" }
-Response: { "id": "t1-01", "title": "...", "status": "in_progress", "column_id": "in_progress", ... }
+Response: { "id": "t1-01", "title": "...", "status": "in_progress", "status_name": "In Progress", "column_id": "in_progress", ... }
 ```
 
 #### `DELETE /tasks/:id`
@@ -251,7 +263,7 @@ Delete a task. Returns `204 No Content`.
 Get all tasks assigned to the current user across all accessible projects, enriched with project info.
 
 ```
-Response: { "tasks": [{ "id": "t1-01", "title": "...", "column_id": "in_progress", "project": { "id": "p1", "name": "Rider App" }, ... }, ...] }
+Response: { "tasks": [{ "id": "t1-01", "title": "...", "status": "in_progress", "status_name": "In Progress", "column_id": "in_progress", "project": { "id": "p1", "name": "Rider App" }, ... }, ...] }
 ```
 
 ## 7. What You'd Do With More Time
