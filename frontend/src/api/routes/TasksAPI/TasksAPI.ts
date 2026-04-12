@@ -1,7 +1,6 @@
 import useSWR from 'swr';
 import axiosInstance from '@/api/axios/axiosInstance';
 import { swrFetcher } from '@/api/swrFetcher';
-import { StorageKeys } from '@/enum/StorageKeys';
 import type { Task } from '@/types';
 import type {
   CreateTaskPayload,
@@ -44,10 +43,8 @@ export const useTasks = (projectId: string | undefined, filters?: TaskFilterPayl
 };
 
 export const useMyTasks = () => {
-  const token = localStorage.getItem(StorageKeys.TOKEN);
-
   const { data, error, isLoading, mutate } = useSWR<MyTaskListResponse>(
-    token ? '/tasks/mine' : null,
+    '/tasks/mine',
     swrFetcher,
   );
 
